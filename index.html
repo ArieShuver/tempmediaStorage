@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P-shield | ביטוח ופיננסים בהתאמה אישית</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ======== HEADER ======== -->
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a href="#" class="logo" aria-label="P-shield">
+          <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1B6B3A"/><stop offset="100%" stop-color="#0F3823"/>
+              </linearGradient>
+            </defs>
+            <path d="M50,8 C78,8 88,24 88,46 C88,70 66,88 50,93 C34,88 12,70 12,46 C12,24 22,8 50,8Z" fill="url(#sg)" stroke="#34D399" stroke-width="3"/>
+            <rect x="32" y="50" width="6" height="18" rx="2" fill="#34D399"/>
+            <rect x="42" y="40" width="6" height="28" rx="2" fill="#FFE066"/>
+            <rect x="52" y="34" width="6" height="34" rx="2" fill="#34D399"/>
+            <rect x="62" y="44" width="6" height="24" rx="2" fill="#FFE066"/>
+          </svg>
+          <span class="logo-label">P-shield</span>
+        </a>
+
+        <button class="burger" id="burger" aria-label="תפריט">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" id="nav">
+          <a href="#hero" class="nav-a">ביטוח</a>
+          <a href="#expert" class="nav-a">בריאות</a>
+          <a href="#coverages" class="nav-a">השוואות</a>
+          <a href="#contact" class="nav-a cta-nav">קבל הצעה</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ======== HERO — "המהיר והפשוט" ======== -->
+      <section id="hero" class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="wrap hero-wrap">
+          <h1 class="hero-h1">ביטוח תוך דקות</h1>
+          <p class="hero-sub">התאמת ביטוח חכמה, מהירה ודיגיטלית – חוסכת לך כסף וזמן יקר.</p>
+
+          <!-- Search bar -->
+          <div class="search-bar" id="search-bar">
+            <label class="search-label" for="search-input">אני מחפש ביטוח ל:</label>
+            <div class="search-row">
+              <div class="select-box">
+                <select id="search-input">
+                  <option value="" disabled selected>בחר סוג ביטוח...</option>
+                  <option value="car">ביטוח רכב 🚗</option>
+                  <option value="health">ביטוח בריאות 🏥</option>
+                  <option value="home">ביטוח דירה ובית 🏠</option>
+                  <option value="travel">ביטוח נסיעות ✈️</option>
+                  <option value="business">ביטוח עסק 🏢</option>
+                  <option value="family">ביטוח משפחה 👨‍👩‍👧‍👦</option>
+                </select>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <button class="btn-green btn-hero" id="btn-hero">קבל הצעת מחיר</button>
+            </div>
+            <div class="quick-tags">
+              <span class="qt-label">אני מחפש ל:</span>
+              <button class="qt" data-v="car">רכב (car)</button>
+              <button class="qt" data-v="home">בית (home)</button>
+              <button class="qt" data-v="health">בריאות</button>
+            </div>
+          </div>
+
+          <!-- Badges -->
+          <div class="badges">
+            <div class="badge">
+              <div class="badge-ic">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
+              <div><strong>דיגיטלי</strong><span>הכל בנייד בקליק</span></div>
+            </div>
+            <div class="badge-line"></div>
+            <div class="badge">
+              <div class="badge-ic">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              </div>
+              <div><strong>חיסכון</strong><span>המחירים הכי טובים</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======== EXPERT — "המומחה המייעץ" ======== -->
+      <section id="expert" class="expert">
+        <div class="wrap">
+          <div class="expert-top">
+            <!-- illustration -->
+            <div class="expert-img">
+              <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" class="family-svg">
+                <circle cx="210" cy="170" r="155" fill="#185A3A" opacity=".07"/>
+                <circle cx="210" cy="170" r="125" fill="#2ECC71" opacity=".04"/>
+                <!-- Agent -->
+                <g transform="translate(100,60)">
+                  <circle cx="45" cy="35" r="20" fill="#185A3A"/>
+                  <path d="M15,80 Q15,58 45,58 Q75,58 75,80 L78,175 L12,175Z" fill="#0F3823"/>
+                  <path d="M42,58 L48,58 L50,88 L45,96 L40,88Z" fill="#FFE066"/>
+                  <path d="M33,58 L45,72 L57,58" fill="none" stroke="#fff" stroke-width="2"/>
+                </g>
+                <!-- Mother -->
+                <g transform="translate(200,80)">
+                  <circle cx="35" cy="30" r="16" fill="#185A3A"/>
+                  <path d="M10,68 Q10,50 35,50 Q60,50 60,68 L63,155 L7,155Z" fill="#1b7247"/>
+                  <path d="M17,25 Q35,12 53,25 Q57,38 53,43 Q45,35 35,38 Q25,35 17,43 Q13,38 17,25Z" fill="#0F3823"/>
+                </g>
+                <!-- Father -->
+                <g transform="translate(260,70)">
+                  <circle cx="40" cy="32" r="18" fill="#185A3A"/>
+                  <path d="M12,75 Q12,55 40,55 Q68,55 68,75 L72,165 L8,165Z" fill="#185A3A"/>
+                </g>
+                <!-- Child girl -->
+                <g transform="translate(175,155)">
+                  <circle cx="25" cy="20" r="12" fill="#2ECC71"/>
+                  <path d="M8,45 Q8,35 25,35 Q42,35 42,45 L44,85 L6,85Z" fill="#185A3A"/>
+                </g>
+                <!-- Child boy -->
+                <g transform="translate(230,165)">
+                  <circle cx="22" cy="18" r="10" fill="#FFE066"/>
+                  <path d="M6,40 Q6,30 22,30 Q38,30 38,40 L40,75 L4,75Z" fill="#2ECC71"/>
+                </g>
+                <!-- Shield badge -->
+                <g transform="translate(320,225)">
+                  <circle cx="28" cy="28" r="28" fill="#FFE066"/>
+                  <path d="M28,13 C38,13 42,19 42,28 C42,38 34,46 28,48 C22,46 14,38 14,28 C14,19 18,13 28,13Z" fill="#185A3A"/>
+                  <path d="M23,28 L27,32 L35,24" fill="none" stroke="#FFE066" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- text side -->
+            <div class="expert-txt">
+              <h2>ייעוץ אישי ממומחה</h2>
+              <p>ייעוץ אישי למטריית ביטוח מותאמת לצרכיך – ביטוח חיים, פנסיה, בריאות ופיננסים. תכנון נכון מתחיל בהבנה מקצועית של מומחה בעל רישיון.</p>
+              <a href="#contact" class="btn-green btn-expert">צור קשר עכשיו</a>
+            </div>
+          </div>
+
+          <!-- Two cards side‑by‑side -->
+          <div class="expert-cards">
+            <div class="e-card" id="card-life">
+              <div class="e-card-head">
+                <div class="e-card-ic">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <h3>ביטוח חיים <span class="tag green">מומלץ</span></h3>
+              </div>
+              <p>כיסוי מותאם אישית המספק הגנה כלכלית מקיפה ושקט נפשי למשפחתך ברגעים הקריטיים.</p>
+              <div class="e-card-expand">
+                <ul>
+                  <li>פיצוי כספי חד-פעמי למשפחה</li>
+                  <li>התאמה לגובה המשכנתא והחובות</li>
+                  <li>מסלולים גמישים הניתנים לשינוי</li>
+                </ul>
+              </div>
+              <button class="toggle-btn">הצג פרטים <span class="plus">+</span></button>
+            </div>
+
+            <div class="e-card" id="card-pension">
+              <div class="e-card-head">
+                <div class="e-card-ic">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <h3>ביטוח פנסיה <span class="tag gold">צבירה וחיסכון</span></h3>
+              </div>
+              <p>בניית עתיד כלכלי יציב באמצעות תכנון קצבה חודשית, חיסכון לטווח ארוך והטבות מס.</p>
+              <div class="e-card-expand">
+                <ul>
+                  <li>ניהול דמי ניהול מופחתים</li>
+                  <li>כיסוי אובדן כושר עבודה מובנה</li>
+                  <li>ליווי צמוד עד פרישה וקצבה</li>
+                </ul>
+              </div>
+              <button class="toggle-btn">הצג פרטים <span class="plus">+</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======== COVERAGES + FORM — "מרכז הכיסוי המרובה" ======== -->
+      <section id="coverages" class="coverages">
+        <div class="wrap">
+          <h2 class="sec-title centered">כיסוי מקיף לכל היבטי החיים</h2>
+          <p class="sec-sub centered">בחר את התחום המבוקש ונתאים לך את הפוליסה הטובה ביותר במחיר מנצח.</p>
+
+          <div class="cov-layout">
+            <!-- LEFT: 6-card grid -->
+            <div class="cov-grid">
+              <div class="cov-card" data-cat="car">
+                <div class="cov-ic">
+                  <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38h44v10a4 4 0 01-4 4H14a4 4 0 01-4-4V38z"/><path d="M14 38l4-14h28l4 14"/><circle cx="20" cy="46" r="3"/><circle cx="44" cy="46" r="3"/><line x1="10" y1="30" x2="6" y2="30"/><line x1="54" y1="30" x2="58" y2="30"/></svg>
+                </div>
+                <span class="cov-name">רכב</span>
+              </div>
+              <div class="cov-card" data-cat="health">
+                <div class="cov-ic">
+                  <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="8" width="32" height="48" rx="4"/><line x1="32" y1="22" x2="32" y2="42"/><line x1="22" y1="32" x2="42" y2="32"/></svg>
+                </div>
+                <span class="cov-name">בריאות</span>
+              </div>
+              <div class="cov-card" data-cat="home">
+                <div class="cov-ic">
+                  <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30l24-18 24 18"/><path d="M14 28v22a4 4 0 004 4h28a4 4 0 004-4V28"/><rect x="24" y="36" width="16" height="18" rx="1"/></svg>
+                </div>
+                <span class="cov-name">בית</span>
+              </div>
+              <div class="cov-card" data-cat="travel">
+                <div class="cov-ic">
+                  <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 10l14 6-30 30-14-6z"/><path d="M10 54l10-10"/><path d="M34 16l-20 8"/><path d="M48 22l-8 20"/></svg>
+                </div>
+                <span class="cov-name">נסיעות</span>
+              </div>
+              <div class="cov-card" data-cat="business">
+                <div class="cov-ic">
+                  <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="48" height="34" rx="3"/><path d="M22 20V14a4 4 0 014-4h12a4 4 0 014 4v6"/><line x1="8" y1="34" x2="56" y2="34"/></svg>
+                </div>
+                <span class="cov-name">עסק</span>
+              </div>
+              <div class="cov-card" data-cat="family">
+                <div class="cov-ic">
+                  <svg viewBox="0 0 64 64" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="18" r="7"/><circle cx="42" cy="18" r="7"/><path d="M8 50v-4a14 14 0 0128 0v4"/><path d="M36 50v-4a14 14 0 0120 0v4"/></svg>
+                </div>
+                <span class="cov-name">משפחה</span>
+              </div>
+            </div>
+
+            <!-- RIGHT: Lead form -->
+            <div class="form-panel" id="contact">
+              <h3 class="form-h3">בקש הצעה מותאמת</h3>
+              <p class="form-sub">מלא פרטים ונחזור אליך תוך 15 דקות!</p>
+
+              <form id="lead-form" novalidate>
+                <div class="field">
+                  <label for="f-name">שם מלא</label>
+                  <input type="text" id="f-name" placeholder="ישראל ישראלי" required minlength="2"/>
+                  <span class="err" id="err-name">אנא הזן שם מלא.</span>
+                </div>
+                <div class="field">
+                  <label for="f-phone">טלפון</label>
+                  <input type="tel" id="f-phone" placeholder="050-0000000" required/>
+                  <span class="err" id="err-phone">מספר טלפון ישראלי לא תקין.</span>
+                </div>
+                <div class="field">
+                  <label for="f-interest">תחום עניין</label>
+                  <div class="select-box dark">
+                    <select id="f-interest" required>
+                      <option value="" disabled selected>בחר תחום...</option>
+                      <option value="car">ביטוח רכב</option>
+                      <option value="health">ביטוח בריאות</option>
+                      <option value="home">ביטוח דירה ובית</option>
+                      <option value="travel">ביטוח נסיעות</option>
+                      <option value="business">ביטוח עסק</option>
+                      <option value="family">ביטוח משפחה</option>
+                      <option value="general">ייעוץ כללי / פנסיה</option>
+                    </select>
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                  <span class="err" id="err-interest">אנא בחר תחום עניין.</span>
+                </div>
+                <button type="submit" class="btn-green btn-submit" id="btn-submit">
+                  <span class="btn-label">שלח</span>
+                  <span class="spinner"></span>
+                </button>
+              </form>
+
+              <!-- success overlay -->
+              <div class="success" id="success">
+                <div class="success-inner">
+                  <div class="success-check">
+                    <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#34D399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <h4>הבקשה נשלחה בהצלחה!</h4>
+                  <p>תודה, <strong id="suc-name"></strong>.</p>
+                  <p class="suc-det">נחזור אליך למספר <span id="suc-phone"></span> בתוך 15 דקות.</p>
+                  <button class="btn-outline" id="btn-close">סגור</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div class="f-brand">
+          <div class="f-logo">
+            <svg class="logo-icon sm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50,8 C78,8 88,24 88,46 C88,70 66,88 50,93 C34,88 12,70 12,46 C12,24 22,8 50,8Z" fill="#185A3A" stroke="#34D399" stroke-width="3"/>
+              <rect x="32" y="50" width="6" height="18" rx="2" fill="#34D399"/><rect x="42" y="40" width="6" height="28" rx="2" fill="#FFE066"/><rect x="52" y="34" width="6" height="34" rx="2" fill="#34D399"/><rect x="62" y="44" width="6" height="24" rx="2" fill="#FFE066"/>
+            </svg>
+            <span class="logo-label">P-shield</span>
+          </div>
+          <p>סוכנות ביטוח דיגיטלית — ליווי אישי, חדשנות טכנולוגית וחיסכון אמיתי.</p>
+        </div>
+        <div class="f-col">
+          <h4>ניווט מהיר</h4>
+          <a href="#hero">המהיר והפשוט</a>
+          <a href="#expert">המומחה המייעץ</a>
+          <a href="#coverages">מרכז הכיסוי</a>
+          <a href="#contact">צור קשר</a>
+        </div>
+        <div class="f-col">
+          <h4>דרכי התקשרות</h4>
+          <span>📞 073-5551234</span>
+          <span>✉️ office@p-shield.co.il</span>
+          <span>📍 מנחם בגין 121, ת"א</span>
+        </div>
+      </div>
+      <div class="f-bottom">
+        <p class="f-legal">*אלון רפפורט – סוכן ביטוח פנסיוני מורשה. מפוקח ע"י רשות שוק ההון. רישיון: 123456789.</p>
+        <p>&copy; 2026 P-shield. כל הזכויות שמורות.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
