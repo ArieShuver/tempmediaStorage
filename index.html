@@ -1,260 +1,570 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>P-shield | ביטוח ופיננסים בהתאמה אישית</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
 
-    <!-- ======== HEADER ======== -->
-    <header class="site-header" id="site-header">
-      <div class="header-inner">
-        <!-- Logo on the left side of the header -->
-        <a href="#" class="logo" aria-label="P-shield">
-          <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50,8 C78,8 88,24 88,46 C88,70 66,88 50,93 C34,88 12,70 12,46 C12,24 22,8 50,8Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="6"/>
-            <rect x="32" y="50" width="8" height="18" fill="#2ECC71" stroke="#1B4332" stroke-width="4"/>
-            <rect x="42" y="38" width="8" height="30" fill="#2ECC71" stroke="#1B4332" stroke-width="4"/>
-            <rect x="52" y="30" width="8" height="38" fill="#2ECC71" stroke="#1B4332" stroke-width="4"/>
-            <rect x="62" y="44" width="8" height="24" fill="#2ECC71" stroke="#1B4332" stroke-width="4"/>
-            <!-- 'P' letter -->
-            <path d="M42,25 L50,25 Q58,25 58,32 Q58,38 50,38 L45,38 L45,45" fill="none" stroke="#1B4332" stroke-width="4"/>
-          </svg>
-          <span class="logo-label">P-shield</span>
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>משה שובר | סוכן ביטוח</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
 
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner wrap">
+      <a href="#" class="logo">
+        <img src="brand-logo.png" alt="לוגו משה שובר" class="header-brand-logo">
+        <div class="logo-text">
+          <span class="logo-title">משה שובר</span>
+          <span class="logo-subtitle">סוכן ביטוח</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-a active">דף הבית</a>
+        <a href="#services" class="nav-a">שירותים</a>
+        <a href="#about" class="nav-a">אודות</a>
+        <a href="#reviews" class="nav-a">לקוחות ממליצים</a>
+        <a href="#contact" class="nav-a">צור קשר</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn-solid btn-header">צור קשר</a>
         <button class="burger" id="burger" aria-label="תפריט">
           <span></span><span></span><span></span>
         </button>
-
-        <nav class="nav" id="nav">
-          <a href="#hero" class="nav-a">חדשות</a>
-          <a href="#expert" class="nav-a">בריאות</a>
-          <a href="#coverages" class="nav-a">ביטוח</a>
-          <a href="#contact" class="nav-a cta-nav outline-box">קבל הצעה</a>
-        </nav>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main>
-
-      <!-- ======== HERO — "המהיר והפשוט" ======== -->
-      <section id="hero" class="hero section-box outline-box">
-        <h2 class="section-top-title">המהיר והפשוט</h2>
-        <div class="hero-hatch">
-          <svg width="100%" height="100%"><pattern id="hatch" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="10" stroke="#1B4332" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#hatch)"/></svg>
+  <main>
+    <!-- ======== HERO ======== -->
+    <section id="home" class="hero">
+      <div class="hero-bg"></div>
+      <div class="wrap hero-content">
+        <div class="hero-text">
+          <h1>שירות אישי,<br>ביטחון מלא.</h1>
+          <p class="hero-subtitle">משה שובר.</p>
         </div>
-        <div class="wrap hero-wrap">
-          <h1 class="hero-h1">ביטוח תוך דקות</h1>
 
-          <!-- Search bar area -->
-          <div class="search-area">
-            <div class="select-box outline-box">
-              <select id="search-input">
-                <option value="" disabled selected>אני מחפש ביטוח ל:</option>
-                <option value="car">רכב</option>
-                <option value="health">בריאות</option>
-                <option value="home">בית</option>
-                <option value="travel">נסיעות</option>
-                <option value="business">עסק</option>
-                <option value="family">משפחה</option>
-              </select>
-              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            
-            <div class="hero-tags">
-              <span>אני מחפש ל: </span>
-              <span class="tag-text">(car, home)</span>
-            </div>
-
-            <button class="btn-solid hero-btn outline-box" id="btn-hero">קבל הצעת מחיר</button>
-
-            <div class="hero-icons">
-              <div class="h-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
-                <span>חיסכון</span>
-              </div>
-              <div class="h-icon-line"></div>
-              <div class="h-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                <span>דיגיטלי</span>
-              </div>
-            </div>
+        <div class="lead-box">
+          <div class="rubber-stamp">
+            <svg viewBox="0 0 200 200" class="stamp-svg">
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="6" />
+              <circle cx="100" cy="100" r="85" fill="none" stroke="currentColor" stroke-width="2" />
+              <path id="topCurve" d="M 25, 100 A 75,75 0 0,1 175,100" fill="none" />
+              <path id="bottomCurve" d="M 175, 100 A 75,75 0 0,1 25,100" fill="none" />
+              <text fill="currentColor" font-family="'Heebo', sans-serif" font-size="22" font-weight="800">
+                <textPath href="#topCurve" startOffset="50%" text-anchor="middle">סוכן ביטוח מורשה</textPath>
+              </text>
+              <text fill="currentColor" font-family="'Heebo', sans-serif" font-size="22" font-weight="800">
+                <textPath href="#bottomCurve" startOffset="50%" text-anchor="middle">סוכן ביטוח מורשה</textPath>
+              </text>
+              <text x="100" y="108" fill="currentColor" font-family="'Heebo', sans-serif" font-size="28"
+                font-weight="900" text-anchor="middle">משה שובר</text>
+            </svg>
           </div>
-        </div>
-      </section>
+          <form class="lead-form" novalidate>
+            <div class="lead-form-grid">
 
-      <!-- ======== EXPERT — "המומחה המייעץ" ======== -->
-      <section id="expert" class="expert section-box outline-box">
-        <h2 class="section-top-title">המומחה המייעץ</h2>
-        <div class="wrap">
-          <div class="expert-top">
-            <!-- text side (Right in RTL) -->
-            <div class="expert-txt">
-              <h2>ייעוץ אישי ממומחה</h2>
-              <p>ייעוץ אישי מומחה ביטוח מתמחה<br>למשפחה:ביטוח ביטוח פנסיונית<br>חיסכון תכנון חברות חיים החיים.</p>
-              <a href="#contact" class="btn-solid btn-expert outline-box">צור קשר עכשיו</a>
-            </div>
-
-            <!-- illustration side (Left in RTL) -->
-            <div class="expert-img">
-              <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" class="family-svg">
-                <!-- Agent -->
-                <g transform="translate(40,10)">
-                  <path d="M45,75 Q15,75 15,115 L15,260 L90,260 L90,115 Q90,75 60,75 Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                  <circle cx="52" cy="45" r="30" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                  <!-- Suit lines -->
-                  <path d="M35,80 L52,135 L70,80" fill="none" stroke="#1B4332" stroke-width="2"/>
-                  <path d="M52,135 L52,260" fill="none" stroke="#1B4332" stroke-width="2"/>
-                </g>
-                <!-- Mother -->
-                <g transform="translate(180,50)">
-                  <path d="M35,65 Q10,65 10,105 L10,210 L60,210 L60,105 Q60,65 35,65 Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                  <circle cx="35" cy="35" r="25" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                </g>
-                <!-- Father -->
-                <g transform="translate(260,40)">
-                  <path d="M40,70 Q12,70 12,110 L12,220 L68,220 L68,110 Q68,70 40,70 Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                  <circle cx="40" cy="40" r="28" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                </g>
-                <!-- Child girl -->
-                <g transform="translate(140,150)">
-                  <path d="M25,45 Q8,45 8,75 L8,110 L42,110 L42,75 Q42,45 25,45 Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                  <circle cx="25" cy="25" r="18" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                </g>
-                <!-- Child boy -->
-                <g transform="translate(220,160)">
-                  <path d="M22,40 Q6,40 6,70 L6,100 L38,100 L38,70 Q38,40 22,40 Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                  <circle cx="22" cy="20" r="16" fill="#FDFBF7" stroke="#1B4332" stroke-width="3"/>
-                </g>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Two overlapping cards side‑by‑side -->
-          <div class="expert-cards-wrap">
-            <div class="expert-cards">
-              <div class="e-card outline-box" id="card-life">
-                <div class="e-card-header-small">ביטוח חיים</div>
-                <div class="e-card-content">
-                  <p>ביטוח חיים מגן על<br>חסכון ותכנון למקרי<br>ביטוח חיים.</p>
-                  <div class="e-card-icon outline-box">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+              <div class="form-side right-side">
+                <div class="form-header">
+                  <h3>השאר פרטים:</h3>
+                </div>
+                <div class="inputs-row">
+                  <div class="field">
+                    <input type="text" class="f-name" placeholder="שם מלא" required minlength="2" />
+                  </div>
+                  <div class="field">
+                    <input type="tel" class="f-phone" placeholder="טלפון" required />
                   </div>
                 </div>
               </div>
 
-              <div class="e-card outline-box" id="card-pension">
-                <div class="e-card-header-small">ביטוח פנסיה</div>
-                <div class="e-card-content">
-                  <p>ביטוח בטוח פנסיה<br>תוצאות הפסדים.<br>חיי תכנון פיננסי.</p>
-                  <div class="e-card-icon outline-box">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                  </div>
+              <div class="form-side left-side">
+                <div class="form-header">
+                  <h3>שלח וקבל הצעה</h3>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ======== COVERAGES + FORM — "מרכז הכיסוי המרובה" ======== -->
-      <section id="coverages" class="coverages section-box outline-box">
-        <h2 class="section-top-title">מרכז הכיסוי המרובה</h2>
-        <div class="wrap">
-          <div class="cov-title-area">
-            <h2 class="sec-title centered">כיסוי מקיף לכל היבטי החיים</h2>
-            <div class="cov-hatch">
-              <svg width="100%" height="100%"><pattern id="hatch2" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="10" stroke="#1B4332" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#hatch2)"/></svg>
-            </div>
-          </div>
-
-          <div class="cov-layout">
-            <!-- RIGHT: Lead form -->
-            <div class="form-panel outline-box" id="contact">
-              <h3 class="form-h3">בקש הצעה<br>מותאמת</h3>
-              <form id="lead-form" novalidate>
-                <div class="field outline-box">
-                  <input type="text" id="f-name" placeholder="שם" required minlength="2"/>
-                </div>
-                <div class="field outline-box">
-                  <input type="tel" id="f-phone" placeholder="טלפון" required/>
-                </div>
-                <div class="field outline-box select-box">
-                  <select id="f-interest" required>
-                    <option value="" disabled selected>תחום עניין</option>
+                <div class="field select-box">
+                  <select class="f-interest" required>
+                    <option value="" disabled selected>רכב, דירה, חיים, עסקים</option>
                     <option value="car">ביטוח רכב</option>
-                    <option value="health">ביטוח בריאות</option>
-                    <option value="home">ביטוח דירה ובית</option>
-                    <option value="travel">ביטוח נסיעות</option>
-                    <option value="business">ביטוח עסק</option>
-                    <option value="family">ביטוח משפחה</option>
+                    <option value="home">ביטוח דירה</option>
+                    <option value="life">ביטוח חיים</option>
+                    <option value="business">ביטוח עסקים</option>
                   </select>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                 </div>
-                <button type="submit" class="btn-solid btn-submit outline-box" id="btn-submit">
-                  <span class="btn-label">שלח</span>
+                <button type="submit" class="btn-solid btn-submit">
+                  <span class="btn-label">שלח וקבל הצעה</span>
                   <span class="spinner"></span>
                 </button>
-              </form>
-              
-              <div class="success outline-box" id="success">
-                <div class="success-inner">
-                  <h4>הבקשה נשלחה!</h4>
-                  <button class="btn-solid outline-box" id="btn-close">סגור</button>
-                </div>
               </div>
-            </div>
 
-            <!-- LEFT: 6-card grid -->
-            <div class="cov-grid">
-              <div class="cov-card outline-box" data-cat="home">
-                <div class="cov-ic">
-                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30l24-18 24 18"/><path d="M14 28v22h28V28"/><rect x="24" y="36" width="16" height="18"/></svg>
-                </div>
-                <span class="cov-name">בית</span>
-              </div>
-              <div class="cov-card outline-box" data-cat="health">
-                <div class="cov-ic">
-                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="8" width="32" height="48"/><line x1="32" y1="22" x2="32" y2="42"/><line x1="22" y1="32" x2="42" y2="32"/></svg>
-                </div>
-                <span class="cov-name">בריאות</span>
-              </div>
-              <div class="cov-card outline-box" data-cat="car">
-                <div class="cov-ic">
-                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38h44v10H10V38z"/><path d="M14 38l4-14h28l4 14"/><circle cx="20" cy="46" r="5"/><circle cx="44" cy="46" r="5"/></svg>
-                </div>
-                <span class="cov-name">רכב</span>
-              </div>
-              <div class="cov-card outline-box" data-cat="family">
-                <div class="cov-ic">
-                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="18" r="8"/><circle cx="42" cy="18" r="8"/><path d="M8 50v-4a14 14 0 0128 0v4"/><path d="M36 50v-4a14 14 0 0120 0v4"/></svg>
-                </div>
-                <span class="cov-name">משפחה</span>
-              </div>
-              <div class="cov-card outline-box" data-cat="business">
-                <div class="cov-ic">
-                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="16" width="40" height="38"/><path d="M26 54V28h12v26"/><line x1="8" y1="54" x2="56" y2="54"/></svg>
-                </div>
-                <span class="cov-name">עסק</span>
-              </div>
-              <div class="cov-card outline-box" data-cat="travel">
-                <div class="cov-ic">
-                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 10l14 6-30 30-14-6z"/><path d="M10 54l10-10"/><path d="M34 16l-20 8"/><path d="M48 22l-8 20"/></svg>
-                </div>
-                <span class="cov-name">נסיעות</span>
-              </div>
+            </div>
+          </form>
+
+          <div class="success">
+            <div class="success-inner">
+              <h4>הבקשה נשלחה בהצלחה!</h4>
+              <p>תודה רבה <span class="suc-name"></span>, נחזור אליך בהקדם.</p>
+              <button class="btn-solid btn-outline btn-close">סגור</button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </main>
+    <!-- ======== LOGOS STRIP ======== -->
+    <section class="logos-strip">
+      <div class="logos-track">
+        <div class="logos-flex">
+          <img src="logos/clal.png" alt="כלל ביטוח" class="logo-img clal-logo">
+          <img src="logos/migdal.png" alt="מגדל" class="logo-img">
+          <img src="logos/menora.png" alt="מנורה מבטחים" class="logo-img menora-logo">
+          <img src="logos/harel.png" alt="הראל" class="logo-img">
+          <img src="logos/passportcard.png" alt="PassportCard" class="logo-img pc-logo">
+          <img src="logos/ayalon.png" alt="איילון" class="logo-img">
+          <img src="logos/phoenix.png" alt="הפניקס" class="logo-img phoenix-logo">
+        </div>
+        <div class="logos-flex">
+          <img src="logos/clal.png" alt="כלל ביטוח" class="logo-img clal-logo">
+          <img src="logos/migdal.png" alt="מגדל" class="logo-img">
+          <img src="logos/menora.png" alt="מנורה מבטחים" class="logo-img menora-logo">
+          <img src="logos/harel.png" alt="הראל" class="logo-img">
+          <img src="logos/passportcard.png" alt="PassportCard" class="logo-img pc-logo">
+          <img src="logos/ayalon.png" alt="איילון" class="logo-img">
+          <img src="logos/phoenix.png" alt="הפניקס" class="logo-img phoenix-logo">
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- ======== THE STORY ======== -->
+    <section class="story-section">
+      <div class="wrap">
+        <div class="story-content">
+          <h2>בשנים האחרונות מתרחש שינוי צרכני משמעותי בישראל.</h2>
+          <p>יותר ויותר ישראלים מבינים שאפשר לקבל שירותים ומוצרים איכותיים במחירים נמוכים בהרבה, פשוט על ידי הצטרפות
+            לגופים שמחזיקים בכוח קנייה גדול.<br>
+            ומה שקורה בכל ענף מרכזי במשק, קורה היום גם בענף הביטוח.</p>
+
+          <p class="highlight-text">הכוח הקבוצתי משנה את כללי המשחק</p>
+
+          <p>כשאתה רוכש ביטוח דרך סוכן שפועל כבודד, או פונה ישירות לחברת הביטוח כצרכן יחיד, אתה מקבל הצעות מחיר שמותאמות
+            לאדם פרטי. אבל כשיש כוח מיקוח של קבוצת ענק מול חברות הביטוח – הכללים משתנים.</p>
+          <p>התוצאה פשוטה:<br><strong>אותם כיסויים, אותן חברות ביטוח, אותם מסלולים.</strong></p>
+
+          <p class="highlight-text">אבל המחיר? נמוך בעשרות אחוזים.</p>
+
+          <p>זה לא קסם ולא טריק, זה פשוט כוח קנייה של קבוצה גדולה. כסוכן ביטוח הנהנה מגב של קבוצה חזקה במיוחד, יש לי
+            גישה למסלולי פרימיום ותנאים ששום צרכן פרטי לא יכול להשיג בעצמו. זו ההזדמנות שלך לחסוך אלפי שקלים בשנה, בלי
+            לוותר אפילו על פסיק מהכיסוי שלך.</p>
+
+          <div class="story-cta">
+            <a href="#contact" class="btn-solid btn-large">לשיחת ייעוץ ללא עלות</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== ABOUT ME ======== -->
+    <section class="about-me" id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2>קצת עליי</h2>
+            <p><strong>נעים מאוד, אני משה שובר,</strong> סוכן ביטוח המתמחה בביטוחי חיים, בריאות ופנסיה, עם ניסיון רב
+              בליווי משפחות, צעירים ובעלי משכנתאות מכל רחבי הארץ.</p>
+            <p>החזון שמניע אותי הוא פשוט: להביא לכל אדם בישראל את התנאים, הכיסויים והמחירים שבדרך כלל שמורים רק לוועדי
+              עובדים גדולים או לקבוצות רכישה חזקות. בעזרת הניסיון שלי וכוח המיקוח הגדול שעומד מאחוריי, אני מוודא
+              שהלקוחות שלי מקבלים את פוליסות הביטוח האיכותיות והמקיפות ביותר – תוך חיסכון משמעותי בעלויות.</p>
+            <p>בין אם אתם לפני משכנתא, רוצים לשפר ביטוח קיים או מחפשים כיסוי בריאותי איכותי יותר, אני כאן כדי לוודא שאתם
+              מקבלים את ההצעה הטובה ביותר, בשקיפות מלאה ובמקצועיות ללא פשרות.</p>
+            <a href="#contact" class="btn-solid btn-outline" style="margin-top:20px;">לשיחת ייעוץ ללא עלות</a>
+          </div>
+          <img src="main-bg.jpg" alt="משרד משה שובר" class="about-image">
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ======== WHY ME ======== -->
+    <section class="why-me">
+      <div class="wrap why-grid">
+        <div class="why-card">
+          <div class="why-icon">🏆</div>
+          <h3>ניסיון ומקצועיות</h3>
+          <p>שנים של עבודה בתחום הביטוח, עם התמחות עמוקה בביטוחי חיים, בריאות ופנסיה. נותנים לי את הידע לבנות עבורך
+            כיסוי נכון ומשתלם.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <h3>תנאים שוברי שוק</h3>
+          <p>כחלק מקבוצה גדולה בענף, אני מביא לך מחירים ותנאים שהציבור הרחב לא מקבל חיסכון משמעותי בלי לפגוע בכיסוי.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h3>ליווי אישי</h3>
+          <p>אני מלווה כל לקוח באופן צמוד, בשקיפות מלאה וביחס אנושי. אין אותיות קטנות, אין הפתעות רק שירות אמיתי.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== DETAILED SERVICES ======== -->
+    <section class="services-detailed" id="services">
+      <div class="wrap">
+        <h2 class="section-title centered">השירותים שלי</h2>
+        <div class="services-list">
+
+          <div class="service-item">
+            <span class="service-num">1</span>
+            <div>
+              <h3>ביטוח חיים</h3>
+              <p>הבטחת ביטחון כלכלי למשפחה במקרה בלתי צפוי. התאמת סכום הכיסוי, בדיקת מסלולים וחיסכון משמעותי בתשלום
+                החודשי.</p>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-num">2</span>
+            <div>
+              <h3>הוזלת משכנתא</h3>
+              <p>הוזלת ביטוח המשכנתא בעשרות אחוזים לעומת הבנקים. בדיקת זכאות, התאמת כיסויים וטיפול מלא מול חברת הביטוח.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-num">3</span>
+            <div>
+              <h3>ביטוח בריאות</h3>
+              <p>כיסויים איכותיים במחירים קולקטיביים: ניתוחים, התייעצויות, תרופות מחוץ לסל ואשפוזים. התאמה אישית של
+                מסלול לפי הצרכים הרפואיים שלך.</p>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-num">4</span>
+            <div>
+              <h3>פנסיה</h3>
+              <p>ניהול נכון של הפנסיה כולל בדיקת דמי ניהול, בחירת מסלול השקעה מתאים והסדרת הזכויות מול הגופים
+                הפנסיוניים.</p>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-num">5</span>
+            <div>
+              <h3>קרן השתלמות</h3>
+              <p>פתרון חיסכון חכם לטווח קצר ובינוני. בחירת מסלול השקעה נכון, אופטימיזציה לתשואה וניהול שוטף בהתאם להכנסה
+                וליעדים שלך.</p>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <span class="service-num">6</span>
+            <div>
+              <h3>קופת גמל להשקעה</h3>
+              <p>חיסכון נזיל המותאם לכל גיל. ניתוח מסלולים, בחירת רמת סיכון נכונה והכוונה למקסום הרווחים לטווח הארוך.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== TARGET AUDIENCE ======== -->
+    <section class="audience">
+      <div class="wrap">
+        <h2 class="section-title centered">למי זה מתאים?</h2>
+        <p class="audience-sub">השירות שלי מתאים לכל מי שרוצה ביטוח חכם, משתלם ושקט נפשי אמיתי בלי לשלם יותר מדי ובלי
+          להתבלבל מכל האותיות הקטנות.</p>
+
+        <div class="audience-grid">
+          <div class="aud-card">
+            <h3>צעירים ומשפחות</h3>
+            <p>מי שמחפשים לבנות תשתית ביטוחית נכונה שמגנה עליהם שנים קדימה, בלי להעמיס על התקציב החודשי.</p>
+          </div>
+          <div class="aud-card">
+            <h3>בעלי משכנתא</h3>
+            <p>מי שרוצים להוזיל בצורה דרמטית את ביטוח החיים והמבנה שהבנק מחייב ולחסוך אלפי שקלים לאורך חיי המשכנתא.</p>
+          </div>
+          <div class="aud-card">
+            <h3>סדר וביטחון בפנסיה</h3>
+            <p>אנשים שרוצים לדעת שהפנסיה שלהם מנוהלת נכון, במסלול שמתאים לגיל ולמטרות, ולא מפסידה כסף בגלל דמי ניהול
+              מיותרים.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== TESTIMONIALS ======== -->
+    <section class="testimonials" id="reviews">
+      <div class="wrap">
+        <h2 class="section-title centered">לקוחות מרוצים</h2>
+        <div class="testi-marquee">
+          <div class="testi-track">
+            <!-- Review 1 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"סוכן ישר ואדיב התאים לי בדיוק את הביטוח הנכון לי במחיר שלא מצאתי אצל שום סוכן והכול בחיוך תודה משה"</p>
+              <h4>פנחס שמעוני</h4>
+            </div>
+            <!-- Review 2 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"סוכן ביטוח הכי טוב שפגשתי מאוד אדיב ומאוד קשוב המלצתי עליו למשפחה וחברים וכמובן העברתי את כל העובדים דרך משה שובר סוכן ביטוח ממליץ בחום ממש"</p>
+              <h4>יצחק דוד ישורון</h4>
+            </div>
+            <!-- Review 3 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"היום דיברתי עם משה שובר, הסביר לי על כל העניינים, פשוט סבלן בטירוף סידר לי מחירים שלא מצאתי בשום מקום!! תודה רבה!!!"</p>
+              <h4>TravelStock</h4>
+            </div>
+            <!-- Review 4 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"הסוכן שלי כבר תקופה, הביא לי תנאים מטורפים בקרן הפנסיה (אחרי סקר שוק מעמיק) וזה לא בא על חשבון המקצועיות והסבלנות שלו, ממליצה ממש."</p>
+              <h4>חנה כ.</h4>
+            </div>
+            <!-- Review 5 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"משה התותח!! עשה לי סדר מטורף בתיק הביטוחי... סוכן ביטוח אמין מאוד, זמין מאוד ועם מחירים שלא מצאתי בשום מקום אחר!!"</p>
+              <h4>אלי ברגר</h4>
+            </div>
+            <!-- Review 6 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"אני באתי מחו"ל לא מזמן, הייתי צריך סוכן ביטוח שישב ויסביר לי את כל הנקודות... משה היה הכי סבלני ומסור. וכמובן נתן לי את המחירים הכי זולים."</p>
+              <h4>קרלוס</h4>
+            </div>
+            <!-- Review 7 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"משה סוכן ביטוח ופנסיה מס' 1 אמינות ברמה הכי גבוהה זמין תמיד גם בזמנים לא שגרתיים, עם המון סבלנות ואכפתיות, והכל עם ליווי צמוד."</p>
+              <h4>מתי זבקץ׳</h4>
+            </div>
+            <!-- Review 8 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"משה דואג באמת לראות את התמונה המלאה... מומלץ לכל מי שרוצה להפסיק לדאוג מהביטוח."</p>
+              <h4>אריה</h4>
+            </div>
+            
+            <!-- DUPLICATED FOR INFINITE SCROLL -->
+            <!-- Review 1 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"סוכן ישר ואדיב התאים לי בדיוק את הביטוח הנכון לי במחיר שלא מצאתי אצל שום סוכן והכול בחיוך תודה משה"</p>
+              <h4>פנחס שמעוני</h4>
+            </div>
+            <!-- Review 2 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"סוכן ביטוח הכי טוב שפגשתי מאוד אדיב ומאוד קשוב המלצתי עליו למשפחה וחברים וכמובן העברתי את כל העובדים דרך משה שובר סוכן ביטוח ממליץ בחום ממש"</p>
+              <h4>יצחק דוד ישורון</h4>
+            </div>
+            <!-- Review 3 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"היום דיברתי עם משה שובר, הסביר לי על כל העניינים, פשוט סבלן בטירוף סידר לי מחירים שלא מצאתי בשום מקום!! תודה רבה!!!"</p>
+              <h4>TravelStock</h4>
+            </div>
+            <!-- Review 4 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"הסוכן שלי כבר תקופה, הביא לי תנאים מטורפים בקרן הפנסיה (אחרי סקר שוק מעמיק) וזה לא בא על חשבון המקצועיות והסבלנות שלו, ממליצה ממש."</p>
+              <h4>חנה כ.</h4>
+            </div>
+            <!-- Review 5 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"משה התותח!! עשה לי סדר מטורף בתיק הביטוחי... סוכן ביטוח אמין מאוד, זמין מאוד ועם מחירים שלא מצאתי בשום מקום אחר!!"</p>
+              <h4>אלי ברגר</h4>
+            </div>
+            <!-- Review 6 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"אני באתי מחו"ל לא מזמן, הייתי צריך סוכן ביטוח שישב ויסביר לי את כל הנקודות... משה היה הכי סבלני ומסור. וכמובן נתן לי את המחירים הכי זולים."</p>
+              <h4>קרלוס</h4>
+            </div>
+            <!-- Review 7 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"משה סוכן ביטוח ופנסיה מס' 1 אמינות ברמה הכי גבוהה זמין תמיד גם בזמנים לא שגרתיים, עם המון סבלנות ואכפתיות, והכל עם ליווי צמוד."</p>
+              <h4>מתי זבקץ׳</h4>
+            </div>
+            <!-- Review 8 -->
+            <div class="testi-bubble">
+              <div class="bubble-header"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="google-badge"><i class="fa-brands fa-google"></i></div></div>
+              <p>"משה דואג באמת לראות את התמונה המלאה... מומלץ לכל מי שרוצה להפסיק לדאוג מהביטוח."</p>
+              <h4>אריה</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== FAQ ======== -->
+    <section class="faq-section">
+      <div class="wrap">
+        <h2 class="section-title centered">שאלות ותשובות</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q">איך יכול להיות שהמחירים אצלך נמוכים בעשרות אחוזים?<svg class="faq-icon"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>בזכות כוח קנייה קולקטיבי, אנו מצליחים להשיג מחירים מיוחדים מול חברות הביטוח שאינם זמינים לאדם הפרטי
+                הניגש ישירות לחברה.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">האם אני, כלקוח פרטי, באמת יכול לקבל תנאים של קבוצות ענק?<svg class="faq-icon"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>בהחלט! המטרה שלנו היא לקחת את כוח המיקוח הקולקטיבי ולהנגיש אותו אליך. התנאים המיוחדים זמינים לכלל
+                הלקוחות שלנו, באופן שווה וללא יוצא מן הכלל.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">איך זה שאחרים לא מציעים את זה?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>רוב הסוכנים עובדים כבודדים מול החברות ואין להם את כוח המיקוח שנובע מקבוצת מבוטחים ענקית.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">אם יש לי כבר ביטוחים, אפשר לשפר אותם בלי לפגוע בכיסוי?<svg class="faq-icon"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>כמובן. אנחנו מבצעים בדיקה מקיפה (סדר בתיק הביטוחי), שומרים על הרצף הביטוחי שלך, ומשפרים אך ורק את מה
+                שמוזיל את העלויות או מרחיב את הכיסוי.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">הביטוח יעלה לי אחרי כמה שנים?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>חלק מהביטוחים (כמו ביטוחי חיים) מתייקרים עם הגיל באופן טבעי. אנו מוודאים שגם אחרי ההתייקרות, המסלול
+                שבחרת יישאר המשתלם ביותר, ומעדכנים אותך לאורך השנים.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">אני צעיר, זה בכלל משנה איך הפנסיה שלי מנוהלת?<svg class="faq-icon" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>משנה מאוד! בגיל צעיר לזמן יש את האפקט החזק ביותר על הריבית דריבית. בחירת מסלול נכון ודמי ניהול נמוכים
+                עכשיו, שווים מאות אלפי שקלים בגיל הפרישה.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">מה ההבדל בין קרן פנסיה, ביטוח מנהלים וקרן השתלמות?<svg class="faq-icon"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>קרן פנסיה וביטוח מנהלים הם מכשירי חיסכון לגיל הפרישה (הבדלים בכיסויים ובדמי ניהול). קרן השתלמות היא
+                מכשיר חיסכון לטווח בינוני (החל מ-6 שנים) שפטור ממס רווחי הון.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">כמה זמן לוקח לעשות סדר בתיק הפנסיוני?<svg class="faq-icon" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>התהליך לוקח לרוב פגישה או שיחה של כ-30-45 דקות. אנו מוציאים מסלקה פנסיונית מראש, מנתחים את הנתונים,
+                ומגישים לכם המלצות ברורות.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== BOTTOM CTA ======== -->
+    <section class="bottom-cta" id="contact">
+      <div class="wrap">
+        <div class="cta-box">
+          <h2>לשיחת ייעוץ ללא עלות</h2>
+          <p>מלאו את הטופס הבא וגלו כיצד תוכלו לחסוך מאות ואלפי שקלים בביטוחים שלכם</p>
+
+          <form class="lead-form bottom-form" novalidate>
+            <div class="b-inputs">
+              <div class="field">
+                <input type="text" class="f-name" placeholder="שם" required minlength="2" />
+              </div>
+              <div class="field">
+                <input type="tel" class="f-phone" placeholder="טלפון" required />
+              </div>
+              <div class="field">
+                <input type="email" class="f-email" placeholder="אימייל" />
+              </div>
+            </div>
+
+            <div class="privacy-check">
+              <input type="checkbox" id="privacy" required />
+              <label for="privacy">מאשר.ת שקראתי את מדיניות הפרטיות ותנאי השימוש</label>
+            </div>
+
+            <button type="submit" class="btn-solid btn-submit">
+              <span class="btn-label">שלח וקבל הצעה</span>
+              <span class="spinner"></span>
+            </button>
+          </form>
+
+          <div class="success">
+            <div class="success-inner">
+              <h4>הבקשה נשלחה בהצלחה!</h4>
+              <p>תודה רבה <span class="suc-name"></span>, נחזור אליך בהקדם.</p>
+              <button class="btn-solid btn-outline btn-close">סגור</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© כל הזכויות שמורות למשה שובר סוכן ביטוח.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
