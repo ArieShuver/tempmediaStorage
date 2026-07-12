@@ -7,7 +7,7 @@
   --bg-alt: #E9EDEC;
   /* Slightly darker for contrast */
   --white: #FFFFFF;
-  --text-gray: #4B5563;
+  --text-gray: #334155; /* Better contrast */
   --border: #E2E8F0;
 
   --ff: 'Heebo', sans-serif;
@@ -30,13 +30,15 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--ff);
   background: var(--bg);
   color: var(--primary);
-  line-height: 1.6;
+  line-height: 1.75;
   text-align: right;
   overflow-x: hidden;
 }
@@ -683,6 +685,28 @@ textarea {
   color: var(--green);
 }
 
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.google-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.google-badge i {
+  color: #4285F4;
+  font-size: 1.1rem;
+}
+.google-badge span {
+  font-size: 0.85rem;
+  color: #777;
+  font-weight: 500;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
 .stars {
   color: #FBBF24;
   font-size: 1.1rem;
@@ -800,13 +824,33 @@ textarea {
   background: var(--bg);
 }
 
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.testi-marquee {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 20px 0 60px;
+}
+.testi-track {
+  display: flex;
   gap: 30px;
+  width: max-content;
+  animation: scrollMarquee 40s linear infinite;
+}
+.testi-track:hover {
+  animation-play-state: paused;
+}
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
 }
 
 .testi-card {
+  width: 340px;
+  flex-shrink: 0;
   background: var(--white);
   padding: 30px;
   border-radius: var(--radius);
@@ -815,27 +859,6 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.stars {
-  color: #FFD700;
-  margin-bottom: 16px;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-}
-
-.testi-card p {
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--text-gray);
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
-
-.testi-card h4 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--primary);
 }
 
 /* ===== FAQ ===== */
@@ -1061,4 +1084,31 @@ textarea {
   .cta-box {
     padding: 30px 20px;
   }
+}
+/* Global Readability */
+p {
+  font-size: 1.1rem; /* Slightly larger text */
+  max-width: 75ch; /* Limit line length so eyes don't get tired */
+}
+
+/* Typewriter Effect */
+.cursor {
+  display: inline-block;
+  width: 4px;
+  height: 0.9em;
+  background-color: var(--primary);
+  margin-right: 6px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+.cursor.typing {
+  animation: none;
+  opacity: 1;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.typewriter {
+  color: var(--green); /* Highlights the changing text */
 }
