@@ -1,10 +1,16 @@
 /* ===== Moshe Shuver Insurance ===== */
 :root {
-  --primary: #02324D;
-  --green: #36BA7E;
-  --green-hov: #2a9763;
-  --bg: #F8FAFC;
-  --bg-alt: #E9EDEC;
+  --primary: #0D4B78;
+  --primary-deep: #08304D;
+  --green: #34C759;
+  --green-hov: #28A745;
+  --blue-accent: #007AFF;
+  --blue-soft: #D9ECFF;
+  --blue-soft-border: #9DCBFF;
+  --green-soft: #DDF9E5;
+  --green-soft-hover: #C8F2D4;
+  --bg: #F8FBFD;
+  --bg-alt: #ECF4FA;
   /* Slightly darker for contrast */
   --white: #FFFFFF;
   --text-gray: #334155; /* Better contrast */
@@ -35,17 +41,17 @@ html {
 }
 
 body {
-  font-family: var(--ff);
-  background: var(--bg);
-  color: var(--primary);
-  line-height: 1.75;
-  text-align: right;
-  overflow-x: hidden;
-}
-
-img,
-svg {
-  max-width: 100%;
+  --primary: #0A2A43;
+  --primary-deep: #061725;
+  --green: #41B37C;
+  --green-hov: #329565;
+  --blue-accent: #153A58;
+  --blue-soft: #DDE8F1;
+  --blue-soft-border: #B8CCDA;
+  --green-soft: #D7F1E3;
+  --green-soft-hover: #C3E7D4;
+  --bg: #F5F8FA;
+  --bg-alt: #E5EEF3;
   display: block;
 }
 
@@ -103,7 +109,6 @@ textarea {
 
 .btn-solid:hover {
   background: var(--green-hov);
-  transform: translateY(-2px);
 }
 
 .btn-solid:active {
@@ -208,7 +213,7 @@ textarea {
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--green);
+  background: linear-gradient(90deg, var(--green), var(--blue-accent));
   border-radius: 4px 4px 0 0;
 }
 
@@ -267,7 +272,7 @@ textarea {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.9) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.9) 100%);
 }
 
 .hero-content {
@@ -290,7 +295,7 @@ textarea {
   position: absolute;
   top: -50px;
   left: -50px;
-  color: #2b844b;
+  color: var(--green);
   width: 140px;
   height: 140px;
   transform: rotate(-15deg);
@@ -697,18 +702,18 @@ textarea {
   gap: 5px;
 }
 .google-badge i {
-  color: #4285F4;
+  color: var(--blue-accent);
   font-size: 1.1rem;
 }
 .google-badge span {
   font-size: 0.85rem;
-  color: #777;
+  color: #5B6E80;
   font-weight: 500;
   font-family: Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 .stars {
-  color: #FBBF24;
+  color: #D79A18;
   font-size: 1.1rem;
   margin-bottom: 12px;
 }
@@ -864,7 +869,7 @@ textarea {
 /* ===== FAQ ===== */
 .faq-section {
   padding: 80px 0;
-  background: var(--white);
+  background: var(--primary);
 }
 
 .faq-list {
@@ -874,28 +879,33 @@ textarea {
 
 .faq-item {
   margin-bottom: 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: 24px;
   overflow: hidden;
+  box-shadow: 0 14px 30px rgba(6, 23, 37, 0.12);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .faq-q {
   width: 100%;
   text-align: right;
-  background: var(--bg);
-  padding: 20px;
-  font-size: 1.2rem;
+  background: var(--green);
+  padding: 22px 28px;
+  font-size: 1.12rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--white);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: var(--fast);
+  position: relative;
+  z-index: 1;
 }
 
 .faq-q:hover {
-  background: #eef2ef;
+  background: var(--green-hov);
 }
 
 .faq-icon {
@@ -912,15 +922,26 @@ textarea {
 .faq-a {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
   background: var(--white);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
+  border-top: 1px solid rgba(13, 75, 120, 0.10);
+}
+
+.faq-item.active .faq-a {
+  max-height: 260px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .faq-a p {
-  padding: 20px;
-  font-size: 1.05rem;
-  color: var(--text-gray);
-  border-top: 1px solid var(--border);
+  padding: 20px 28px 22px;
+  font-size: 1.08rem;
+  color: var(--primary-deep);
+  line-height: 1.85;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===== BOTTOM CTA ===== */
@@ -977,7 +998,7 @@ textarea {
 
 /* FOOTER */
 .site-footer {
-  background: #061B26;
+  background: linear-gradient(180deg, var(--primary-deep), #061B26);
   color: rgba(255, 255, 255, 0.6);
   padding: 30px 0;
   text-align: center;

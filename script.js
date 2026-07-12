@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
   /* === Header === */
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
@@ -8,92 +7,98 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       header.style.boxShadow = 'none';
     }
-  
+  });
+
   /* === Typewriter Effect === */
-  const typedTextSpan = document.querySelector(".typewriter");
-  const cursorSpan = document.querySelector(".cursor");
+  const typedTextSpan = document.querySelector('.typewriter');
+  const cursorSpan = document.querySelector('.cursor');
 
   if (typedTextSpan && cursorSpan) {
-    const textArray = ["ביטחון מלא.", "ליווי צמוד.", "תנאים שוברי שוק.", "חיסכון חכם."];
+    const textArray = [
+      'ביטחון מלא למשפחה.',
+      'חיסכון אדיר במשכנתא.',
+      'פנסיה שעובדת בשבילך.',
+      'תנאים ששמורים לגדולים.',
+      'ליווי צמוד ברגעי האמת.'
+    ];
     const typingDelay = 80;
     const erasingDelay = 40;
     const newTextDelay = 2500;
     let textArrayIndex = 0;
-    let charIndex = typedTextSpan.textContent.length; // Start fully typed
+    let charIndex = typedTextSpan.textContent.length;
 
     function type() {
       if (charIndex < textArray[textArrayIndex].length) {
-        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+        if (!cursorSpan.classList.contains('typing')) cursorSpan.classList.add('typing');
         typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
         charIndex++;
         setTimeout(type, typingDelay);
-      } 
-      else {
-        cursorSpan.classList.remove("typing");
+      } else {
+        cursorSpan.classList.remove('typing');
         setTimeout(erase, newTextDelay);
       }
     }
 
     function erase() {
       if (charIndex > 0) {
-        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+        if (!cursorSpan.classList.contains('typing')) cursorSpan.classList.add('typing');
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
         charIndex--;
         setTimeout(erase, erasingDelay);
-      } 
-      else {
-        cursorSpan.classList.remove("typing");
+      } else {
+        cursorSpan.classList.remove('typing');
         textArrayIndex++;
-        if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+        if (textArrayIndex >= textArray.length) textArrayIndex = 0;
         setTimeout(type, typingDelay + 500);
       }
     }
 
-    // Start erasing after initial delay
     setTimeout(erase, newTextDelay);
   }
 
-});
-
   /* === Mobile menu === */
   const burger = document.getElementById('burger');
-  const nav    = document.getElementById('nav');
-  if(burger && nav) {
+  const nav = document.getElementById('nav');
+  if (burger && nav) {
     burger.addEventListener('click', () => {
       nav.classList.toggle('open');
     });
-    document.querySelectorAll('.nav-a').forEach(a =>
-      a.addEventListener('click', () => { nav.classList.remove('open'); })
-    );
   }
+
+  const navLinks = document.querySelectorAll('.nav-a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(otherLink => otherLink.classList.remove('active'));
+      link.classList.add('active');
+      nav.classList.remove('open');
+    });
+  });
 
   /* === FAQ Accordion === */
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const q = item.querySelector('.faq-q');
-    const a = item.querySelector('.faq-a');
-    
+
     q.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
-      
-      // Close all others
+
       faqItems.forEach(otherItem => {
         otherItem.classList.remove('active');
-        otherItem.querySelector('.faq-a').style.maxHeight = null;
       });
-      
+
       if (!isActive) {
         item.classList.add('active');
-        a.style.maxHeight = a.scrollHeight + "px";
       }
     });
   });
 
   /* === Form Validation & Submit (Supports Multiple Forms) === */
-  function okPhone(v) { return /^05\d{8}$/.test(v.replace(/[-\s]/g, '')); }
+  function okPhone(v) {
+    return /^05\d{8}$/.test(v.replace(/[-\s]/g, ''));
+  }
 
   const forms = document.querySelectorAll('.lead-form');
-  
+
   forms.forEach(form => {
     const fName = form.querySelector('.f-name');
     const fPhone = form.querySelector('.f-phone');
@@ -104,91 +109,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const sucNameEl = successBox?.querySelector('.suc-name');
     const btnClose = successBox?.querySelector('.btn-close');
 
-    // Remove error class on input
-    if(fName) fName.addEventListener('input', () => fName.closest('.field')?.classList.remove('bad'));
-    if(fPhone) fPhone.addEventListener('input', () => fPhone.closest('.field')?.classList.remove('bad'));
-    if(fInterest) fInterest.addEventListener('change', () => fInterest.closest('.field')?.classList.remove('bad'));
+    if (fName) fName.addEventListener('input', () => fName.closest('.field')?.classList.remove('bad'));
+    if (fPhone) fPhone.addEventListener('input', () => fPhone.closest('.field')?.classList.remove('bad'));
+    if (fInterest) fInterest.addEventListener('change', () => fInterest.closest('.field')?.classList.remove('bad'));
 
     form.addEventListener('submit', e => {
       e.preventDefault();
       let ok = true;
-      
-      if (fName && (!fName.value.trim() || fName.value.trim().length < 2)) { fName.closest('.field').classList.add('bad'); ok = false; }
-      if (fPhone && !okPhone(fPhone.value.trim())) { fPhone.closest('.field').classList.add('bad'); ok = false; }
-      if (fInterest && !fInterest.value) { fInterest.closest('.field').classList.add('bad'); ok = false; }
-      if (fPrivacy && !fPrivacy.checked) { ok = false; alert('יש לאשר את מדיניות הפרטיות'); }
+
+      if (fName && (!fName.value.trim() || fName.value.trim().length < 2)) {
+        fName.closest('.field').classList.add('bad');
+        ok = false;
+      }
+      if (fPhone && !okPhone(fPhone.value.trim())) {
+        fPhone.closest('.field').classList.add('bad');
+        ok = false;
+      }
+      if (fInterest && !fInterest.value) {
+        fInterest.closest('.field').classList.add('bad');
+        ok = false;
+      }
+      if (fPrivacy && !fPrivacy.checked) {
+        ok = false;
+        alert('יש לאשר את מדיניות הפרטיות');
+      }
 
       if (!ok) return;
 
       btnSubmit.classList.add('loading');
       btnSubmit.disabled = true;
 
-      // Simulate API call
       setTimeout(() => {
         btnSubmit.classList.remove('loading');
         btnSubmit.disabled = false;
-        
-        if(sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
-        if(successBox) successBox.classList.add('show');
+
+        if (sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
+        if (successBox) successBox.classList.add('show');
       }, 1400);
     });
 
-    if(btnClose) {
+    if (btnClose) {
       btnClose.addEventListener('click', () => {
         successBox.classList.remove('show');
         form.reset();
       });
     }
   });
-
-  /* === Typewriter Effect === */
-  const typedTextSpan = document.querySelector(".typewriter");
-  const cursorSpan = document.querySelector(".cursor");
-
-  if (typedTextSpan && cursorSpan) {
-    const textArray = [
-      "ביטחון מלא למשפחה.", 
-      "חיסכון אדיר במשכנתא.", 
-      "פנסיה שעובדת בשבילך.", 
-      "תנאים ששמורים לגדולים.", 
-      "ליווי צמוד ברגעי האמת."
-    ];
-    const typingDelay = 80;
-    const erasingDelay = 40;
-    const newTextDelay = 2500;
-    let textArrayIndex = 0;
-    let charIndex = typedTextSpan.textContent.length; // Start fully typed
-
-    function type() {
-      if (charIndex < textArray[textArrayIndex].length) {
-        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
-      } 
-      else {
-        cursorSpan.classList.remove("typing");
-        setTimeout(erase, newTextDelay);
-      }
-    }
-
-    function erase() {
-      if (charIndex > 0) {
-        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-        charIndex--;
-        setTimeout(erase, erasingDelay);
-      } 
-      else {
-        cursorSpan.classList.remove("typing");
-        textArrayIndex++;
-        if(textArrayIndex >= textArray.length) textArrayIndex = 0;
-        setTimeout(type, typingDelay + 500);
-      }
-    }
-
-    // Start erasing after initial delay
-    setTimeout(erase, newTextDelay);
-  }
-
 });
