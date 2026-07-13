@@ -21,13 +21,15 @@
   <meta name="twitter:title" content="משה שובר | סוכן ביטוח למשכנתא, בריאות, חיים ופנסיה" />
   <meta name="twitter:description" content="הוזלת ביטוח משכנתא, חיים, בריאות ופנסיה עם ליווי אישי ותנאים משתלמים." />
   <meta name="twitter:image" content="main-bg.webp" />
-  <link rel="preload" as="image" href="main-bg.webp">
+  <link rel="preload" as="image" href="hero-bg-contract.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <!-- Defer non-critical CSS -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="style.css"></noscript>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -109,7 +111,7 @@
   <header class="site-header" id="site-header">
     <div class="header-inner wrap">
       <a href="#" class="logo">
-        <img src="brand-logo.webp" alt="לוגו משה שובר" class="header-brand-logo">
+        <img src="brand-logo.webp" alt="לוגו משה שובר" class="header-brand-logo" width="48" height="48">
         <div class="logo-text">
           <span class="logo-title">משה שובר</span>
           <span class="logo-subtitle">סוכן ביטוח</span>
@@ -242,22 +244,22 @@
     <section class="logos-strip">
       <div class="logos-track">
         <div class="logos-flex">
-          <img src="logos/clal.png" alt="כלל ביטוח" class="logo-img clal-logo">
-          <img src="logos/migdal.png" alt="מגדל" class="logo-img">
-          <img src="logos/menora.png" alt="מנורה מבטחים" class="logo-img menora-logo">
-          <img src="logos/harel.png" alt="הראל" class="logo-img">
-          <img src="logos/passportcard.png" alt="PassportCard" class="logo-img pc-logo">
-          <img src="logos/ayalon.png" alt="איילון" class="logo-img">
-          <img src="logos/phoenix.png" alt="הפניקס" class="logo-img phoenix-logo">
+          <img src="logos/clal.png" alt="כלל ביטוח" class="logo-img clal-logo" loading="lazy" width="120" height="85">
+          <img src="logos/migdal.png" alt="מגדל" class="logo-img" loading="lazy" width="150" height="60">
+          <img src="logos/menora.png" alt="מנורה מבטחים" class="logo-img menora-logo" loading="lazy" width="160" height="160">
+          <img src="logos/harel.png" alt="הראל" class="logo-img" loading="lazy" width="140" height="60">
+          <img src="logos/passportcard.png" alt="PassportCard" class="logo-img pc-logo" loading="lazy" width="100" height="130">
+          <img src="logos/ayalon.png" alt="איילון" class="logo-img" loading="lazy" width="130" height="60">
+          <img src="logos/phoenix.png" alt="הפניקס" class="logo-img phoenix-logo" loading="lazy" width="120" height="120">
         </div>
         <div class="logos-flex">
-          <img src="logos/clal.png" alt="כלל ביטוח" class="logo-img clal-logo">
-          <img src="logos/migdal.png" alt="מגדל" class="logo-img">
-          <img src="logos/menora.png" alt="מנורה מבטחים" class="logo-img menora-logo">
-          <img src="logos/harel.png" alt="הראל" class="logo-img">
-          <img src="logos/passportcard.png" alt="PassportCard" class="logo-img pc-logo">
-          <img src="logos/ayalon.png" alt="איילון" class="logo-img">
-          <img src="logos/phoenix.png" alt="הפניקס" class="logo-img phoenix-logo">
+          <img src="logos/clal.png" alt="כלל ביטוח" class="logo-img clal-logo" loading="lazy" width="120" height="85">
+          <img src="logos/migdal.png" alt="מגדל" class="logo-img" loading="lazy" width="150" height="60">
+          <img src="logos/menora.png" alt="מנורה מבטחים" class="logo-img menora-logo" loading="lazy" width="160" height="160">
+          <img src="logos/harel.png" alt="הראל" class="logo-img" loading="lazy" width="140" height="60">
+          <img src="logos/passportcard.png" alt="PassportCard" class="logo-img pc-logo" loading="lazy" width="100" height="130">
+          <img src="logos/ayalon.png" alt="איילון" class="logo-img" loading="lazy" width="130" height="60">
+          <img src="logos/phoenix.png" alt="הפניקס" class="logo-img phoenix-logo" loading="lazy" width="120" height="120">
         </div>
       </div>
     </section>
@@ -468,7 +470,7 @@
             <p>בין אם אתם לפני משכנתא, רוצים לשפר ביטוח קיים או מחפשים כיסוי בריאותי איכותי יותר, אני כאן כדי לוודא
               שאתם מקבלים את ההצעה הטובה ביותר, בשקיפות מלאה ובמקצועיות ללא פשרות.</p>
           </div>
-          <img src="main-bg.webp" alt="משרד משה שובר" class="about-image">
+          <img src="main-bg.webp" alt="משרד משה שובר" class="about-image" loading="lazy">
         </div>
       </div>
     </section>
@@ -852,6 +854,7 @@
       <div class="footer-bottom">
         <div class="footer-links">
           <a href="privacy-policy.html">מדיניות פרטיות</a>
+          <a href="#" id="load-accessibility-widget">הצהרת נגישות</a>
           <a href="terms-of-use.html">תנאי שימוש</a>
         </div>
         <p>© כל הזכויות שמורות למשה שובר סוכן ביטוח.</p>
@@ -909,16 +912,6 @@
   </script>
 
   <script src="script.js" defer></script>
-  <!-- UserWay Accessibility Widget -->
-  <script>
-    var _userway_config = {
-      color: '#41B37C', /* The site's green color */
-      position: 5,      /* 5 = Middle Right */
-      mobile_position: 3, /* 3 = Bottom Right; keeps it away from the phone icon on mobile */
-      account: 'j1gIuV8Npl'
-    };
-  </script>
-  <script src="https://cdn.userway.org/widget.js" defer></script>
 </body>
 
 </html>

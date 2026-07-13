@@ -200,4 +200,36 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
   }
 
+  /* === Lazy Load UserWay Accessibility Widget on user interaction === */
+  let userwayLoaded = false;
+
+  function loadUserWayWidget(e) {
+    // If it's a click, prevent default link behavior
+    if (e && e.type === 'click') {
+      e.preventDefault();
+    }
+
+    // Prevent multiple loads
+    if (userwayLoaded || window.userway) {
+      return;
+    }
+    userwayLoaded = true;
+
+    var _userway_config = {
+      color: '#41B37C',
+      position: 5,
+      mobile_position: 3,
+      account: 'j1gIuV8Npl'
+    };
+    window._userway_config = _userway_config;
+
+    const userwayScript = document.createElement('script');
+    userwayScript.src = 'https://cdn.userway.org/widget.js';
+    document.body.appendChild(userwayScript);
+  }
+
+  window.addEventListener('mousemove', loadUserWayWidget, { once: true });
+  window.addEventListener('touchstart', loadUserWayWidget, { once: true });
+  const loadWidgetButton = document.getElementById('load-accessibility-widget');
+  if (loadWidgetButton) loadWidgetButton.addEventListener('click', loadUserWayWidget);
 });

@@ -20,17 +20,16 @@
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mosheshover.co.il/study-fund.html" }
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body class="subpage-main">
   <header class="site-header" id="site-header">
     <div class="header-inner wrap">
       <a href="index.html" class="logo">
-        <img src="brand-logo.webp" alt="לוגו משה שובר" class="header-brand-logo">
+        <img src="brand-logo.webp" alt="לוגו משה שובר" class="header-brand-logo" width="48" height="48">
         <div class="logo-text">
           <span class="logo-title">משה שובר</span>
           <span class="logo-subtitle">סוכן ביטוח</span>
@@ -150,11 +149,6 @@
         <a href="terms-of-use.html">תנאי שימוש</a>
       </div>
     </div>
-    <!-- UserWay Accessibility Widget -->
-    <script>
-      var _userway_config = { color: '#41B37C', position: 5, account: 'j1gIuV8Npl' };
-    </script>
-    <script src="https://cdn.userway.org/widget.js" defer></script>
   </footer>
   <script src="script.js" defer></script>
 </body>
