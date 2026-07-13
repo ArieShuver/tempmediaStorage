@@ -500,7 +500,7 @@ textarea {
   text-align: center;
 }
 
-.success h4 {
+.success h3 {
   font-size: 1.8rem;
   font-weight: 800;
   margin-bottom: 10px;
@@ -1035,7 +1035,7 @@ a.service-item {
   margin-bottom: 16px;
 }
 
-.testi-card h4 {
+.testi-card h3 {
   color: var(--primary);
   font-weight: 700;
 }
@@ -1303,7 +1303,13 @@ a.service-item {
 .footer-bottom p {
   font-size: 0.85rem;
   opacity: 0.7;
-  margin: 0.;
+  margin: 0;
+}
+
+.footer-tag {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 5px;
 }
 
 @media(max-width: 768px) {
@@ -1628,7 +1634,7 @@ a.service-item {
     height: 78px;
   }
 
-  .success h4 {
+  .success h3 {
     font-size: 1.4rem;
   }
 
