@@ -136,16 +136,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!ok) return;
 
+      // The form will now submit to web3forms, we just show a loading state.
       btnSubmit.classList.add('loading');
       btnSubmit.disabled = true;
+      
+      const formData = new FormData(form);
+      const object = {};
+      formData.forEach((value, key) => {
+        object[key] = value;
+      });
+      const json = JSON.stringify(object);
 
-      setTimeout(() => {
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        if (response.status == 200) {
+          if (sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
+          if (successBox) successBox.classList.add('show');
+        } else {
+          console.error('Form submission failed:', await response.json());
+          alert('אופס! משהו השתבש בשליחה. אנא נסה שוב.');
+        }
+      })
+      .catch(error => {
+        console.error('Form submission error:', error);
+        alert('אופס! משהו השתבש בשליחה. אנא נסה שוב.');
+      })
+      .finally(() => {
         btnSubmit.classList.remove('loading');
         btnSubmit.disabled = false;
-
-        if (sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
-        if (successBox) successBox.classList.add('show');
-      }, 1400);
+      });
     });
 
     if (btnClose) {

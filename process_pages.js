@@ -17,7 +17,7 @@ files.forEach(file => {
   // Extract <head>
   const headMatch = content.match(/<head>([\s\S]*?)<\/head>/i);
   let headContent = headMatch ? headMatch[1] : '';
-  
+
   // Ensure font-awesome is in head
   if (!headContent.includes('font-awesome')) {
     headContent = headContent.replace('</title>', '</title>\n  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">');
@@ -74,7 +74,7 @@ files.forEach(file => {
   <header class="site-header" id="site-header">
     <div class="header-inner wrap">
       <a href="index.html" class="logo">
-        <img src="brand-logo.png" alt="לוגו משה שובר" class="header-brand-logo">
+        <img src="brand-logo.webp" alt="לוגו משה שובר" class="header-brand-logo">
         <div class="logo-text">
           <span class="logo-title">משה שובר</span>
           <span class="logo-subtitle">סוכן ביטוח</span>

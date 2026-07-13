@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>משה שובר | סוכן ביטוח למשכנתא, בריאות, חיים ופנסיה</title>
+  <link rel="icon" href="brand-logo.webp" type="image/webp">
   <meta name="description"
     content="משה שובר הוא סוכן ביטוח שמסייע בהוזלת ביטוח משכנתא, ביטוח חיים, ביטוח בריאות, פנסיה וקרן השתלמות עם ליווי אישי ותנאים משתלמים." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -14,12 +15,13 @@
   <meta property="og:title" content="משה שובר | סוכן ביטוח למשכנתא, בריאות, חיים ופנסיה" />
   <meta property="og:description"
     content="סוכן ביטוח שמסייע בהוזלת ביטוח משכנתא, ביטוח חיים, בריאות ופנסיה עם ליווי אישי ותנאים משתלמים." />
-  <meta property="og:image" content="main-bg.jpg" />
+  <meta property="og:image" content="main-bg.webp" />
   <meta property="og:image:alt" content="משה שובר סוכן ביטוח" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="משה שובר | סוכן ביטוח למשכנתא, בריאות, חיים ופנסיה" />
   <meta name="twitter:description" content="הוזלת ביטוח משכנתא, חיים, בריאות ופנסיה עם ליווי אישי ותנאים משתלמים." />
-  <meta name="twitter:image" content="main-bg.jpg" />
+  <meta name="twitter:image" content="main-bg.webp" />
+  <link rel="preload" as="image" href="main-bg.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"
@@ -107,7 +109,7 @@
   <header class="site-header" id="site-header">
     <div class="header-inner wrap">
       <a href="#" class="logo">
-        <img src="brand-logo.png" alt="לוגו משה שובר" class="header-brand-logo">
+        <img src="brand-logo.webp" alt="לוגו משה שובר" class="header-brand-logo">
         <div class="logo-text">
           <span class="logo-title">משה שובר</span>
           <span class="logo-subtitle">סוכן ביטוח</span>
@@ -124,7 +126,7 @@
       </nav>
 
       <div class="header-actions">
-        <a href="tel:050-1234567" class="btn-solid btn-header">
+        <a href="tel:0559106223" class="btn-solid btn-header">
           <i class="fa-solid fa-phone"></i> חייג עכשיו
         </a>
         <button class="burger" id="burger" aria-label="תפריט">
@@ -161,29 +163,33 @@
                 font-weight="900" text-anchor="middle">משה שובר</text>
             </svg>
           </div>
-          <form class="lead-form" novalidate>
+          <form class="lead-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="46aaa4ca-3980-429f-b4bf-61dadbc32619">
+            <input type="hidden" name="subject" value="פנייה חדשה מהאתר - טופס ראשי">
+            <input type="hidden" name="from_name" value="אתר משה שובר">
+
             <div class="lead-form-grid">
 
               <div class="form-side right-side">
                 <div class="form-header">
-                  <h3>השאר פרטים:</h3>
+                  <h2>השאר פרטים:</h2>
                 </div>
                 <div class="inputs-row">
                   <div class="field">
-                    <input type="text" class="f-name" placeholder="שם מלא" required minlength="2" />
+                    <input type="text" name="name" class="f-name" placeholder="שם מלא" aria-label="שם מלא" required minlength="2" />
                   </div>
                   <div class="field">
-                    <input type="tel" class="f-phone" placeholder="טלפון" required />
+                    <input type="tel" name="phone" class="f-phone" placeholder="טלפון" aria-label="טלפון" required />
                   </div>
                 </div>
               </div>
 
               <div class="form-side left-side">
                 <div class="form-header">
-                  <h3>שלח וקבל הצעה</h3>
+                  <h2>שלח וקבל הצעה</h2>
                 </div>
                 <div class="field select-box">
-                  <select class="f-interest" required>
+                  <select name="interest" class="f-interest" aria-label="באיזה תחום תרצה עזרה?" required>
                     <option value="" disabled selected>רכב, דירה, חיים, עסקים</option>
                     <option value="car">ביטוח רכב</option>
                     <option value="home">ביטוח דירה</option>
@@ -458,7 +464,7 @@
             <p>בין אם אתם לפני משכנתא, רוצים לשפר ביטוח קיים או מחפשים כיסוי בריאותי איכותי יותר, אני כאן כדי לוודא
               שאתם מקבלים את ההצעה הטובה ביותר, בשקיפות מלאה ובמקצועיות ללא פשרות.</p>
           </div>
-          <img src="main-bg.jpg" alt="משרד משה שובר" class="about-image">
+          <img src="main-bg.webp" alt="משרד משה שובר" class="about-image">
         </div>
       </div>
     </section>
@@ -660,9 +666,9 @@
         <div class="faq-list">
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">איך יכול להיות שהמחירים אצלך נמוכים בעשרות אחוזים?<svg class="faq-icon"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">איך יכול להיות שהמחירים אצלך נמוכים בעשרות אחוזים?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>בזכות כוח קנייה קולקטיבי, אנו מצליחים להשיג מחירים מיוחדים מול חברות הביטוח שאינם זמינים לאדם הפרטי
@@ -671,9 +677,9 @@
           </div>
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">האם אני, כלקוח פרטי, באמת יכול לקבל תנאים של קבוצות ענק?<svg class="faq-icon"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">האם אני, כלקוח פרטי, באמת יכול לקבל תנאים של קבוצות ענק?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>בהחלט! המטרה שלנו היא לקחת את כוח המיקוח הקולקטיבי ולהנגיש אותו אליך. התנאים המיוחדים זמינים לכלל
@@ -682,9 +688,9 @@
           </div>
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">איך זה שאחרים לא מציעים את זה?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">איך זה שאחרים לא מציעים את זה?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>רוב הסוכנים עובדים כבודדים מול החברות ואין להם את כוח המיקוח שנובע מקבוצת מבוטחים ענקית.</p>
@@ -692,9 +698,9 @@
           </div>
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">אם יש לי כבר ביטוחים, אפשר לשפר אותם בלי לפגוע בכיסוי?<svg class="faq-icon"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">אם יש לי כבר ביטוחים, אפשר לשפר אותם בלי לפגוע בכיסוי?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>כמובן. אנחנו מבצעים בדיקה מקיפה (סדר בתיק הביטוחי), שומרים על הרצף הביטוחי שלך, ומשפרים אך ורק את מה
@@ -703,9 +709,9 @@
           </div>
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">הביטוח יעלה לי אחרי כמה שנים?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">הביטוח יעלה לי אחרי כמה שנים?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>חלק מהביטוחים (כמו ביטוחי חיים) מתייקרים עם הגיל באופן טבעי. אנו מוודאים שגם אחרי ההתייקרות, המסלול
@@ -714,9 +720,9 @@
           </div>
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">אני צעיר, זה בכלל משנה איך הפנסיה שלי מנוהלת?<svg class="faq-icon" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">אני צעיר, זה בכלל משנה איך הפנסיה שלי מנוהלת?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>משנה מאוד! בגיל צעיר לזמן יש את האפקט החזק ביותר על הריבית דריבית. בחירת מסלול נכון ודמי ניהול נמוכים
@@ -725,9 +731,9 @@
           </div>
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">מה ההבדל בין קרן פנסיה, ביטוח מנהלים וקרן השתלמות?<svg class="faq-icon"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">מה ההבדל בין קרן פנסיה, ביטוח מנהלים וקרן השתלמות?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>קרן פנסיה וביטוח מנהלים הם מכשירי חיסכון לגיל הפרישה (הבדלים בכיסויים ובדמי ניהול). קרן השתלמות היא
@@ -736,9 +742,9 @@
           </div>
 
           <div class="faq-item fade-in-element">
-            <button class="faq-q">כמה זמן לוקח לעשות סדר בתיק הפנסיוני?<svg class="faq-icon" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
+            <button class="faq-q">כמה זמן לוקח לעשות סדר בתיק הפנסיוני?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg></button>
             <div class="faq-a">
               <p>התהליך לוקח לרוב פגישה או שיחה של כ-30-45 דקות. אנו מוציאים מסלקה פנסיונית מראש, מנתחים את הנתונים,
@@ -763,16 +769,20 @@
           </div>
           <p>מלאו את הטופס הבא וגלו כיצד תוכלו לחסוך מאות ואלפי שקלים בביטוחים שלכם</p>
 
-          <form class="lead-form bottom-form" novalidate>
+          <form class="lead-form bottom-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="46aaa4ca-3980-429f-b4bf-61dadbc32619">
+            <input type="hidden" name="subject" value="פנייה חדשה מהאתר - טופס תחתון">
+            <input type="hidden" name="from_name" value="אתר משה שובר">
+
             <div class="b-inputs">
               <div class="field">
-                <input type="text" class="f-name" placeholder="שם" required minlength="2" />
+                <input type="text" name="name" class="f-name" placeholder="שם" required minlength="2" />
               </div>
               <div class="field">
-                <input type="tel" class="f-phone" placeholder="טלפון" required />
+                <input type="tel" name="phone" class="f-phone" placeholder="טלפון" required />
               </div>
               <div class="field">
-                <input type="email" class="f-email" placeholder="אימייל" />
+                <input type="email" name="email" class="f-email" placeholder="אימייל" />
               </div>
             </div>
 
@@ -807,20 +817,31 @@
   <footer class="site-footer">
     <div class="wrap">
       
-      <!-- Row 1: Services (Horizontal) -->
-      <div class="footer-nav">
-        <a href="mortgage-reduction.html">ביטוח משכנתא</a>
-        <a href="health-insurance.html">בריאות</a>
-        <a href="life-insurance.html">חיים</a>
-        <a href="pension.html">פנסיה</a>
-        <a href="study-fund.html">קרן השתלמות</a>
-        <a href="investment-gemel.html">קופות גמל</a>
-      </div>
+      <!-- Footer Columns -->
+      <div class="footer-columns">
+        
+        <!-- Column 1: Services -->
+        <div class="footer-col">
+          <h3>השירותים שלנו</h3>
+          <div class="footer-nav">
+            <a href="mortgage-reduction.html">ביטוח משכנתא</a>
+            <a href="health-insurance.html">בריאות</a>
+            <a href="life-insurance.html">חיים</a>
+            <a href="pension.html">פנסיה</a>
+            <a href="study-fund.html">קרן השתלמות</a>
+            <a href="investment-gemel.html">קופות גמל</a>
+          </div>
+        </div>
 
-      <!-- Row 2: Contact Info -->
-      <div class="footer-info">
-        <span><a href="tel:0559106223">055-9106223</a><i class="fa-solid fa-phone"></i></span>
-        <span>שחל 81, ירושלים<i class="fa-solid fa-location-dot"></i></span>
+        <!-- Column 2: Contact Info -->
+        <div class="footer-col">
+          <h3>צור קשר</h3>
+          <div class="footer-info">
+            <span><a href="tel:0559106223">055-9106223</a><i class="fa-solid fa-phone"></i></span>
+            <span>שחל 81, ירושלים<i class="fa-solid fa-location-dot"></i></span>
+          </div>
+        </div>
+
       </div>
 
       <!-- Row 3: Legal & Copyright -->
@@ -838,11 +859,11 @@
 
   <!-- Floating Action Buttons -->
   <div class="mobile-fab">
-    <a href="https://wa.me/972501234567?text=היי%20משה,%20אשמח%20לייעוץ" class="fab-btn fab-whatsapp" target="_blank">
+    <a href="https://wa.me/972559106223?text=היי%20משה,%20אשמח%20לייעוץ" class="fab-btn fab-whatsapp" target="_blank">
       <i class="fa-brands fa-whatsapp"></i>
       <span>וואטסאפ</span>
     </a>
-    <a href="tel:050-1234567" class="fab-btn fab-phone">
+    <a href="tel:0559106223" class="fab-btn fab-phone">
       <i class="fa-solid fa-phone"></i>
       <span>חייג עכשיו</span>
     </a>
@@ -883,7 +904,7 @@
     changeNavOnScroll();
   </script>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <!-- UserWay Accessibility Widget -->
   <script>
     var _userway_config = {
@@ -893,7 +914,7 @@
       account: 'j1gIuV8Npl'
     };
   </script>
-  <script src="https://cdn.userway.org/widget.js"></script>
+  <script src="https://cdn.userway.org/widget.js" defer></script>
 </body>
 
 </html>

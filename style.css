@@ -2,8 +2,8 @@
 :root {
   --primary: #0D4B78;
   --primary-deep: #08304D;
-  --green: #34C759;
-  --green-hov: #28A745;
+  --green: #1E8449;
+  --green-hov: #145A32;
   --blue-accent: #007AFF;
   --blue-soft: #D9ECFF;
   --blue-soft-border: #9DCBFF;
@@ -36,7 +36,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -279,7 +279,7 @@ textarea {
   bottom: 100px;
   background-image:
     linear-gradient(to left, rgba(10, 42, 67, 0.6) 0%, rgba(10, 42, 67, 0.2) 35%, rgba(10, 42, 67, 0) 60%),
-    url('hero-bg-contract.png');
+    url('hero-bg-contract.webp');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -355,6 +355,15 @@ textarea {
   line-height: 1.1;
   margin-bottom: 10px;
   color: var(--primary);
+}
+
+.hero-text h1 .typewriter,
+.hero-text h1 .cursor {
+  text-shadow:
+    0 0 15px rgba(255, 255, 255, 1),
+    0 0 30px rgba(255, 255, 255, 0.9),
+    0 0 45px rgba(255, 255, 255, 0.8),
+    0 0 60px rgba(255, 255, 255, 0.6);
 }
 
 .hero-text .hero-subtitle {
@@ -844,14 +853,14 @@ textarea {
 }
 
 .service-info h3 {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #2E8B57;
   margin-bottom: 8px;
 }
 
 .service-info p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.6;
   margin-bottom: 8px;
@@ -859,7 +868,7 @@ textarea {
 
 .service-link {
   display: inline-block;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #2E8B57;
   opacity: 0.6;
@@ -1017,6 +1026,7 @@ a.service-item {
   justify-content: space-between;
   white-space: normal;
   /* Allow text to wrap inside the card */
+  text-align: right;
 }
 
 .testi-card p {
@@ -1075,12 +1085,19 @@ a.service-item {
 .faq-icon {
   width: 24px;
   height: 24px;
-  color: var(--green);
+  color: var(--white);
+  opacity: 0.7;
+  flex-shrink: 0;
+  /* Prevents the icon from shrinking */
+  transition: transform 0.3s ease;
+}
+
+.faq-icon .vert-line {
   transition: transform 0.3s ease;
 }
 
 .faq-item.active .faq-icon {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 }
 
 .faq-a {
@@ -1200,18 +1217,38 @@ a.service-item {
   text-align: center;
 }
 
+.footer-columns {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 30px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-col h3 {
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 20px;
+  position: relative;
+}
+
 .footer-nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  gap: 15px 30px;
-  margin-bottom: 25px;
+  align-items: center;
+  gap: 12px;
 }
 
 .footer-nav a {
   color: var(--white);
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 400;
+  font-size: 0.9rem;
   transition: color var(--fast);
 }
 
@@ -1221,11 +1258,11 @@ a.service-item {
 
 .footer-info {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  gap: 20px 40px;
-  margin-bottom: 30px;
-  font-size: 1.05rem;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
 }
 
 .footer-info a {
@@ -1242,7 +1279,7 @@ a.service-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1255,7 +1292,7 @@ a.service-item {
 
 .footer-links a {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   transition: color var(--fast);
 }
 
@@ -1264,12 +1301,18 @@ a.service-item {
 }
 
 .footer-bottom p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   opacity: 0.7;
-  margin: 0;
+  margin: 0.;
 }
 
-/* Responsive */
+@media(max-width: 768px) {
+  .footer-columns {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
 @media(max-width: 991px) {
   .hero-text h1 {
     font-size: 3rem;
@@ -1310,6 +1353,10 @@ a.service-item {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .nav-a.active::after {
+    bottom: -8px;
   }
 
   .burger {
@@ -1373,6 +1420,12 @@ a.service-item {
   .hero-text .hero-subtitle {
     font-size: 1.5rem;
   }
+
+  .hero-text h1,
+  .hero-text .hero-subtitle {
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+
 
   .inputs-row {
     flex-direction: column;
@@ -1487,11 +1540,6 @@ a.service-item {
 
   .cta-box {
     padding: 30px 20px;
-  }
-
-  .form-header h3,
-  .faq-q {
-    font-size: 1.05rem;
   }
 
   .field input,
@@ -1658,8 +1706,11 @@ a.service-item {
 
 .inner-hero-bg {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: linear-gradient(135deg, rgba(10, 42, 67, 0.95) 0%, rgba(13, 75, 120, 0.85) 100%), url('main-bg.jpg');
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(135deg, rgba(10, 42, 67, 0.95) 0%, rgba(13, 75, 120, 0.85) 100%), url('main-bg.webp');
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -1742,14 +1793,14 @@ a.service-item {
 }
 
 .not-found-content h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--primary);
   margin-bottom: 20px;
 }
 
 .not-found-content p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-gray);
   margin-bottom: 40px;
   max-width: 500px;
@@ -1781,7 +1832,7 @@ a.service-item {
 }
 
 .fab-btn i {
-  font-size: 2rem;
+  font-size: 1.3rem;
   line-height: 1;
   transition: transform 0.25s ease;
 }
