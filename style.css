@@ -650,8 +650,20 @@ textarea {
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  gap: 0;
+  align-items: stretch;
+  background: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+}
+
+.about-text {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .about-text h2 {
@@ -670,10 +682,16 @@ textarea {
 
 .about-image {
   width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
   object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .about-text {
+    padding: 40px 25px;
+  }
 }
 
 .study-page .wrap {
@@ -1622,6 +1640,86 @@ a.service-item {
 .fade-in-element.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== INNER PAGES ===== */
+.subpage-main {
+  background-color: var(--bg-alt);
+}
+
+.inner-hero {
+  position: relative;
+  background: var(--primary);
+  color: var(--white);
+  padding: 100px 0 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.inner-hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(135deg, rgba(10, 42, 67, 0.95) 0%, rgba(13, 75, 120, 0.85) 100%), url('main-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.inner-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.inner-hero .highlight-text {
+  display: inline-block;
+  background: rgba(65, 179, 124, 0.2);
+  color: var(--green);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.inner-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.inner-hero p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.article-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.article-section .story-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-section h2 {
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 30px;
+  font-weight: 800;
+}
+
+.article-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-gray);
+  margin-bottom: 24px;
 }
 
 /* ===== 404 Page ===== */
