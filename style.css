@@ -434,6 +434,9 @@ textarea {
   font-weight: 400;
   color: var(--primary);
   transition: var(--fast);
+  font-family: inherit;
+  direction: rtl !important;
+  text-align: right !important;
 }
 
 .field input:focus,
@@ -443,8 +446,12 @@ textarea {
   background: var(--white);
 }
 
-.field input::placeholder {
+.field input::placeholder,
+.field select::placeholder,
+.field textarea::placeholder {
   color: #999;
+  text-align: right;
+  direction: rtl;
 }
 
 .field select {
