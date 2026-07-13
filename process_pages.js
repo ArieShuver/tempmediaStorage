@@ -161,6 +161,12 @@ files.forEach(file => {
       <div class="wrap">
         <div class="cta-box">
           <h2>לשיחת ייעוץ ללא עלות</h2>
+          <div class="contact-phone-actions">
+            <a href="tel:+972559106223" class="contact-phone-link is-visible" data-phone-link>
+              <i class="fa-solid fa-phone-volume"></i>
+              055-9106223
+            </a>
+          </div>
           <p>מלאו את הטופס הבא וגלו כיצד תוכלו לחסוך מאות ואלפי שקלים בביטוחים שלכם</p>
 
           <form class="lead-form bottom-form" novalidate>
@@ -211,6 +217,7 @@ files.forEach(file => {
   <footer class="site-footer">
     <div class="wrap">
       <p>© כל הזכויות שמורות למשה שובר סוכן ביטוח.</p>
+      <div class="footer-tag">AS פיתוח וקידום אתרים</div>
     </div>
     <!-- UserWay Accessibility Widget -->
     <script>

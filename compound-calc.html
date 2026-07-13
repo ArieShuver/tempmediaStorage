@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מחשבון ריבית דריבית | משה שובר</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="subpage-main">
+  <header class="site-header" id="site-header">
+    <div class="header-inner wrap">
+      <a href="index.html" class="logo">
+        <img src="brand-logo.png" alt="לוגו משה שובר" class="header-brand-logo" onerror="this.style.display='none'">
+        <div class="logo-text">
+          <span class="logo-title">משה שובר</span>
+          <span class="logo-subtitle">סוכן ביטוח</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#home" class="nav-a">דף הבית</a>
+        <a href="index.html#services" class="nav-a">שירותים</a>
+        <a href="index.html#about" class="nav-a">אודות</a>
+        <a href="index.html#reviews" class="nav-a">לקוחות ממליצים</a>
+        <a href="index.html#contact" class="nav-a">צור קשר</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html#contact" class="btn-solid btn-header">צור קשר</a>
+        <button class="burger" id="burger" aria-label="תפריט">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="calc-hero" style="background: var(--bg); padding: 80px 0 40px; text-align: center;">
+      <div class="wrap">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 15px;">
+          <h1 style="font-size: 2.8rem; color: var(--primary); font-weight: 900; margin: 0;">מחשבון ריבית דריבית</h1>
+          <i class="fa-solid fa-calculator" style="font-size: 2.5rem; color: var(--green);"></i>
+        </div>
+        <p style="font-size: 1.2rem; color: var(--text-gray);">בנה את העתיד הכלכלי שלך! גלה כיצד השקעה עקבית גדלה לאורך זמן.</p>
+      </div>
+    </section>
+
+    <section class="dashboard-section" style="padding-bottom: 80px; background: var(--bg);">
+      <div class="wrap">
+        <div class="dashboard-container">
+          
+          <!-- Top Inputs -->
+          <div class="dashboard-inputs">
+            <div class="dash-input-group">
+              <label>קרן התחלתית (₪)</label>
+              <input type="number" id="calc-principal" value="50000" min="0" step="1000">
+            </div>
+            <div class="dash-input-group">
+              <label>הפקדה חודשית (₪)</label>
+              <input type="number" id="calc-monthly" value="1500" min="0" step="100">
+            </div>
+            <div class="dash-input-group">
+              <label>ריבית שנתית (%)</label>
+              <input type="number" id="calc-rate" value="5" min="0" step="0.1">
+            </div>
+          </div>
+
+          <!-- Controls Row -->
+          <div class="dashboard-controls" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+            <button class="btn-solid" id="calc-btn" style="background: #11816B; font-size: 1.2rem; padding: 12px 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(17, 129, 107, 0.3);">חשב תוצאות</button>
+            
+            <div class="dash-input-group" style="text-align: center; flex: 1; max-width: 300px; margin: 0 auto; background: transparent; padding: 0; border: none;">
+              <label style="margin-bottom: 10px;">תקופה (שנים)</label>
+              <div style="display: flex; align-items: center; gap: 10px; background: #fff; border: 2px solid #e2e8f0; border-radius: 8px; padding: 5px;">
+                <button class="btn-year-control" id="year-minus" style="background: #f1f5f9; border: none; border-radius: 4px; padding: 8px 15px; cursor: pointer; color: var(--primary); transition: 0.2s;"><i class="fa-solid fa-chevron-right"></i></button>
+                <input type="number" id="calc-years" value="10" min="1" max="50" style="text-align: center; width: 100%; border: none; font-size: 1.2rem; font-weight: 700; color: var(--primary-deep); background: transparent; outline: none; padding: 0;">
+                <button class="btn-year-control" id="year-plus" style="background: #f1f5f9; border: none; border-radius: 4px; padding: 8px 15px; cursor: pointer; color: var(--primary); transition: 0.2s;"><i class="fa-solid fa-chevron-left"></i></button>
+              </div>
+            </div>
+
+            <!-- Visual Graphic as in mockup -->
+            <div class="mini-graphic" style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+              <div style="display: flex; align-items: flex-end; gap: 6px; height: 40px;">
+                <div style="width: 12px; height: 30%; background: #41B37C; border-radius: 2px;"></div>
+                <div style="width: 12px; height: 50%; background: #F5A623; border-radius: 2px;"></div>
+                <div style="width: 12px; height: 80%; background: #153A58; border-radius: 2px;"></div>
+                <div style="width: 12px; height: 100%; background: #4A90E2; border-radius: 2px;"></div>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-gray); font-weight: 600; display: flex; gap: 15px;">
+                <span>ריבית</span>
+                <span>הפקדות</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Area -->
+          <div class="dashboard-content">
+            <div class="chart-area" style="position: relative; height: 350px;">
+              <canvas id="compoundChart"></canvas>
+            </div>
+            <div class="summary-area">
+              
+              <div class="summary-box box-final">
+                <div class="box-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                <div class="box-text">
+                  <span>סכום סופי מוערך</span>
+                  <strong id="res-final">₪0</strong>
+                </div>
+              </div>
+
+              <div class="summary-box box-deposits">
+                <div class="box-icon"><i class="fa-solid fa-coins"></i></div>
+                <div class="box-text">
+                  <span>סך הפקדות</span>
+                  <strong id="res-deposits">₪0</strong>
+                </div>
+              </div>
+
+              <div class="summary-box box-profit">
+                <div class="box-icon"><i class="fa-solid fa-calculator"></i></div>
+                <div class="box-text">
+                  <span>רווח מריבית</span>
+                  <strong id="res-profit">₪0</strong>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== BOTTOM CTA ======== -->
+    <section class="bottom-cta" style="background: var(--bg-alt); text-align: center; padding: 60px 0; border-top: 1px solid var(--border);">
+      <div class="wrap fade-in-element">
+        <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; font-weight: 900;">המספרים לא משקרים – אל תיתן לזמן להתבזבז!</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 30px; color: var(--primary-deep); max-width: 600px; margin-left: auto; margin-right: auto;">ראית במחשבון כמה שווה כסף שעובד נכון. בוא נבנה יחד תוכנית פיננסית מדויקת שתמקסם את הרווחים שלך לעתיד.</p>
+        <a href="index.html#contact" class="btn-solid btn-large" style="background: var(--green); font-size: 1.4rem; padding: 18px 45px; border-radius: 50px; box-shadow: 0 10px 30px rgba(65, 179, 124, 0.4); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s ease;">
+          <i class="fa-solid fa-rocket"></i> תתחיל לחסוך עכשיו עם הטובים ביותר!
+        </a>
+      </div>
+    </section>
+
+  </main>
+  
+  <footer class="site-footer" style="background: linear-gradient(180deg, var(--primary-deep), #061B26); color: rgba(255, 255, 255, 0.6); padding: 30px 0; text-align: center;">
+    <div class="wrap">
+      <p>© כל הזכויות שמורות למשה שובר סוכן ביטוח.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="calc.js"></script>
+</body>
+</html>
