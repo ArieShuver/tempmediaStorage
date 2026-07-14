@@ -24,7 +24,6 @@
   <link rel="preload" as="image" href="hero-bg-contract.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Defer non-critical CSS -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -205,6 +204,12 @@
                   <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9" />
                   </svg>
+                </div>
+                <div class="privacy-check" style="margin-top: 15px; margin-bottom: 20px; text-align: right; justify-content: flex-start;">
+                  <input type="checkbox" id="privacy-hero" name="privacy" required />
+                  <label for="privacy-hero">
+                    מאשר/ת שקראתי את <a href="privacy-policy.html" target="_blank">מדיניות הפרטיות</a> ו<a href="terms-of-use.html" target="_blank">תנאי השימוש</a>
+                  </label>
                 </div>
                 <button type="submit" class="btn-solid btn-submit">
                   <span class="btn-label">שלח וקבל הצעה</span>
@@ -470,7 +475,7 @@
             <p>בין אם אתם לפני משכנתא, רוצים לשפר ביטוח קיים או מחפשים כיסוי בריאותי איכותי יותר, אני כאן כדי לוודא
               שאתם מקבלים את ההצעה הטובה ביותר, בשקיפות מלאה ובמקצועיות ללא פשרות.</p>
           </div>
-          <img src="main-bg.webp" alt="משרד משה שובר" class="about-image" loading="lazy">
+          <img src="main-bg.webp" alt="משרד משה שובר" class="about-image" loading="lazy" width="600" height="400" decoding="async">
         </div>
       </div>
     </section>
@@ -768,7 +773,7 @@
         <div class="cta-box fade-in-element">
           <h2>לשיחת ייעוץ ללא עלות</h2>
           <div class="contact-phone-actions">
-            <a href="tel:+972559106223" class="contact-phone-link is-visible" data-phone-link>
+            <a href="tel:0559106223" class="contact-phone-link is-visible" data-phone-link>
               <i class="fa-solid fa-phone-volume"></i>
               055-9106223
             </a>
@@ -854,7 +859,11 @@
       <div class="footer-bottom">
         <div class="footer-links">
           <a href="privacy-policy.html">מדיניות פרטיות</a>
+<<<<<<< HEAD
           <a href="accessibility-statement.html">הצהרת נגישות</a>
+=======
+          <a href="accessibility.html">הצהרת נגישות</a>
+>>>>>>> 5aedd1a88132a5f6fe026cef5dfb3e434f0c1742
           <a href="terms-of-use.html">תנאי שימוש</a>
         </div>
         <p>© כל הזכויות שמורות למשה שובר סוכן ביטוח.</p>
@@ -866,50 +875,34 @@
 
   <!-- Floating Action Buttons -->
   <div class="mobile-fab">
-    <a href="https://wa.me/972559106223?text=היי%20משה,%20אשמח%20לייעוץ" class="fab-btn fab-whatsapp" target="_blank">
+    <a href="https://wa.me/972559106223?text=היי%20משה,%20אשמח%20לייעוץ" class="fab-btn fab-whatsapp" target="_blank" aria-label="שלח הודעת וואטסאפ">
       <i class="fa-brands fa-whatsapp"></i>
       <span>וואטסאפ</span>
     </a>
-    <a href="tel:0559106223" class="fab-btn fab-phone">
+    <a href="tel:0559106223" class="fab-btn fab-phone" aria-label="התקשר אלינו">
       <i class="fa-solid fa-phone"></i>
       <span>חייג עכשיו</span>
     </a>
   </div>
 
   <script>
-    // Scroll spy for navigation
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-a');
-    const headerHeight = document.getElementById('site-header').offsetHeight;
-
-    function changeNavOnScroll() {
-      let current = '';
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - headerHeight - 1; // Add 1px buffer
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      // Special case for the end of the page
-      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) {
-        current = sections[sections.length - 1].getAttribute('id');
-      }
-
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', changeNavOnScroll);
-    // Run on load as well
-    changeNavOnScroll();
+    // Scroll spy - throttled with rAF for performance
+    requestAnimationFrame(function(){
+      var s=document.querySelectorAll('section[id]'),n=document.querySelectorAll('.nav-a'),h=document.getElementById('site-header');
+      if(!h||!s.length)return;var hh=h.offsetHeight,t=false;
+      function u(){var c='';s.forEach(function(e){if(pageYOffset>=e.offsetTop-hh-1)c=e.getAttribute('id')});
+      if((innerHeight+pageYOffset)>=document.body.offsetHeight-2)c=s[s.length-1].getAttribute('id');
+      n.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+c)});t=false}
+      window.addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(u)}},{passive:true});u()
+    });
   </script>
+
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>אתר זה עושה שימוש בקובצי עוגיות (Cookies) כדי לשפר את חווית הגלישה שלך. <a href="privacy-policy.html">למידע נוסף</a>.</p>
+      <button id="accept-cookies" class="btn-solid btn-sm">הבנתי ואישרתי</button>
+    </div>
+  </div>
 
   <script src="script.js" defer></script>
 </body>

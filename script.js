@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   /* === Header === */
   const header = document.getElementById('site-header');
+  let scrollTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
-    } else {
-      header.style.boxShadow = 'none';
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        header.style.boxShadow = window.scrollY > 40 ? '0 4px 10px rgba(0,0,0,0.1)' : 'none';
+        scrollTicking = false;
+      });
     }
-  });
+  }, {passive: true});
 
   /* === Typewriter Effect === */
   const typedTextSpan = document.querySelector('.typewriter');
@@ -231,3 +234,26 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('mousemove', loadUserWayWidget, { once: true });
   window.addEventListener('touchstart', loadUserWayWidget, { once: true });
 });
+
+
+/* === Cookie Banner Logic === */
+document.addEventListener("DOMContentLoaded", () => {
+  const cookieBanner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+
+  if (cookieBanner && acceptBtn) {
+    // Check if already accepted
+    if (!localStorage.getItem("cookiesAccepted")) {
+      // Show after a short delay
+      setTimeout(() => {
+        cookieBanner.classList.add("show");
+      }, 1000);
+    }
+
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookiesAccepted", "true");
+      cookieBanner.classList.remove("show");
+    });
+  }
+});
+
