@@ -24,7 +24,6 @@
   <link rel="preload" as="image" href="hero-bg-contract.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Defer non-critical CSS -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -470,7 +469,7 @@
             <p>בין אם אתם לפני משכנתא, רוצים לשפר ביטוח קיים או מחפשים כיסוי בריאותי איכותי יותר, אני כאן כדי לוודא
               שאתם מקבלים את ההצעה הטובה ביותר, בשקיפות מלאה ובמקצועיות ללא פשרות.</p>
           </div>
-          <img src="main-bg.webp" alt="משרד משה שובר" class="about-image" loading="lazy">
+          <img src="main-bg.webp" alt="משרד משה שובר" class="about-image" loading="lazy" width="600" height="400" decoding="async">
         </div>
       </div>
     </section>
@@ -877,38 +876,15 @@
   </div>
 
   <script>
-    // Scroll spy for navigation
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-a');
-    const headerHeight = document.getElementById('site-header').offsetHeight;
-
-    function changeNavOnScroll() {
-      let current = '';
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - headerHeight - 1; // Add 1px buffer
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      // Special case for the end of the page
-      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) {
-        current = sections[sections.length - 1].getAttribute('id');
-      }
-
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', changeNavOnScroll);
-    // Run on load as well
-    changeNavOnScroll();
+    // Scroll spy - throttled with rAF for performance
+    requestAnimationFrame(function(){
+      var s=document.querySelectorAll('section[id]'),n=document.querySelectorAll('.nav-a'),h=document.getElementById('site-header');
+      if(!h||!s.length)return;var hh=h.offsetHeight,t=false;
+      function u(){var c='';s.forEach(function(e){if(pageYOffset>=e.offsetTop-hh-1)c=e.getAttribute('id')});
+      if((innerHeight+pageYOffset)>=document.body.offsetHeight-2)c=s[s.length-1].getAttribute('id');
+      n.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+c)});t=false}
+      window.addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(u)}},{passive:true});u()
+    });
   </script>
 
   <script src="script.js" defer></script>
