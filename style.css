@@ -2,8 +2,8 @@
 :root {
   --primary: #0D4B78;
   --primary-deep: #08304D;
-  --green: #1E8449;
-  --green-hov: #145A32;
+  --green: #166534;
+  --green-hov: #14532D;
   --blue-accent: #007AFF;
   --blue-soft: #D9ECFF;
   --blue-soft-border: #9DCBFF;
@@ -44,8 +44,8 @@ html {
 body {
   --primary: #02324d;
   --primary-deep: #061725;
-  --green: #41B37C;
-  --green-hov: #329565;
+  --green: #166534;
+  --green-hov: #14532D;
   --blue-accent: #153A58;
   --blue-soft: #DDE8F1;
   --blue-soft-border: #B8CCDA;
