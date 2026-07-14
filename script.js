@@ -230,6 +230,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('mousemove', loadUserWayWidget, { once: true });
   window.addEventListener('touchstart', loadUserWayWidget, { once: true });
-  const loadWidgetButton = document.getElementById('load-accessibility-widget');
-  if (loadWidgetButton) loadWidgetButton.addEventListener('click', loadUserWayWidget);
 });
