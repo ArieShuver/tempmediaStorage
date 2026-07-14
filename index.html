@@ -205,6 +205,12 @@
                     <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </div>
+                <div class="privacy-check" style="margin-top: 15px; margin-bottom: 20px; text-align: right; justify-content: flex-start;">
+                  <input type="checkbox" id="privacy-hero" name="privacy" required />
+                  <label for="privacy-hero">
+                    מאשר/ת שקראתי את <a href="privacy-policy.html" target="_blank">מדיניות הפרטיות</a> ו<a href="terms-of-use.html" target="_blank">תנאי השימוש</a>
+                  </label>
+                </div>
                 <button type="submit" class="btn-solid btn-submit">
                   <span class="btn-label">שלח וקבל הצעה</span>
                   <span class="spinner"></span>
@@ -886,6 +892,13 @@
       window.addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(u)}},{passive:true});u()
     });
   </script>
+
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>אתר זה עושה שימוש בקובצי עוגיות (Cookies) כדי לשפר את חווית הגלישה שלך. <a href="privacy-policy.html">למידע נוסף</a>.</p>
+      <button id="accept-cookies" class="btn-solid btn-sm">הבנתי ואישרתי</button>
+    </div>
+  </div>
 
   <script src="script.js" defer></script>
 </body>

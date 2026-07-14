@@ -236,3 +236,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadWidgetButton = document.getElementById('load-accessibility-widget');
   if (loadWidgetButton) loadWidgetButton.addEventListener('click', loadUserWayWidget);
 });
+
+
+/* === Cookie Banner Logic === */
+document.addEventListener("DOMContentLoaded", () => {
+  const cookieBanner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+
+  if (cookieBanner && acceptBtn) {
+    // Check if already accepted
+    if (!localStorage.getItem("cookiesAccepted")) {
+      // Show after a short delay
+      setTimeout(() => {
+        cookieBanner.classList.add("show");
+      }, 1000);
+    }
+
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookiesAccepted", "true");
+      cookieBanner.classList.remove("show");
+    });
+  }
+});
+

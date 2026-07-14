@@ -2242,3 +2242,58 @@ p {
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
 }
+
+/* ===== COOKIE BANNER ===== */
+.cookie-banner {
+  position: fixed;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  z-index: 9999;
+  transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: center;
+}
+
+.cookie-banner.show {
+  bottom: 0;
+}
+
+.cookie-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 90%;
+  gap: 20px;
+}
+
+.cookie-content p {
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+.cookie-content a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.btn-sm {
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  border-radius: 30px;
+  min-width: max-content;
+}
+
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+
