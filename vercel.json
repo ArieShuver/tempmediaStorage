@@ -11,7 +11,7 @@
       ]
     },
     {
-      "source": "/.*",
+    "source": "/:path*",
       "headers": [
         {
           "key": "X-Content-Type-Options",
