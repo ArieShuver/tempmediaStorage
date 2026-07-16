@@ -11,7 +11,7 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap">
-  <link rel="stylesheet" href="style.min.css" />
+  <link rel="stylesheet" href="style.min.css?v=2" />
 </head>
 <body>
   <header class="site-header" id="site-header">
@@ -158,7 +158,8 @@
   }
 
   // Load on interaction or after 3.5s fallback
-  ['scroll', 'mousemove', 'touchstart', 'click'].forEach(e => window.addEventListener(e, loadTracking, {once: true, passive: true}));
+  ['touchstart', 'click', 'keydown', 'mouseover'].forEach(e => window.addEventListener(e, loadTracking, {once: true, passive: true}));
+  setTimeout(loadTracking, 6500);
 </script>
 </body>
 </html>

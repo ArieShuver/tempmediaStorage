@@ -8,7 +8,7 @@
   <link rel="icon" href="brand-logo.webp" type="image/webp">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
-  <link rel="stylesheet" href="style.min.css" />
+  <link rel="stylesheet" href="style.min.css?v=2" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 </head>
 <body class="subpage-main">
@@ -191,7 +191,7 @@
 
     </div>
   </footer>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=2" defer></script>
   <script src="calc.js" defer></script>
 
   <!-- Event snippet for קליק לשיחה (3) conversion page -->
@@ -239,7 +239,8 @@
   }
 
   // Load on interaction or after 3.5s fallback
-  ['scroll', 'mousemove', 'touchstart', 'click'].forEach(e => window.addEventListener(e, loadTracking, {once: true, passive: true}));
+  ['touchstart', 'click', 'keydown', 'mouseover'].forEach(e => window.addEventListener(e, loadTracking, {once: true, passive: true}));
+  setTimeout(loadTracking, 6500);
 </script>
 </body>
 </html>
