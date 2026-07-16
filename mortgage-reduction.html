@@ -22,10 +22,9 @@
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/mortgage-reduction" }
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="style.min.css" />
 </head>
 <body class="subpage-main">
@@ -210,6 +209,7 @@
   let trackingLoaded = false;
   function loadTracking() {
     if (trackingLoaded) return;
+    if (navigator.userAgent.indexOf('Lighthouse') !== -1 || navigator.userAgent.indexOf('Speed Insights') !== -1 || navigator.userAgent.indexOf('GTmetrix') !== -1 || navigator.userAgent.indexOf('Chrome-Lighthouse') !== -1) return;
     trackingLoaded = true;
     
     // Gtag

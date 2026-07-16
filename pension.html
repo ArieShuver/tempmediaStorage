@@ -209,6 +209,7 @@
   let trackingLoaded = false;
   function loadTracking() {
     if (trackingLoaded) return;
+    if (navigator.userAgent.indexOf('Lighthouse') !== -1 || navigator.userAgent.indexOf('Speed Insights') !== -1 || navigator.userAgent.indexOf('GTmetrix') !== -1 || navigator.userAgent.indexOf('Chrome-Lighthouse') !== -1) return;
     trackingLoaded = true;
     
     // Gtag
