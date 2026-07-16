@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "headers": [
     {
-      "source": "/(.*\\.(webp|png|jpg|jpeg|svg|avif|gif|ico|css|js|woff2|woff|ttf|eot))",
+      "source": "/(?<path>.*\\.(?:webp|png|jpg|jpeg|svg|avif|gif|ico|css|js|woff2|woff|ttf|eot))",
       "headers": [
         {
           "key": "Cache-Control",
