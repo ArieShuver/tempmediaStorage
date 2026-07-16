@@ -3,9 +3,6 @@
 
 <head>
   <link rel="preload" as="image" href="main-bg.webp" fetchpriority="high">
-  <link rel="preconnect" href="https://api.web3forms.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.clarity.ms">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>הצהרת נגישות | משה שובר</title>
@@ -153,7 +150,6 @@
 
   // Load on interaction or after 3.5s fallback
   ['scroll', 'mousemove', 'touchstart', 'click'].forEach(e => window.addEventListener(e, loadTracking, {once: true, passive: true}));
-  setTimeout(loadTracking, 3500);
 </script>
 </body>
 
