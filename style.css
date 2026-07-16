@@ -1350,7 +1350,7 @@ a.service-item {
 
   .nav {
     position: fixed;
-    top: 80px;
+    top: 3.5rem;
     right: 0;
     left: 0;
     background: var(--primary);
@@ -1926,9 +1926,9 @@ a.service-item {
   #userway-accessibility-button,
   [id*="userway"],
   [class*="userway"] {
-    top: 90px !important;
+    top: 3rem !important;
     bottom: auto !important;
-    left: 12px !important;
+    left: rem !important;
     right: auto !important;
     transform: none !important;
   }
