@@ -23,7 +23,7 @@
         </div>
       </a>
       <div class="header-actions">
-        <a href="tel:0559106223" class="btn-solid btn-header">
+        <a href="tel:0559106223" onclick="return gtag_report_conversion('tel:0559106223');" class="btn-solid btn-header">
           <i class="fa-solid fa-phone"></i> חייג עכשיו
         </a>
       </div>
@@ -64,7 +64,7 @@
         <div class="footer-col">
           <h3>צור קשר</h3>
           <div class="footer-info">
-            <span><a href="tel:0559106223">055-9106223</a><i class="fa-solid fa-phone"></i></span>
+            <span><a href="tel:0559106223" onclick="return gtag_report_conversion('tel:0559106223');">055-9106223</a><i class="fa-solid fa-phone"></i></span>
             <span>שחל 81, ירושלים<i class="fa-solid fa-location-dot"></i></span>
           </div>
         </div>
@@ -84,5 +84,23 @@
 
     </div>
   </footer>
+
+  <!-- Event snippet for קליק לשיחה (3) conversion page -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17739493044/teoQCPX-rtEcELTd7IpC',
+          'value': 1.0,
+          'currency': 'ILS',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 </body>
 </html>

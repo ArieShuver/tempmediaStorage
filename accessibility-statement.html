@@ -81,7 +81,7 @@
           <p>במידה ונתקלתם בבעיית נגישות באתר או אם אתם זקוקים לסיוע, נשמח אם תפנו לרכז הנגישות שלנו:</p>
           <ul>
             <li><strong>שם:</strong> משה שובר</li>
-            <li><strong>טלפון:</strong> <a href="tel:0559106223">055-9106223</a></li>
+            <li><strong>טלפון:</strong> <a href="tel:0559106223" onclick="return gtag_report_conversion('tel:0559106223');">055-9106223</a></li>
             <li><strong>דוא"ל:</strong> ניתן לפנות דרך טופס יצירת הקשר באתר.</li>
           </ul>
 
@@ -103,6 +103,24 @@
     </div>
   </footer>
   <script src="script.js" defer></script>
+
+  <!-- Event snippet for קליק לשיחה (3) conversion page -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17739493044/teoQCPX-rtEcELTd7IpC',
+          'value': 1.0,
+          'currency': 'ILS',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 </body>
 
 </html>
