@@ -18,22 +18,7 @@
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap">
   </noscript>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17739493044"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17739493044');
-  </script>
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xne02zdx76");
-</script>
+  <link rel="stylesheet" href="style.min.css" />
 </head>
 
 <body>
@@ -140,6 +125,36 @@
       return false;
     }
   </script>
+
+<script>
+  let trackingLoaded = false;
+  function loadTracking() {
+    if (trackingLoaded) return;
+    trackingLoaded = true;
+    
+    // Gtag
+    let gTagScript = document.createElement('script');
+    gTagScript.async = true;
+    gTagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-17739493044";
+    document.head.appendChild(gTagScript);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17739493044');
+
+    // Clarity
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xne02zdx76");
+  }
+
+  // Load on interaction or after 3.5s fallback
+  ['scroll', 'mousemove', 'touchstart', 'click'].forEach(e => window.addEventListener(e, loadTracking, {once: true, passive: true}));
+  setTimeout(loadTracking, 3500);
+</script>
 </body>
 
 </html>
