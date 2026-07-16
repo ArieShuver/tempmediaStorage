@@ -162,6 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.status == 200) {
           if (sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
           if (successBox) successBox.classList.add('show');
+          
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17739493044/4uwbCJmkxtEcELTd7IpC',
+                'value': 1.0,
+                'currency': 'ILS'
+            });
+          }
         } else {
           console.error('Form submission failed:', await response.json());
           alert('אופס! משהו השתבש בשליחה. אנא נסה שוב.');
