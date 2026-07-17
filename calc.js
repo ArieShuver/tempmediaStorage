@@ -3,31 +3,39 @@ document.addEventListener('DOMContentLoaded', function() {
   const monthlyInput = document.getElementById('calc-monthly');
   const rateInput = document.getElementById('calc-rate');
   const yearsInput = document.getElementById('calc-years');
-  const btnMinus = document.getElementById('year-minus');
-  const btnPlus = document.getElementById('year-plus');
-  const calcBtn = document.getElementById('calc-btn');
+  const yearsDisplay = document.getElementById('years-display');
 
   const resFinal = document.getElementById('res-final');
   const resDeposits = document.getElementById('res-deposits');
   const resProfit = document.getElementById('res-profit');
 
   let compoundChart = null;
+  const allInputs = [principalInput, monthlyInput, rateInput, yearsInput];
 
   // Format currency
   function formatMoney(amount) {
     return '₪' + amount.toLocaleString('he-IL', { maximumFractionDigits: 0 });
   }
 
-  // Handle year buttons
-  btnMinus.addEventListener('click', () => {
-    let val = parseInt(yearsInput.value) || 0;
-    if (val > 1) yearsInput.value = val - 1;
-  });
-  
-  btnPlus.addEventListener('click', () => {
-    let val = parseInt(yearsInput.value) || 0;
-    if (val < 50) yearsInput.value = val + 1;
-  });
+  // Animate number count-up
+  function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const currentVal = Math.floor(progress * (end - start) + start);
+      obj.textContent = formatMoney(currentVal);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Update years display from slider
+  function updateYearsDisplay() {
+    yearsDisplay.textContent = yearsInput.value;
+  }
 
   // Calculate and draw chart
   function calculate() {
@@ -70,9 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalProfit = finalAmount - totalDeposits;
 
     // Update Summary Boxes
-    resFinal.textContent = formatMoney(finalAmount);
-    resDeposits.textContent = formatMoney(totalDeposits);
-    resProfit.textContent = formatMoney(totalProfit);
+    const currentFinal = parseInt(resFinal.textContent.replace(/[^0-9]/g, '')) || 0;
+    const currentDeposits = parseInt(resDeposits.textContent.replace(/[^0-9]/g, '')) || 0;
+    const currentProfit = parseInt(resProfit.textContent.replace(/[^0-9]/g, '')) || 0;
+
+    animateValue(resFinal, currentFinal, finalAmount, 500);
+    animateValue(resDeposits, currentDeposits, totalDeposits, 500);
+    animateValue(resProfit, currentProfit, totalProfit, 500);
 
     updateChart(labels, dataCompound, dataRegular);
   }
@@ -192,9 +204,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Bind click
-  calcBtn.addEventListener('click', calculate);
+  // Bind events for real-time calculation
+  allInputs.forEach(input => {
+    input.addEventListener('input', calculate);
+  });
+  yearsInput.addEventListener('input', updateYearsDisplay);
 
   // Initial render
+  updateYearsDisplay();
   calculate();
 });
