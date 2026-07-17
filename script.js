@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTicking = false;
       });
     }
-  }, {passive: true});
+  }, { passive: true });
 
   /* === Typewriter Effect === */
   const typedTextSpan = document.querySelector('.typewriter');
@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (typedTextSpan && cursorSpan) {
     const textArray = [
-      'ביטחון מלא למשפחה.',
-      'חיסכון אדיר במשכנתא.',
-      'פנסיה שעובדת בשבילך.',
-      'תנאים ששמורים לגדולים.',
-      'ליווי צמוד ברגעי האמת.'
+      'על המחיר הטוב ביותר.',
+      'להוזיל לך את הביטוחים.',
+      'להשיג לך תנאים של קבוצה.',
+      'לחסוך  אלפי שקלים בשנה.',
+      ' מול חברות הביטוח.'
     ];
     const typingDelay = 80;
     const erasingDelay = 40;
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // The form will now submit to web3forms, we just show a loading state.
       btnSubmit.classList.add('loading');
       btnSubmit.disabled = true;
-      
+
       const formData = new FormData(form);
       const object = {};
       formData.forEach((value, key) => {
@@ -158,31 +158,31 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: json
       })
-      .then(async (response) => {
-        if (response.status == 200) {
-          if (sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
-          if (successBox) successBox.classList.add('show');
-          
-          if (typeof gtag === 'function') {
-            gtag('event', 'conversion', {
+        .then(async (response) => {
+          if (response.status == 200) {
+            if (sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
+            if (successBox) successBox.classList.add('show');
+
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion', {
                 'send_to': 'AW-17739493044/4uwbCJmkxtEcELTd7IpC',
                 'value': 1.0,
                 'currency': 'ILS'
-            });
+              });
+            }
+          } else {
+            console.error('Form submission failed:', await response.json());
+            alert('אופס! משהו השתבש בשליחה. אנא נסה שוב.');
           }
-        } else {
-          console.error('Form submission failed:', await response.json());
+        })
+        .catch(error => {
+          console.error('Form submission error:', error);
           alert('אופס! משהו השתבש בשליחה. אנא נסה שוב.');
-        }
-      })
-      .catch(error => {
-        console.error('Form submission error:', error);
-        alert('אופס! משהו השתבש בשליחה. אנא נסה שוב.');
-      })
-      .finally(() => {
-        btnSubmit.classList.remove('loading');
-        btnSubmit.disabled = false;
-      });
+        })
+        .finally(() => {
+          btnSubmit.classList.remove('loading');
+          btnSubmit.disabled = false;
+        });
     });
 
     if (btnClose) {
@@ -264,4 +264,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
