@@ -3,14 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מחשבון ריבית דריבית – חשבו כמה ההשקעות שלכם יכולות לצמוח</title>
+  <title>מחשבון ריבית דריבית  | כולל מס, דמי ניהול ואינפלציה | משה שובר</title>
   <meta name="description"
-    content="מחשבון ריבית דריבית מתקדם המאפשר לחשב כיצד ההשקעה שלכם תצמח לאורך זמן. הזינו סכום התחלתי, הפקדה חודשית ותשואה שנתית וגלו את כוחה של הריבית דריבית." />
+    content="מחשבון ריבית דריבית מתקדם וחינמי המאפשר לחשב כיצד ההשקעה תצמח. כולל התאמה למס, דמי ניהול, אינפלציה ועוד. הזינו נתונים וגלו." />
   <link rel="icon" href="brand-logo.webp" type="image/webp">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.min.css?v=2" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "מחשבון ריבית דריבית",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "description": "מחשבון ריבית דריבית מתקדם הכולל חישובי מס, דמי ניהול ואינפלציה.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "ILS"
+    }
+  }
+  </script>
+  <style>
+    @media (max-width: 768px) {
+      .dashboard-content {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .summary-area {
+        margin-bottom: 30px;
+      }
+    }
+  </style>
 </head>
 <body class="subpage-main">
   <header class="site-header" id="site-header">
@@ -65,16 +91,60 @@
           </div>
           <div class="dashboard-inputs">
             <div class="dash-input-group">
-              <label>קרן התחלתית (₪)</label>
-              <input type="number" id="calc-principal" value="10000" min="0" step="1000">
+              <label for="calc-principal">קרן התחלתית (₪)</label>
+              <input type="number" id="calc-principal" aria-label="סכום התחלתי" value="10000" min="0" step="1000">
             </div>
             <div class="dash-input-group">
-              <label>הפקדה חודשית (₪)</label>
-              <input type="number" id="calc-monthly" value="500" min="0" step="100">
+              <label for="calc-monthly" style="display: flex; justify-content: space-between;">
+                <span>הפקדה (₪)</span>
+                <select id="calc-freq" aria-label="תדירות הפקדה" style="border: none; background: transparent; font-size: 0.9rem; color: var(--primary); font-weight: bold; cursor: pointer; outline: none; padding: 0;">
+                  <option value="12">חודשית</option>
+                  <option value="1">שנתית</option>
+                </select>
+              </label>
+              <input type="number" id="calc-monthly" aria-label="סכום הפקדה" value="500" min="0" step="100">
             </div>
             <div class="dash-input-group">
-              <label>ריבית שנתית (%)</label>
-              <input type="number" id="calc-rate" value="7" min="0" step="0.1">
+              <label for="calc-rate">ריבית שנתית (%)</label>
+              <input type="number" id="calc-rate" aria-label="ריבית שנתית" value="7" min="0" step="0.1">
+            </div>
+            <div class="dash-input-group" style="grid-column: 1 / -1; display: flex; gap: 20px; flex-wrap: wrap; margin-top: 5px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: normal;">
+                <input type="checkbox" id="toggle-tax" aria-label="חישוב מס רווחי הון" style="width: 18px; height: 18px; margin: 0;">
+                חישוב מס רווחי הון
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: normal;">
+                <input type="checkbox" id="toggle-fees" aria-label="חישוב דמי ניהול" style="width: 18px; height: 18px; margin: 0;" checked>
+                חישוב דמי ניהול
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: normal;">
+                <input type="checkbox" id="toggle-inflation" aria-label="התאמה לאינפלציה" style="width: 18px; height: 18px; margin: 0;">
+                התאמה לאינפלציה (כוח קנייה)
+              </label>
+            </div>
+            
+            <div class="dash-input-group" id="tax-group" style="display: none;">
+              <label for="calc-tax">מס רווחי הון (%)</label>
+              <input type="number" id="calc-tax" aria-label="מס רווחי הון" value="25" min="0" step="1" max="50">
+            </div>
+            
+            <div class="dash-input-group" id="fee-accum-group">
+              <label for="calc-fee-accum">דמי ניהול מהצבירה (%)</label>
+              <input type="number" id="calc-fee-accum" aria-label="דמי ניהול מהצבירה" value="0.6" min="0" step="0.01" max="10">
+            </div>
+            
+            <div class="dash-input-group" id="fee-deposit-group">
+              <label for="calc-fee-deposit">דמי ניהול מהפקדה (%)</label>
+              <input type="number" id="calc-fee-deposit" aria-label="דמי ניהול מהפקדה" value="0" min="0" step="0.01" max="10">
+            </div>
+
+            <div class="dash-input-group" id="inflation-group" style="display: none;">
+              <label for="calc-inflation">אינפלציה שנתית (%)</label>
+              <input type="number" id="calc-inflation" aria-label="אינפלציה שנתית צפויה" value="2.5" min="0" step="0.1" max="20">
+            </div>
+
+            <div id="fee-promo-message" style="grid-column: 1 / -1; width: fit-content; margin: 5px auto 0; font-size: 0.95rem; color: var(--primary); background: rgba(65, 179, 124, 0.1); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--green); text-align: center;">
+              💡 <strong>לא יודעים איזה דמי ניהול תקבלו?</strong> אצלנו תקבלו 0.6% מהצבירה ו-0% מהפקדה – דמי הניהול הזולים בשוק בהתחייבות!
             </div>
             <div class="dash-input-group dash-input-group--slider">
               <label for="calc-years">תקופה (שנים): <span id="years-display">20</span></label>
@@ -115,7 +185,69 @@
                 </div>
               </div>
 
+              <div class="summary-box box-fees" id="box-fees-container" style="display: none; background: rgba(245, 166, 35, 0.05); border: 1px solid rgba(245, 166, 35, 0.2); border-right: 4px solid #F5A623;">
+                <div class="box-icon" style="color: #F5A623; background: rgba(245, 166, 35, 0.1);"><svg class="icon-svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M374.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-320 320c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l320-320zM128 128A64 64 0 1 0 0 128a64 64 0 1 0 128 0zm192 128a64 64 0 1 0 0 128 64 64 0 1 0 0-128z"/></svg></div>
+                <div class="box-text">
+                  <span>סך דמי ניהול</span>
+                  <strong id="res-fees">₪0</strong>
+                </div>
+              </div>
+
+              <div class="summary-box box-tax" id="box-tax-container" style="display: none; background: rgba(231, 76, 60, 0.05); border: 1px solid rgba(231, 76, 60, 0.2); border-right: 4px solid #E74C3C;">
+                <div class="box-icon" style="color: #E74C3C; background: rgba(231, 76, 60, 0.1);"><svg class="icon-svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg></div>
+                <div class="box-text">
+                  <span>מס שנוכה</span>
+                  <strong id="res-tax">₪0</strong>
+                </div>
+              </div>
+
             </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button id="toggle-table-btn" style="background: var(--primary); color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-weight: 500; font-family: inherit;">
+              <svg class="icon-svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M64 256V160H224v96H64zm0 64H224v96H64V320zm224 96V320H448v96H288zM448 256H288V160H448v96zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>
+              <span id="toggle-table-text">הצג פירוט בטבלה</span>
+            </button>
+            <button id="export-csv-btn" style="background: var(--green); color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-weight: 500; font-family: inherit;">
+              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>
+              ייצא לאקסל
+            </button>
+            <button id="reset-btn" style="background: transparent; color: var(--text-gray); border: 1px solid var(--text-light); padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-weight: 500; font-family: inherit;">
+              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
+              איפוס
+            </button>
+          </div>
+
+          <div id="yearly-table-wrapper" class="yearly-table-container" style="display: none; margin-top: 20px; overflow-x: auto; background: var(--surface); border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px; font-size: 1.4rem;">פירוט התפתחות החיסכון (לפי שנים)</h3>
+            <table class="yearly-table" id="yearly-table" style="width: 100%; border-collapse: collapse; text-align: center; min-width: 600px;">
+              <thead>
+                <tr style="background: rgba(65, 179, 124, 0.1); color: var(--primary); border-bottom: 2px solid var(--green);">
+                  <th style="padding: 12px; font-weight: 700;">שנה</th>
+                  <th style="padding: 12px; font-weight: 700;">סך הפקדות</th>
+                  <th style="padding: 12px; font-weight: 700;">רווח צבור</th>
+                  <th class="col-fees" style="padding: 12px; font-weight: 700; display: none;">דמי ניהול שנגבו</th>
+                  <th class="col-tax" style="padding: 12px; font-weight: 700; display: none;">מס צפוי במשיכה</th>
+                  <th style="padding: 12px; font-weight: 700;">יתרה סופית (נטו)</th>
+                </tr>
+              </thead>
+              <tbody id="yearly-table-body">
+                <!-- Rows injected via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="share-container">
+            <button id="share-btn" class="btn-outline share-btn">
+              <svg class="icon-svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96zM224 368c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm135.4-98.6c-11-13.2-28.5-18.6-45.4-15.1-15.3 3.2-28.8 13.9-35.9 28.3-7.3 14.8-6.3 32.5 2.5 46.4l-8.9 8.9c-11.7 11.7-11.7 30.7 0 42.4s30.7 11.7 42.4 0l8.9-8.9c13.9 8.8 31.6 9.8 46.4 2.5 14.4-7.1 25.1-20.6 28.3-35.9 3.5-16.9-1.9-34.4-15.1-45.4zM256 160c-44.2 0-80 35.8-80 80s35.8 80 80 80 80-35.8 80-80-35.8-80-80-80z"/></svg>
+              <span class="share-text">שתפו את הקסם</span>
+            </button>
+          </div>
+          
+          <div style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: var(--text-light); display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg width="1em" height="1em" fill="var(--green)" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+          אומת ונבדק מקצועית על ידי משה שובר סוכן ביטוח מורשה. הנתונים מתבססים על נוסחאות ריבית מדויקות.
           </div>
 
         </div>
@@ -137,95 +269,212 @@
     </section>
 
     <!-- Article Content -->
-    <section class="story-section article-section" style="padding-top: 40px; background: var(--white);">
-      <div class="wrap">
-        <div class="story-content">
-          <h2>מהי ריבית דריבית?</h2>
-          <p>ריבית דריבית היא מצב שבו כל רווח שנצבר מצטרף לקרן ומתחיל לייצר רווחים נוספים. במילים פשוטות – הכסף שלכם
-            עובד בשבילכם.</p>
-          <p>לדוגמה, אם השקעתם 10,000 ₪ בתשואה שנתית של 8%, בשנה הראשונה תרוויחו 800 ₪. בשנה השנייה, התשואה תחושב על
-            10,800 ₪, וכך נוצר "כדור שלג" של צמיחה שמתעצם עם הזמן.</p>
-          <h2>למה הזמן חשוב יותר מהסכום?</h2>
-          <p>אנשים רבים חושבים שצריך להתחיל עם סכום גדול כדי לראות תוצאות משמעותיות. בפועל, משך ההשקעה הוא אחד הגורמים
-            המשפיעים ביותר על התוצאה הסופית.</p>
-          <p>גם הפקדה חודשית קטנה, כאשר היא מתבצעת באופן עקבי במשך עשרות שנים, יכולה להוביל לצבירה משמעותית בזכות אפקט
-            הריבית דריבית.</p>
-
-          <h2>למי מתאים מחשבון ריבית דריבית?</h2>
-          <p>המחשבון מתאים לכל מי שרוצה להבין כיצד הכסף שלו עשוי לצמוח לאורך זמן:</p>
-          <ul style="text-align: right; padding-right: 20px; margin-bottom: 24px;">
-            <li style="margin-bottom: 10px;">משקיעים בשוק ההון.</li>
-            <li style="margin-bottom: 10px;">חוסכים לפנסיה.</li>
-            <li style="margin-bottom: 10px;">בעלי קרן השתלמות או קופת גמל.</li>
-            <li style="margin-bottom: 10px;">הורים החוסכים לילדים.</li>
-            <li style="margin-bottom: 10px;">כל מי שמתכנן עצמאות כלכלית או פרישה מוקדמת.</li>
-          </ul>
-
-          <h2>האם התחזית מדויקת?</h2>
-          <p>לא. המחשבון מספק סימולציה המבוססת על הנתונים שהזנת. שוק ההון אינו מבטיח תשואה קבועה, ולכן התוצאה היא הערכה
-            בלבד. בפועל, ייתכנו שנים עם תשואה גבוהה או נמוכה יותר, והמטרה היא להבין את הפוטנציאל ארוך הטווח.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq" style="padding: 60px 0 80px; background: var(--bg);">
+    <section class="story-section article-section" style="padding: 60px 0; background: var(--white);">
       <div class="wrap fade-in-element">
-        <h2 class="section-title centered">שאלות נפוצות</h2>
-        <div class="faq-list">
+        <div class="story-content">
+          <h2>מהי ריבית דריבית וכיצד פועל מנגנון "הפלא השמיני בתבל"?</h2>
+          <p>בעולם הפיננסים והחיסכון לטווח ארוך, נהוג לחלק את אופן צמיחת ההון לשני מודלים מתמטיים מרכזיים: ריבית פשוטה
+            וריבית דריבית (המוכרת גם בשמות "ריבית מורכבת" או "ריבית על ריבית"). כדי להבין את עוצמתו של הכלי, חשוב ראשית
+            להבחין בהבדל התהומי שבין השתיים.</p>
+          <p>מודל הריבית הפשוטה הוא ליניארי לחלוטין: בכל תקופת זמן קבועה, אתם מרוויחים אחוז מסוים אך ורק מתוך סכום הקרן
+            הראשוני שהפקדתם ביום הראשון. מנגד, מודל הריבית דריבית מייצר צמיחה מעריכית (אקספוננציאלית). בתהליך זה,
+            הרווחים או הריביות שנצברו בסוף כל תקופה אינם נמשכים החוצה או נשארים בצד, אלא מתמזגים באופן אוטומטי לתוך הקרן
+            המקורית והופכים לחלק בלתי נפרד ממנה.</p>
+          <p>החל מאותה נקודה, בתקופת החישוב הבאה, שיעור התשואה מוחל על הסכום החדש והמוגדל. במילים פשוטות: הכסף שלכם מייצר
+            רווחים, והרווחים הללו מתחילים מיד לייצר רווחים חדשים בעצמם. ככל שנקופות השנים, נוצר אפקט כדור שלג פיננסי הולך
+            ומאיץ, המטפס בחזקות מתמטיות ומסוגל להזניק סכומי כסף צנועים לממדים שקשה מאוד לתפוס או לחזות מראש ללא סימולטור
+            מקצועי.</p>
 
-          <div class="faq-item fade-in-element">
-            <button class="faq-q">האם אפשר לחשב הפקדות חודשיות?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg></button>
-            <div class="faq-a">
-              <p>כן. המחשבון מחשב הן את ההשקעה הראשונית והן הפקדות חודשיות קבועות לאורך כל התקופה.</p>
-            </div>
+          <h2>חרב פיפיות פיננסית: ההשפעה של ריבית מורכבת על חובות, אוברדרפט ואשראי</h2>
+          <p>אחת הטעויות הנפוצות ביותר בציבור היא השיוך האוטומטי של המושג "ריבית דריבית" לעולם ההשקעות החיוביות בלבד.
+            בפועל, מדובר בחוק טבע מתמטי שאינו מבחין בין זכות לחובה, ולכן הוא מהווה חרב פיפיות עוצמתית במיוחד. המנגנון פועל
+            בדיוק באותה דרך ובאותה עוצמה בשני כיוונים הפוכים: הוא יכול לבנות עבורכם עושר אדיר, אך הוא יכול באותה מידה
+            בדיוק להוביל להתמוטטות פיננסית.</p>
+          <p>הכלל הבסיסי פשוט:</p>
+          <ul class="styled-list">
+            <li><strong>כאשר אתם משקיעים או חוסכים:</strong> הריבית דריבית עובדת ישירות עבורכם. הגופים הפיננסיים או
+              השווקים הם אלו שנאלצים לשלם לכם ריבית על הריבית.</li>
+            <li><strong>כאשר אתם לווים כסף או נמצאים בחוב:</strong> הריבית דריבית עובדת נגדכם בצורה אגרסיבית. אתם אלו
+              שמשלמים לגופים המלווים ריבית על ריבית.</li>
+          </ul>
+          <p>המציאות הכלכלית מראה כי כמעט כל אדם מתמודד במהלך חייו עם מכשירים נושאי ריבית שלילית. זה מתחיל בחשבון עובר
+            ושב (עו"ש) שנכנס למצב של משיכת יתר (אוברדרפט). הבנקים אוהבים מאוד את המצב הזה, כיוון שהריבית על האוברדרפט היא
+            ריבית דריבית יקרה במיוחד שנצברת ונוספת לחוב שלכם באופן שוטף.</p>
+          <p>בנוסף, חברות כרטיסי האשראי משקיעות משאבים עצומים בשיווק של פתרונות אשראי מפתים בעלי שמות מרשימים כגון "הוצאה
+            קבועה", "חיוב מתגלגל" או תוכניות אשראי בהתאמה אישית. מאחורי המילים המכובדות הללו מסתתרות הלוואות יקרות לכל
+            דבר ועניין. כאשר הגולש אינו פורע את מלוא החוב החודשי שלו ומגלגל אותו הלאה, יתרת החוב שלא שולמה צוברת ריבית
+            מורכבת. החוב תופח במהירות, מספר התשלומים מתארך, ובסופו של דבר הצרכן מגלה שהוא משלם סכומי עתק שחלקם הגדול הוא
+            ריבית על הריבית.</p>
+          <p>השפעה זו קריטית לא פחות בעולם ההלוואות הגדולות והמשכנתאות. בעתות משבר, גופים רבים מציעים ללווים "מתנות" בדמות
+            הקפאת תשלומי המשכנתא (גרייס) או נטילת הלוואות גישור לטווח קצר. חשוב להבין כי בזמן שהתשלומים מוקפאים, החוב
+            עצמו אינו קופא במקום. הוא ממשיך לצבור ריבית דריבית בקצב מהיר, מה שמגדיל את הקרן הסופית ומייקר את סך ההחזרים
+            העתידיים באופן משמעותי. מסיבה זו, הבנת העיקרון חיונית גם למי שאינו מחזיק בתיק מניות פנוי, אלא פשוט רוצה לדעת
+            כיצד לצמצם חובות ולמנוע מעצמו נפילה למלכודות אשראי.</p>
+            
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="index.html#contact" class="btn-solid" style="background: var(--primary-deep); padding: 12px 30px; font-size: 1.2rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
+              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> 
+              רוצים לבדוק איך למקסם את הכסף שלכם? דברו איתי
+            </a>
           </div>
 
-          <div class="faq-item fade-in-element">
-            <button class="faq-q">האם החישוב כולל מס?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg></button>
-            <div class="faq-a">
-              <p>ברירת המחדל היא ללא מס, כדי להציג את פוטנציאל הצמיחה המלא. במכשירי חיסכון פטורים ממס (כמו קרן
-                השתלמות) התוצאה קרובה למציאות. במכשירים אחרים, יש לקחת בחשבון מס רווחי הון בשיעור 25% על הרווח הריאלי.
-              </p>
-            </div>
+          <h2>הוכחה במספרים: דוגמאות מוחשיות לכוחו של הזמן ואפקט הצמיחה</h2>
+          <p>כדי לתרגם את התיאוריה למציאות בשטח מבלי להפוך את המאמר לשיעור מתמטיקה אקדמי, בואו נבחן מספר דוגמאות מספריות
+            המחישות כיצד פועל המנגנון על סכומים שונים ולאורך תקופות זמן משתנות.</p>
+
+          <h3>דוגמה 1: צמיחה נומינלית של סכום קטן</h3>
+          <p>נניח שהפקדתם סכום ראשוני של 10,000 ₪ בתכנית חיסכון המעניקה תשואה שנתית קבועה וממוצעת של 5%.</p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>תקופה</th>
+                <th>רווח שנתי</th>
+                <th>סך החיסכון</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>סוף שנה 1</td>
+                <td>500 ₪</td>
+                <td>10,500 ₪</td>
+              </tr>
+              <tr>
+                <td>סוף שנה 2</td>
+                <td>525 ₪</td>
+                <td>11,025 ₪</td>
+              </tr>
+              <tr>
+                <td>סוף שנה 5</td>
+                <td>-</td>
+                <td>12,763 ₪</td>
+              </tr>
+              <tr>
+                <td>סוף שנה 10</td>
+                <td>-</td>
+                <td>16,290 ₪</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>דוגמה 2: השקעה בסכומים גבוהים בשילוב חיסכון חודשי שוטף</h3>
+          <p>נעלה מדרגה ונבחן תרחיש נפוץ בעולם ההשקעות המודרני. נניח שברשותכם סכום התחלתי של 200,000 ₪, ואתם מחליטים
+            להשקיע אותו במסלול עוקב מדדי מניות (כמו S&P 500) בתשואה שנתית ממוצעת של 10%. במקביל, אתם מפקידים 2,500 ₪
+            מדי חודש.</p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>אופק השקעה</th>
+                <th>סך הפקדות</th>
+                <th>רווח מריבית דריבית</th>
+                <th>שווי התיק הכולל</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>5 שנים</td>
+                <td>350,000 ₪</td>
+                <td>~163,500 ₪</td>
+                <td>~513,000 ₪</td>
+              </tr>
+              <tr>
+                <td>10 שנים</td>
+                <td>500,000 ₪</td>
+                <td>~518,000 ₪</td>
+                <td>~1,018,000 ₪</td>
+              </tr>
+              <tr>
+                <td>15 שנים</td>
+                <td>650,000 ₪</td>
+                <td>~1,170,000 ₪</td>
+                <td>~1,820,000 ₪</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>דוגמה 3: כוחה של ההתמדה - דני מול יוסי</h3>
+          <p>דוגמה זו ממחישה מדוע להתחיל לחסוך מוקדם חשוב יותר מאשר גובה הסכום. נניח תשואה שנתית ממוצעת של 8%.</p>
+          <table class="data-table comparison-table">
+            <thead>
+              <tr>
+                <th>פרמטר</th>
+                <th>דני (התחיל מוקדם)</th>
+                <th>יוסי (התחיל מאוחר)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>גיל התחלה</td>
+                <td>25</td>
+                <td>35</td>
+              </tr>
+              <tr>
+                <td>הפקדה חודשית</td>
+                <td>500 ₪</td>
+                <td>500 ₪</td>
+              </tr>
+              <tr>
+                <td>משך ההפקדות</td>
+                <td>10 שנים (עד גיל 35)</td>
+                <td>30 שנה (עד גיל 65)</td>
+              </tr>
+              <tr>
+                <td><strong>סך הכל הפקדות</strong></td>
+                <td><strong>60,000 ₪</strong></td>
+                <td><strong>180,000 ₪</strong></td>
+              </tr>
+              <tr class="highlight-row">
+                <td><strong>שווי בגיל 65</strong></td>
+                <td><strong>~1,033,000 ₪</strong></td>
+                <td><strong>~745,000 ₪</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p><strong>מסקנה:</strong> למרות שדני הפקיד רק שליש מהסכום, הוא סיים עם כ-300,000 ₪ יותר מיוסי, רק בזכות 10 השנים הנוספות שבהן הכסף שלו עבד.</p>
+
+          <div style="text-align: center; margin: 40px 0;">
+            <a href="index.html#contact" class="btn-solid" style="background: var(--green); padding: 14px 40px; font-size: 1.3rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
+              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> 
+              בואו נבנה יחד את אסטרטגיית ההשקעה שלכם
+            </a>
           </div>
 
-          <div class="faq-item fade-in-element">
-            <button class="faq-q">האם המחשבון כולל אינפלציה?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg></button>
-            <div class="faq-a">
-              <p>כברירת מחדל לא. כדי להבין את כוח הקנייה העתידי של הכסף, ניתן להזין "תשואה ריאלית", כלומר, להפחית את שיעור
-                האינפלציה השנתי הממוצע (כ-2-3%) מהתשואה המשוערת.</p>
-            </div>
+          <h2>האסטרטגיה המנצחת: כיצד למקסם את עקרון הריבית דריבית בחיי היום-יום?</h2>
+          <p>כעת, לאחר שהבנו את המתמטיקה והמספרים, עולה השאלה הפרקטית: כיצד אדם מן השורה יכול לנצל את התובנות הללו כדי
+            לשפר את מצבו הכלכלי באופן אקטיבי?</p>
+          <h3>1. הפקדות פנסיה וקרנות השתלמות לעצמאים</h3>
+          <p>עצמאים רבים ממתינים לסוף השנה כדי לבצע הפקדה חד-פעמית גדולה. זו טעות. הדרך הנכונה היא לחלק את ההפקדה
+            לתשלומים חודשיים. כך הכסף מתחיל לעבוד מוקדם יותר, ואתם שומרים על רצף ביטוחי מלא.</p>
+          <h3>2. ניהול אקטיבי והפחתת דמי ניהול</h3>
+          <p>דמי ניהול הם האויב השקט של הריבית דריבית. כל שקל שנגבה מכם היום הוא שקל שלעולם לא יצבור עבורכם תשואה.
+            השתמשו במחשבון כדי לראות כמה כסף אתם מפסידים לאורך שנים, והגיעו מוכנים למיקוח מול הגוף המנהל.</p>
+          <h3>3. התמודדות נכונה עם משברים פיננסיים בשווקים</h3>
+          <p>התגובה האינסטינקטיבית למשבר היא פניקה ומשיכת כספים. זו טעות שמקבעת הפסדים. שימוש במחשבון מאפשר להריץ
+            סימולציות הרגעה, להבין את חשיבות ההתמדה, וכיצד המשך הפקדות בזמן ירידות מאיץ את הצמיחה בטווח הארוך.</p>
+          <h3>4. צמצום וחיסול ממוקד של האוברדרפט והלוואות</h3>
+          <p>אם אתם באוברדרפט, אתם מעניקים "מתנה" יומיומית לבנק. כל שקל שמקטין את החוב עוצר את כדור השלג השלילי. הזרימו
+            כספים פנויים ישירות לחשבון במקום להמתין.</p>
+
+          <h2>המתמטיקה שמאחורי הקלעים: הנוסחאות הפיננסיות של הריבית המורכבת</h2>
+          <p>עבור אלו המעוניינים לרדת לעומק החישובים, הנוסחה הבסיסית לחישוב ערך עתידי של השקעה חד-פעמית היא:</p>
+          <div class="formula-box">
+            <p>סכום סופי = סכום התחלתי × (1 + ריבית)<sup>מספר תקופות</sup></p>
+          </div>
+          <p>עבור חישובים מתקדמים יותר הכוללים תדירויות חישוב שונות, הנוסחה המקצועית היא:</p>
+          <div class="formula-box">
+            <p>FV = PV × (1 + r/n)<sup>n×t</sup></p>
           </div>
 
-          <div class="faq-item fade-in-element">
-            <button class="faq-q">איזו תשואה כדאי להזין?<svg class="faq-icon" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19" class="vert-line"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg></button>
-            <div class="faq-a">
-              <p>תשואה ממוצעת של מדד S&P 500 לאורך ההיסטוריה עומדת על כ-8-10% בשנה. מומלץ להזין תשואה שמרנית יותר (למשל
-                7%) כדי לקבל תחזית מציאותית, ולהריץ מספר תרחישים.</p>
-            </div>
+          <div class="disclaimer-box">
+            <h4>הערה משפטית והבהרה חשובה</h4>
+            <p>הנתונים, החישובים והסימולציות המופקים באמצעות מחשבון זה מבוססים על מודלים מתמטיים קבועים והנחות יסוד
+              תיאורטיות, ומטרתם לשמש ככלי עזר והערכה כללית בלבד. המציאות הכלכלית אינה ליניארית, וביצועי העבר אינם מהווים
+              ערובה לתשואות עתידיות. החישובים אינם משקללים עלויות ניהול, מיסוי או שינויים רגולטוריים. אין לראות במידע זה
+              משום ייעוץ השקעות, ייעוץ פנסיוני או תחליף לייעוץ אישי ומקצועי. לקבלת החלטות כלכליות, מומלץ תמיד לפנות לבעל
+              רישיון מוסמך.</p>
           </div>
-
         </div>
       </div>
     </section>
-
   </main>
   
   <footer class="site-footer" style="background: var(--primary-deep);">

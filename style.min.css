@@ -2048,6 +2048,114 @@ input[type=range]::-webkit-slider-thumb {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
+.styled-list {
+    text-align: right;
+    padding-right: 20px;
+    margin: 24px 0;
+    list-style-type: none;
+}
+
+.styled-list li {
+    position: relative;
+    padding-right: 25px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.styled-list li::before {
+    content: '✔';
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--green);
+    font-weight: 900;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-table th {
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.data-table tbody tr:nth-of-type(even) {
+    background-color: var(--bg);
+}
+
+.comparison-table tbody tr:last-child {
+    background-color: var(--green-soft);
+    border-top: 2px solid var(--green);
+}
+
+.comparison-table tbody tr:last-child strong {
+    color: var(--green-hov);
+}
+
+.formula-box {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--green);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: var(--radius-sm);
+    font-family: monospace, 'Courier New', Courier;
+    font-size: 1.1rem;
+    direction: ltr;
+    text-align: left;
+}
+
+.formula-box p {
+    margin: 0;
+}
+
+.disclaimer-box {
+    background-color: #fff9e6;
+    border: 1px solid #ffe5a0;
+    padding: 25px;
+    margin-top: 40px;
+    border-radius: var(--radius);
+}
+
+.share-container {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+}
+
+.share-btn {
+    border-color: var(--border);
+    color: var(--text-gray);
+    font-weight: 600;
+    background-color: var(--white);
+}
+
+.share-btn:hover {
+    background-color: var(--bg-alt);
+    color: var(--primary);
+}
+
+.share-btn.copied {
+    background-color: var(--green-soft);
+    border-color: var(--green);
+    color: var(--green-hov);
+}
+
 .bottom-cta,
 .faq,
 .site-footer,
