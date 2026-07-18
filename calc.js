@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const feeAccumInput = document.getElementById('calc-fee-accum');
   const feeDepositInput = document.getElementById('calc-fee-deposit');
 
-  const toggleInflation = document.getElementById('toggle-inflation');
-  const inflationGroup = document.getElementById('inflation-group');
-  const calcInflation = document.getElementById('calc-inflation');
   const calcFreq = document.getElementById('calc-freq');
 
   const resFinal = document.getElementById('res-final');
@@ -37,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const allInputs = [
     principalInput, monthlyInput, rateInput, yearsInput,
     taxInput, feeAccumInput, feeDepositInput, toggleTax, toggleFees,
-    toggleInflation, calcInflation, calcFreq
+    calcFreq
   ].filter(Boolean);
 
   function handleToggles() {
@@ -51,15 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (feePromoMessage) feePromoMessage.style.display = toggleFees.checked ? '' : 'none';
       if (boxFeesContainer) boxFeesContainer.style.display = toggleFees.checked ? '' : 'none';
     }
-    if (toggleInflation && inflationGroup) {
-      inflationGroup.style.display = toggleInflation.checked ? '' : 'none';
-    }
     calculate();
   }
 
   if (toggleTax) toggleTax.addEventListener('change', handleToggles);
   if (toggleFees) toggleFees.addEventListener('change', handleToggles);
-  if (toggleInflation) toggleInflation.addEventListener('change', handleToggles);
 
   // Format currency
   function formatMoney(amount) {
@@ -105,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (feeDepositInput) feeDepositRate = (parseFloat(feeDepositInput.value) || 0) / 100;
     }
 
-    const inflationRate = (toggleInflation && toggleInflation.checked && calcInflation) ? (parseFloat(calcInflation.value) || 0) / 100 : 0;
+    const inflationRate = 0;
     const freq = parseInt(calcFreq ? calcFreq.value : 12);
 
     const monthlyRate = (r / 100) / 12;
