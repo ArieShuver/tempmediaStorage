@@ -434,12 +434,74 @@ document.addEventListener('DOMContentLoaded', function() {
       if (calcFreq) calcFreq.value = "12";
       if (toggleTax) toggleTax.checked = false;
       if (toggleFees) toggleFees.checked = true;
-      if (toggleInflation) toggleInflation.checked = false;
+      if (typeof toggleInflation !== 'undefined' && toggleInflation) toggleInflation.checked = false;
       if (taxInput) taxInput.value = 25;
       if (feeAccumInput) feeAccumInput.value = 0.6;
       if (feeDepositInput) feeDepositInput.value = 0;
-      if (calcInflation) calcInflation.value = 2.5;
+      if (typeof calcInflation !== 'undefined' && calcInflation) calcInflation.value = 2.5;
       handleToggles();
     });
   }
+
+  // --- Exit Intent and Timer Modal Logic ---
+  const exitModal = document.getElementById('exit-intent-modal');
+  const closeExitModal = document.getElementById('close-exit-modal');
+  let modalShown = false;
+
+  function showExitModal() {
+    if (!modalShown && exitModal) {
+      exitModal.style.display = 'flex';
+      modalShown = true;
+    }
+  }
+
+  if (closeExitModal && exitModal) {
+    closeExitModal.addEventListener('click', () => {
+      exitModal.style.display = 'none';
+    });
+    // Close on click outside
+    exitModal.addEventListener('click', (e) => {
+      if (e.target === exitModal) {
+        exitModal.style.display = 'none';
+      }
+    });
+  }
+
+  // 1. Show after 45 seconds (Works on Desktop & Mobile)
+  setTimeout(() => {
+    showExitModal();
+  }, 45000);
+
+  // 2. Show on exit intent (Desktop: mouse leaves the top of the viewport)
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0) {
+      showExitModal();
+    }
+  });
+
+  // 3. Show on exit intent (Mobile: rapid upward scrolling to address bar)
+  let lastScrollY = window.scrollY;
+  let lastScrollTime = Date.now();
+  
+  window.addEventListener('scroll', () => {
+    if (modalShown) return;
+    
+    const currentScrollY = window.scrollY;
+    const currentTime = Date.now();
+    const timeDiff = currentTime - lastScrollTime;
+    
+    if (timeDiff > 0 && currentScrollY > 300) {
+      const scrollDiff = lastScrollY - currentScrollY; // positive means scrolling UP
+      const scrollSpeed = scrollDiff / timeDiff; // speed in pixels/ms
+      
+      // If scrolling up very fast (e.g. > 1.5 px/ms) and they are on mobile/touch device
+      if (scrollSpeed > 1.5 && window.innerWidth <= 768) {
+        showExitModal();
+      }
+    }
+    
+    lastScrollY = currentScrollY;
+    lastScrollTime = currentTime;
+  }, { passive: true });
+  // ----------------------------------------
 });
