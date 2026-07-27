@@ -8,8 +8,8 @@
   <link rel="icon" href="brand-logo.webp" type="image/webp">
   <meta name="description"
     content="משה שובר הוא סוכן ביטוח שמסייע בהוזלת ביטוח משכנתא, ביטוח חיים, ביטוח בריאות, פנסיה וקרן השתלמות עם ליווי אישי ותנאים משתלמים." />
-  <meta http-equiv="Content-Security-Policy"
-    content="script-src 'self' https://www.googletagmanager.com https://www.clarity.ms 'unsafe-inline';">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://*.clarity.ms 'unsafe-inline';
+    connect-src 'self' https://*.clarity.ms https://*.bing.com; img-src 'self' data: https://*.clarity.ms https://*.bing.com;">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0A2A43" />
   <meta property="og:locale" content="he_IL" />
@@ -25,9 +25,14 @@
   <meta name="twitter:image" content="main-bg.webp" />
   <link rel="preload" as="image" href="hero-bg-contract.webp" fetchpriority="high">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.clarity.ms" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="style.min.css?v=2" />
   <script type="application/ld+json">
   {
