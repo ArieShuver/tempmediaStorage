@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fName = form.querySelector('.f-name');
     const fPhone = form.querySelector('.f-phone');
     const fInterest = form.querySelector('.f-interest');
-    const fPrivacy = form.querySelector('#privacy');
+    const fPrivacy = form.querySelector('input[name="privacy"]');
     const btnSubmit = form.querySelector('.btn-submit');
     const successBox = form.closest('.lead-box, .cta-box').querySelector('.success');
     const sucNameEl = successBox?.querySelector('.suc-name');
