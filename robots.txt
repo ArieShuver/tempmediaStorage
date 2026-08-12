@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shuverinsurance.com
+Sitemap: https://shuverinsurance.com/sitemap.xml

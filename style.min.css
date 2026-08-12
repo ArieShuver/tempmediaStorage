@@ -2822,3 +2822,43 @@ input[type=range]::-webkit-slider-thumb {
         left: 200%
     }
 }
+
+/* ===== RELATED GUIDES MINIMAL ===== */
+.related-guides-minimal {
+    padding: 30px 0 50px;
+    background: var(--bg);
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.related-minimal-title {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.related-minimal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.related-minimal-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.related-minimal-link:hover {
+    background: var(--bg-alt);
+    color: var(--primary);
+    border-color: var(--primary);
+}
