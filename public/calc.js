@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function initCalc() {
   const principalInput = document.getElementById('calc-principal');
   const monthlyInput = document.getElementById('calc-monthly');
   const rateInput = document.getElementById('calc-rate');
@@ -230,7 +230,12 @@ document.addEventListener('DOMContentLoaded', function() {
     colFeesHeaders.forEach(el => el.style.display = (toggleFees && toggleFees.checked) ? '' : 'none');
     colTaxHeaders.forEach(el => el.style.display = (toggleTax && toggleTax.checked) ? '' : 'none');
 
-    updateChart(labels, dataCompound, dataRegular);
+    try {
+      updateChart(labels, dataCompound, dataRegular);
+    } catch(err) {
+      console.error('Error in updateChart:', err);
+      if (!window.alertedChartErr) { alert('Chart error: ' + err.message); window.alertedChartErr = true; }
+    }
   }
 
   function updateChart(labels, compound, regular) {
@@ -240,8 +245,14 @@ document.addEventListener('DOMContentLoaded', function() {
       compoundChart.destroy();
     }
 
-    Chart.defaults.font.family = "'Heebo', sans-serif";
-    Chart.defaults.color = '#334155';
+    if (Chart.defaults && Chart.defaults.font) {
+      Chart.defaults.font.family = "'Heebo', sans-serif";
+    } else if (Chart.defaults && Chart.defaults.global) {
+      Chart.defaults.global.defaultFontFamily = "'Heebo', sans-serif";
+    }
+    if (Chart.defaults) {
+      Chart.defaults.color = '#334155';
+    }
 
     compoundChart = new Chart(ctx, {
       type: 'line',
@@ -504,4 +515,6 @@ document.addEventListener('DOMContentLoaded', function() {
     lastScrollTime = currentTime;
   }, { passive: true });
   // ----------------------------------------
-});
+}
+
+if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initCalc); } else { initCalc(); }
