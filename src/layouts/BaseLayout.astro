@@ -21,8 +21,8 @@ import Footer from '../components/Footer.astro';
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="icon" href="/brand-logo.webp" type="image/webp">
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://*.clarity.ms 'unsafe-inline';
-    connect-src 'self' https://*.clarity.ms https://*.bing.com; img-src 'self' data: https://*.clarity.ms https://*.bing.com;">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://*.clarity.ms https://*.userway.org 'unsafe-inline' 'unsafe-eval';
+    connect-src 'self' https://*.clarity.ms https://*.bing.com https://*.userway.org; img-src 'self' data: https://*.clarity.ms https://*.bing.com https://*.userway.org; font-src 'self' data: https://*.userway.org;">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0A2A43" />
   <meta property="og:locale" content="he_IL" />
@@ -154,6 +154,6 @@ import Footer from '../components/Footer.astro';
       account: 'j1gIuV8Npl'
     };
   </script>
-  <script is:inline src="https://cdn.userway.org/widget.js"></script>
+  <script is:inline src="https://cdn.userway.org/widget.js" data-account="j1gIuV8Npl"></script>
 </body>
 </html>
