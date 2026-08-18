@@ -22,7 +22,7 @@ import Footer from '../components/Footer.astro';
   <meta name="description" content={description} />
   <link rel="icon" href="/brand-logo.webp" type="image/webp">
   <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://*.clarity.ms https://*.userway.org 'unsafe-inline' 'unsafe-eval';
-    connect-src 'self' https://*.clarity.ms https://*.bing.com https://*.userway.org; img-src 'self' data: https://*.clarity.ms https://*.bing.com https://*.userway.org; font-src 'self' data: https://*.userway.org;">
+    connect-src 'self' https://*.clarity.ms https://*.bing.com https://*.userway.org; img-src 'self' data: https://*.clarity.ms https://*.bing.com https://*.userway.org; font-src 'self' data: https://*.userway.org https://fonts.gstatic.com;">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0A2A43" />
   <meta property="og:locale" content="he_IL" />
@@ -163,14 +163,27 @@ import Footer from '../components/Footer.astro';
     setTimeout(loadTracking, 6500);
   </script>
 
-  <!-- UserWay Accessibility Widget -->
+  <!-- UserWay Accessibility Widget – deferred until first interaction -->
   <script is:inline>
-    var _userway_config = {
-      color: '#41B37C',
-      position: 5,
-      account: 'j1gIuV8Npl'
-    };
+    (function() {
+      var loaded = false;
+      function loadUserWay() {
+        if (loaded) return;
+        loaded = true;
+        window._userway_config = {
+          color: '#41B37C',
+          position: 5,
+          account: 'j1gIuV8Npl'
+        };
+        var s = document.createElement('script');
+        s.src = 'https://cdn.userway.org/widget.js';
+        s.setAttribute('data-account', 'j1gIuV8Npl');
+        document.body.appendChild(s);
+      }
+      ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'].forEach(function(e) {
+        window.addEventListener(e, loadUserWay, { once: true, passive: true });
+      });
+    })();
   </script>
-  <script is:inline src="https://cdn.userway.org/widget.js" data-account="j1gIuV8Npl"></script>
 </body>
 </html>
