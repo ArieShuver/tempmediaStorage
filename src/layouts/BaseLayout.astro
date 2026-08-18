@@ -38,10 +38,24 @@ import Footer from '../components/Footer.astro';
   <link rel="preload" as="image" href="/hero-bg-contract.webp" fetchpriority="high">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap"></noscript>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.clarity.ms" />
   <link rel="stylesheet" href="/style.min.css?v=7" />
+  <style>
+    /* Critical CSS for LCP */
+    .hero-bg {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 5.882rem;
+      background-image: linear-gradient(to left, rgba(10, 42, 67, .6) 0, rgba(10, 42, 67, .2) 35%, rgba(10, 42, 67, 0) 60%), url('/hero-bg-contract.webp');
+      background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 1;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(255, 255, 255, .12) 0, rgba(255, 255, 255, .9) 100%);
+    }
+  </style>
   <slot name="head" />
 </head>
 <body>
