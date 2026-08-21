@@ -3096,3 +3096,102 @@ input[type="range"]::-webkit-slider-thumb {
     text-align: center;
   }
 }
+/* --- NEW CSS FOR LIFE INSURANCE 50+ PAGE --- */
+.landing-hero {
+  position: relative;
+  padding: 5.882rem 0;
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+.landing-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(13, 75, 120, 0.05) 0%, rgba(30, 132, 73, 0.05) 100%);
+  z-index: 0;
+}
+.landing-hero .wrap {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+.hero-image-side {
+  flex: 1;
+  position: relative;
+}
+.hero-image-side img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-float);
+  transition: transform 0.5s ease;
+}
+.hero-image-side img:hover {
+  transform: translateY(-5px);
+}
+.hero-content-side {
+  flex: 1;
+}
+
+/* Benefits Strip */
+.benefits-strip {
+  background: var(--white);
+  padding: 2.5rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  position: relative;
+  z-index: 10;
+  margin-top: -2rem;
+  border-radius: 1rem;
+}
+.benefits-strip .wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 250px;
+}
+.benefit-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--green-soft);
+  color: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.benefit-icon svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.benefit-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-deep);
+  line-height: 1.3;
+}
+@media (max-width: 900px) {
+  .landing-hero .wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+  .benefits-strip {
+    margin-top: 0;
+    border-radius: 0;
+  }
+  .benefits-strip .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
