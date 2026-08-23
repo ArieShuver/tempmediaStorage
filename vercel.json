@@ -1,8 +1,15 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*.html",
+      "destination": "/:path*",
+      "statusCode": 301
+    }
+  ],
   "headers": [
     {
-    "source": "/:path*",
+      "source": "/:path*",
       "headers": [
         {
           "key": "X-Content-Type-Options",

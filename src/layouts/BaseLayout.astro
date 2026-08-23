@@ -10,6 +10,9 @@ const {
   description = "משה שובר הוא סוכן ביטוח שמסייע בהוזלת ביטוח משכנתא, ביטוח חיים, ביטוח בריאות, פנסיה וקרן השתלמות עם ליווי אישי ותנאים משתלמים."
 } = Astro.props;
 
+const cleanPath = (Astro.url.pathname || '/').replace(/\/index$/, '/').replace(/\/+$/, '') || '/';
+const canonicalURL = new URL(cleanPath, Astro.site ?? 'https://shuverinsurance.com').toString();
+
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -20,6 +23,7 @@ import Footer from '../components/Footer.astro';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
   <link rel="icon" href="/brand-logo.webp" type="image/webp">
   <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://*.googleadservices.com https://clarity.ms https://www.clarity.ms https://*.clarity.ms https://*.userway.org 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.userway.org; connect-src 'self' https://api.web3forms.com https://www.google.com https://*.google.com https://*.doubleclick.net https://*.google-analytics.com https://*.googleadservices.com https://clarity.ms https://www.clarity.ms https://*.clarity.ms https://*.bing.com https://*.userway.org; img-src 'self' data: https://www.google.com https://*.google.com https://*.doubleclick.net https://*.google-analytics.com https://*.googleadservices.com https://clarity.ms https://www.clarity.ms https://*.clarity.ms https://*.bing.com https://*.userway.org; font-src 'self' data: https://*.userway.org https://fonts.gstatic.com;">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
