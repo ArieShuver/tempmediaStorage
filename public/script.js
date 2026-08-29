@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (typedTextSpan && cursorSpan) {
     const textArray = [
-      'על המחיר הטוב ביותר.',
+      'על התנאים המשתלמים ביותר.',
       'להוזיל לך את הביטוחים.',
       'להשיג לך תנאים של קבוצה.',
       'לחסוך  אלפי שקלים בשנה.',
