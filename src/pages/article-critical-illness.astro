@@ -4,15 +4,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="ביטוח מחלות קשות: למה זה קריטי ואיך בוחרים נכון? | משה שובר" description="מדריך מקיף על ביטוח מחלות קשות, למה קופת חולים לא מספיקה במקרה של גילוי מחלה, ואיך לקבל פיצוי כספי שיאפשר לכם להתרכז בהחלמה.">
   <Fragment slot="head">
     <script is:inline type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "ביטוח מחלות קשות: רשת הביטחון הכלכלית שלכם בזמן משבר",
-      "description": "המדריך המלא לביטוח מחלות קשות, מה הוא מכסה, למי הוא מתאים, ואיך בוחרים את הפוליסה הנכונה.",
-      "author": { "@type": "Person", "name": "משה שובר" },
-      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-critical-illness.html" }
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "ביטוח מחלות קשות: רשת הביטחון הכלכלית שלכם בזמן משבר",
+        "description": "המדריך המלא לביטוח מחלות קשות, מה הוא מכסה, למי הוא מתאים, ואיך בוחרים את הפוליסה הנכונה.",
+        "author": { "@type": "Person", "name": "משה שובר" },
+        "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-critical-illness.html" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "מה ההבדל בין ביטוח מחלות קשות לביטוח בריאות פרטי?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ביטוח בריאות פרטי משלם לספק הרפואי (רופא, בית חולים, תרופות) עבור הטיפול הרפואי עצמו. ביטוח מחלות קשות מעניק סכום כסף חד-פעמי ישירות למבוטח עם גילוי המחלה, לשימוש חופשי - לכיסוי הוצאות מחיה, משכנתא, עזרה בבית או כל מטרה אחרת."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "כמה עולה ביטוח מחלות קשות בחודש?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "העלות החודשית משתנה לפי גיל המבוטח, מצב בריאותי, סכום הכיסוי הנדרש והאם המבוטח מעשן. ככל שמצטרפים בגיל צעיר יותר, המחיר נמוך משמעותית. מומלץ לבצע השוואת מחירים בין חברות הביטוח באמצעות סוכן עצמאי."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "האם ביטוח מחלות קשות מכסה סרטן?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "כן, סרטן (גידולים ממאירים) הוא אחד האירועים המרכזיים שמכוסים בפוליסות מחלות קשות בישראל. הפיצוי משולם מרגע האבחון הרשמי של הגידול, ללא קשר לסוג הטיפול או למקום בו טופלתם."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "האם כדאי לעשות ביטוח מחלות קשות לילדים?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "בהחלט. המחיר לילדים הוא מזערי (שקלים בודדים בחודש לסכומים גבוהים), והסיכון הכלכלי להורים במקרה שילד חולה חלילה הוא עצום - לרוב אחד ההורים מפסיק לעבוד לחלוטין."
+            }
+          }
+        ]
+      }
+    ]
     </script>
   </Fragment>
 
@@ -106,7 +146,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h2 id="how-to-choose">איך בוחרים פוליסה נכונה?</h2>
           <p>בחירת פוליסת מחלות קשות מצריכה בחינה זהירה, מכיוון שיש הבדלים משמעותיים בין חברות הביטוח:</p>
           <ul>
-            <li><strong>סכום הפיצוי:</strong> ההמלצה הרווחת היא לרכוש כיסוי שיספק לפחות שנת משכורת אחת של המבוטח ושל בן/בת הזוג (בדרך כלל בין 200,000 ל-500,000 ש"ח).</li>
+            <li><strong>סכום הפיצוי:</strong> ההמלצה הרווחת היא לרכוש כיסוי שיספק לפחות שנת משכורת אחת של המבוטח ושל בן/בת הזוג. סוכן מקצועי יתאים את הסכום המדויק למצבכם.</li>
             <li><strong>תקופת אכשרה:</strong> בדרך כלל 90 ימים מרגע רכישת הפוליסה ועד שהיא נכנסת לתוקף.</li>
             <li><strong>פיצוי נוסף:</strong> יש חברות המאפשרות תביעה נוספת במקרה של גילוי מחלה קשה שנייה (שאינה קשורה לראשונה).</li>
             <li><strong>גיל סיום הכיסוי:</strong> שימו לב עד איזה גיל הפוליסה תקפה (בדרך כלל סביב גיל 75).</li>
@@ -158,6 +198,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
               </div>
             </div>
+
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-btn">
+                מה ההבדל בין ביטוח מחלות קשות לביטוח בריאות פרטי?
+                <div class="faq-accordion-icon"><span class="vert-line">+</span></div>
+              </button>
+              <div class="faq-accordion-content">
+                <div class="faq-accordion-content-inner">
+                  ביטוח בריאות פרטי משלם <strong>לספק הרפואי</strong> (רופא, בית חולים, תרופות) עבור הטיפול הרפואי עצמו (שיפוי). ביטוח מחלות קשות מעניק <strong>סכום כסף חד-פעמי ישירות לכם</strong> (פיצוי) עם גילוי המחלה. אתם יכולים להשתמש בו לכל מטרה - משכנתא, הוצאות מחיה, עזרה בבית או טיפולים חלופיים. הם משלימים זה את זה.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-btn">
+                כמה עולה ביטוח מחלות קשות בחודש?
+                <div class="faq-accordion-icon"><span class="vert-line">+</span></div>
+              </button>
+              <div class="faq-accordion-content">
+                <div class="faq-accordion-content-inner">
+                  העלות משתנה לפי גיל המבוטח, מצב בריאותי, סכום הכיסוי הנדרש והאם המבוטח מעשן. ככל שמצטרפים בגיל צעיר יותר, המחיר נמוך משמעותית. מומלץ לבצע השוואת מחירים בין חברות הביטוח באמצעות סוכן עצמאי כדי להשיג את התנאים המשתלמים ביותר.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-btn">
+                האם ביטוח מחלות קשות מכסה סרטן?
+                <div class="faq-accordion-icon"><span class="vert-line">+</span></div>
+              </button>
+              <div class="faq-accordion-content">
+                <div class="faq-accordion-content-inner">
+                  כן, סרטן (גידולים ממאירים) הוא אחד האירועים המרכזיים שמכוסים בכל פוליסות מחלות קשות בישראל. בנוסף מכוסים גם התקף לב, שבץ מוחי, טרשת נפוצה, השתלות איברים, ומחלות נוספות. הפיצוי משולם מרגע האבחון הרשמי של המחלה, ולא משנה באיזה דרך בחרתם להיות מטופלים.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-btn">
+                ביטוח מחלות קשות לעצמאיים - למה זה חשוב במיוחד?
+                <div class="faq-accordion-icon"><span class="vert-line">+</span></div>
+              </button>
+              <div class="faq-accordion-content">
+                <div class="faq-accordion-content-inner">
+                  עצמאיים חשופים במיוחד לביטוח הזה, משום שכשעצמאי חולה העסק כולו נעצר. בניגוד לשכיר שיש לו מעסיק שימשיך לשלם לו שכר בזמן מחלה - לעצמאי אין מעסיק, הוא <strong>העסק</strong>. הפיצוי מאפשר לו להתרכז בהחלמה מבלי לדאוג מהיכן יגיע הכסף לשלם לעובדים ולספקים.
+                </div>
+              </div>
+            </div>
           </div>
           
         </div>
@@ -192,11 +280,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           
           document.querySelectorAll('.faq-accordion-item').forEach(other => {
             other.classList.remove('faq-open');
+            other.querySelector('.faq-accordion-content').style.maxHeight = null;
             other.querySelector('.faq-accordion-icon').innerHTML = '+';
           });
 
           if (!isOpen) {
             item.classList.add('faq-open');
+            content.style.maxHeight = content.scrollHeight + 'px';
             item.querySelector('.faq-accordion-icon').innerHTML = '×';
           }
         });

@@ -4,15 +4,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="ביטוח חיים למשכנתא: לא סתם חובה של הבנק | משה שובר" description="למה הבנק מחייב ביטוח חיים למשכנתא, איך מוזילים אותו בעשרות אלפי שקלים לאורך השנים, ולמה חשוב לבדוק אותו כל כמה שנים.">
   <Fragment slot="head">
     <script is:inline type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "ביטוח חיים למשכנתא: לחסוך עשרות אלפי שקלים בקליק",
-      "description": "המדריך המקיף לביטוח חיים למשכנתא. איך הוא עובד, איך להוזיל את העלות, ומתי חובה לעדכן אותו.",
-      "author": { "@type": "Person", "name": "משה שובר" },
-      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-mortgage-life-ins.html" }
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "ביטוח חיים למשכנתא: לחסוך עשרות אלפי שקלים בקליק",
+        "description": "המדריך המקיף לביטוח חיים למשכנתא. איך הוא עובד, איך להוזיל את העלות, ומתי חובה לעדכן אותו.",
+        "author": { "@type": "Person", "name": "משה שובר" },
+        "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-mortgage-life-ins.html" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "ביטוח חיים למשכנתא מה ההבדל בין ריסק לביטוח רגיל?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ביטוח 'ריסק' משמעותו ביטוח למקרה מוות בלבד, ללא מרכיב של חיסכון (בניגוד לביטוח מנהלים או פנסיה). ביטוח חיים למשכנתא הוא ביטוח מסוג 'ריסק' שהמוטב הראשי בו הוא הבנק, כלומר במקרה פטירה הכסף הולך לכיסוי המשכנתא ולא ישירות למשפחה."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "האם חובה לעשות ביטוח חיים למשכנתא?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "הבנקים מתנים מתן משכנתא בקיומו של ביטוח. עם זאת, חובה לעשות את הביטוח אבל לא חובה לעשות אותו דרך סוכנות הבנק - מומלץ להשוות מחירים."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "האם ביטוח חיים מכסה מוות ממחלה?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "כן, ביטוח חיים רגיל (ריסק) מכסה מקרה מוות מכל סיבה, כולל מחלה או תאונה. ישנם חריגים בודדים שמופיעים בפוליסה (כמו התאבדות בשנה הראשונה)."
+            }
+          }
+        ]
+      }
+    ]
     </script>
   </Fragment>
 
@@ -160,7 +192,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
               </div>
             </div>
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-btn">
+              ביטוח חיים למשכנתא מה ההבדל בין ריסק לביטוח רגיל?
+              <div class="faq-accordion-icon"><span class="vert-line">+</span></div>
+            </button>
+            <div class="faq-accordion-content">
+              <div class="faq-accordion-content-inner">
+                ביטוח <strong>"ריסק" (Risk)</strong> משמעותו ביטוח טהור למקרה מוות, ללא שום מרכיב של חיסכון שניתן למשוך בעתיד (בניגוד לביטוח מנהלים או פוליסת חיסכון). ביטוח חיים למשכנתא הוא פשוט ביטוח ריסק שהבנק רשום בו כמוטב הראשי. במקרה פטירה, חברת הביטוח מעבירה את הכסף ישירות לסגירת חוב המשכנתא מול הבנק.
+              </div>
+            </div>
           </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-btn">
+              האם חובה לעשות ביטוח חיים למשכנתא?
+              <div class="faq-accordion-icon"><span class="vert-line">+</span></div>
+            </button>
+            <div class="faq-accordion-content">
+              <div class="faq-accordion-content-inner">
+                הבנקים בישראל מחייבים עשיית ביטוח חיים כדי לקבל את המשכנתא (למעט מקרים של סורבי ביטוח במצבי קיצון רפואיים, שמצריכים תהליך פטור מיוחד). <strong>שימו לב:</strong> חובה לעשות ביטוח כדי לקבל את ההלוואה, אבל ממש לא חובה לעשות אותו דרך הבנק! זכותכם המלאה לבחור היכן לבטח את עצמכם ומומלץ בחום לבצע השוואת מחירים בשוק החופשי.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-accordion-btn">
+              האם ביטוח חיים מכסה מוות ממחלה?
+              <div class="faq-accordion-icon"><span class="vert-line">+</span></div>
+            </button>
+            <div class="faq-accordion-content">
+              <div class="faq-accordion-content-inner">
+                כן. ביטוח חיים למשכנתא מכסה פטירה מכל סיבה שהיא - גם כתוצאה ממחלה, גם כתוצאה מתאונה וגם פטירה טבעית. החריג הכמעט יחיד בפוליסות תקניות בישראל הוא מקרה של התאבדות במהלך השנה הראשונה בלבד להקמת הפוליסה.
+              </div>
+            </div>
+          </div>
+        </div>
           
         </div>
       </main>
@@ -192,13 +259,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           const content = item.querySelector('.faq-accordion-content');
           const isOpen = item.classList.contains('faq-open');
           
+          // Close all items first
           document.querySelectorAll('.faq-accordion-item').forEach(other => {
             other.classList.remove('faq-open');
+            other.querySelector('.faq-accordion-content').style.maxHeight = null;
             other.querySelector('.faq-accordion-icon').innerHTML = '+';
           });
 
+          // Open the clicked item if it wasn't already open
           if (!isOpen) {
             item.classList.add('faq-open');
+            content.style.maxHeight = content.scrollHeight + 'px';
             item.querySelector('.faq-accordion-icon').innerHTML = '×';
           }
         });
