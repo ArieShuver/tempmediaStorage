@@ -106,15 +106,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const fName = form.querySelector('.f-name');
     const fPhone = form.querySelector('.f-phone');
     const fInterest = form.querySelector('.f-interest');
-    const fPrivacy = form.querySelector('#privacy');
+    const fPrivacy = form.querySelector('input[name="privacy"]');
     const btnSubmit = form.querySelector('.btn-submit');
-    const successBox = form.closest('.lead-box, .cta-box').querySelector('.success');
+    const successBox = form.closest('.lead-box, .cta-box, .exit-modal-content')?.querySelector('.success');
     const sucNameEl = successBox?.querySelector('.suc-name');
     const btnClose = successBox?.querySelector('.btn-close');
 
     if (fName) fName.addEventListener('input', () => fName.closest('.field')?.classList.remove('bad'));
     if (fPhone) fPhone.addEventListener('input', () => fPhone.closest('.field')?.classList.remove('bad'));
     if (fInterest) fInterest.addEventListener('change', () => fInterest.closest('.field')?.classList.remove('bad'));
+    if (fPrivacy) fPrivacy.addEventListener('change', () => fPrivacy.closest('.privacy-check')?.classList.remove('bad'));
 
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -133,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ok = false;
       }
       if (fPrivacy && !fPrivacy.checked) {
+        fPrivacy.closest('.privacy-check')?.classList.add('bad');
         ok = false;
-        alert('יש לאשר את מדיניות הפרטיות');
       }
 
       if (!ok) return;
@@ -161,7 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(async (response) => {
           if (response.status == 200) {
             if (sucNameEl && fName) sucNameEl.textContent = fName.value.trim();
-            if (successBox) successBox.classList.add('show');
+            if (successBox) {
+              successBox.style.display = 'block';
+              successBox.classList.add('show');
+            }
+            form.style.display = 'none';
 
             if (typeof gtag === 'function') {
               gtag('event', 'conversion', {
@@ -187,8 +192,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnClose) {
       btnClose.addEventListener('click', () => {
-        successBox.classList.remove('show');
+        if (successBox) {
+          successBox.style.display = '';
+          successBox.classList.remove('show');
+        }
+        form.style.display = 'block';
         form.reset();
+        
+        // Close modal if it's the exit intent modal
+        const exitModal = document.getElementById('exit-intent-modal');
+        if (exitModal && exitModal.contains(form)) {
+          exitModal.style.display = 'none';
+        }
       });
     }
   });
