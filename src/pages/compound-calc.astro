@@ -123,15 +123,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
 
 
-            <div id="fee-promo-message" style="grid-column: 1 / -1; width: fit-content; margin: 5px auto 0; font-size: 0.95rem; color: var(--primary); background: rgba(65, 179, 124, 0.1); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--green); text-align: center;">
+            <div id="fee-promo-message" style="width: 100%; margin: 10px 0 5px; font-size: 0.95rem; color: var(--primary); background: rgba(65, 179, 124, 0.1); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--green); text-align: center; box-sizing: border-box;">
               💡 <strong>לא יודעים איזה דמי ניהול תקבלו?</strong> אצלנו תקבלו 0.6% מהצבירה ו-0% מהפקדה – מדמי הניהול הנמוכים ביותר בשוק!
             </div>
-            <div class="dash-input-group">
+            <div class="dash-input-group" style="flex: 0 0 100%; margin-top: 5px;">
               <label for="calc-years">תקופה (שנים)</label>
               <input type="number" id="calc-years" aria-label="תקופה בשנים" value="20" min="1" max="120" step="1">
             </div>
           </div>
-
+          
           <div class="dashboard-content">
             <div class="chart-area" style="position: relative; height: 350px;">
               <canvas id="compoundChart"></canvas>
@@ -531,4 +531,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <script is:inline src="/chart.js"></script>
     <script is:inline src="/calc.js?v=3"></script>
+    <style>
+      @media (max-width: 1050px) {
+        .dashboard-content {
+          flex-direction: column !important;
+        }
+        .chart-area {
+          width: 100% !important;
+          height: 350px !important;
+        }
+        .summary-area {
+          display: grid !important;
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+      @media (max-width: 600px) {
+        .summary-area {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
 </BaseLayout>
