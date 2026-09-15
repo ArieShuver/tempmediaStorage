@@ -146,6 +146,10 @@ import Footer from '../components/Footer.astro';
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'AW-17739493044');
 
     let trackingLoaded = false;
     function loadTracking() {
@@ -157,9 +161,6 @@ import Footer from '../components/Footer.astro';
       gTagScript.async = true;
       gTagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-17739493044";
       document.head.appendChild(gTagScript);
-
-      gtag('js', new Date());
-      gtag('config', 'AW-17739493044');
 
       (function (c, l, a, r, i, t, y) {
         c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
