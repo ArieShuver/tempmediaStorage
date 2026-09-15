@@ -46,7 +46,6 @@ import Footer from '../components/Footer.astro';
   <link rel="dns-prefetch" href="https://www.clarity.ms" />
   <link rel="stylesheet" href="/style.min.css?v=7" />
   <style>
-    /* Critical CSS for LCP */
     .hero-bg {
       position: absolute; top: 0; left: 0; right: 0; bottom: 5.882rem;
       background-image: linear-gradient(to left, rgba(10, 42, 67, .6) 0, rgba(10, 42, 67, .2) 35%, rgba(10, 42, 67, 0) 60%), url('/hero-bg-contract.webp');
@@ -65,7 +64,6 @@ import Footer from '../components/Footer.astro';
     <slot />
   </main>
   <Footer />
-<!-- Unified Floating Action Button -->
   <div class="fab-container side-tab-container">
     <button class="fab-main-btn side-tab-btn" id="fab-main-btn" aria-label="צור קשר">
       <div class="side-tab-icon">
@@ -108,7 +106,6 @@ import Footer from '../components/Footer.astro';
 
 
   <script is:inline>
-    // Scroll spy - throttled with rAF for performance
     requestAnimationFrame(function () {
       var s = document.querySelectorAll('section[id]'), n = document.querySelectorAll('.nav-a'), h = document.getElementById('site-header');
       if (!h || !s.length) return; var hh = h.offsetHeight, t = false;
@@ -129,7 +126,6 @@ import Footer from '../components/Footer.astro';
   </div>
 
   <script is:inline src="/script.js?v=2" defer></script>
-  <!-- Event snippet for קליק לשיחה (3) conversion page -->
   <script is:inline>
     function gtag_report_conversion(url) {
       var callback = function () {
@@ -148,24 +144,23 @@ import Footer from '../components/Footer.astro';
   </script>
 
   <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
     let trackingLoaded = false;
     function loadTracking() {
       if (trackingLoaded) return;
       if (navigator.userAgent.indexOf('Lighthouse') !== -1 || navigator.userAgent.indexOf('Speed Insights') !== -1 || navigator.userAgent.indexOf('GTmetrix') !== -1 || navigator.userAgent.indexOf('Chrome-Lighthouse') !== -1) return;
       trackingLoaded = true;
 
-      // Gtag
       let gTagScript = document.createElement('script');
       gTagScript.async = true;
       gTagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-17739493044";
       document.head.appendChild(gTagScript);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'AW-17739493044');
 
-      // Clarity
       (function (c, l, a, r, i, t, y) {
         c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
         t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
@@ -173,12 +168,10 @@ import Footer from '../components/Footer.astro';
       })(window, document, "clarity", "script", "xne02zdx76");
     }
 
-    // Load on interaction or after 3.5s fallback
     ['touchstart', 'click', 'keydown', 'mouseover'].forEach(e => window.addEventListener(e, loadTracking, { once: true, passive: true }));
     setTimeout(loadTracking, 6500);
   </script>
 
-  <!-- UserWay Accessibility Widget – deferred until first interaction -->
   <script is:inline>
     (function() {
       var loaded = false;
