@@ -4,15 +4,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="רפורמת ביטוחי הבריאות: מה השתנה ואיך נמנעים מכפל ביטוח? | משה שובר" description="כל מה שצריך לדעת על רפורמת ביטוחי הבריאות, מה השתנה בפוליסות, איך נמנעים מתשלום כפול (כפל ביטוח) ואיך מתאימים את הכיסוי למצב האישי שלכם.">
   <Fragment slot="head">
     <script is:inline type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "רפורמת ביטוחי הבריאות: מה השתנה ואיך נמנעים מכפל ביטוח?",
-      "description": "המדריך המלא לרפורמת ביטוחי הבריאות, איך למנוע כפל ביטוח ולהתאים את פוליסת הבריאות שלכם למצב החדש.",
-      "author": { "@type": "Person", "name": "משה שובר" },
-      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-health-reform" }
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "רפורמת ביטוחי הבריאות: מה השתנה ואיך נמנעים מכפל ביטוח?",
+        "description": "המדריך המלא לרפורמת ביטוחי הבריאות, איך למנוע כפל ביטוח ולהתאים את פוליסת הבריאות שלכם למצב החדש.",
+        "author": { "@type": "Person", "name": "משה שובר" },
+        "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-health-reform" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "האם כדאי לבטל את ביטוח הבריאות הפרטי ולהישאר רק עם קופת החולים?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ממש לא מומלץ לבטל באופן גורף. השב\"ן (קופת חולים) לא מכסה טיפולים מסוימים כמו תרופות מחוץ לסל, השתלות בחו\"ל או טיפולים מיוחדים בחו\"ל. אלו בדיוק המצבים הקריטיים (קטסטרופות) שבהם ביטוח הבריאות הפרטי מציל חיים ומגן מקריסה כלכלית."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "מה ההבדל בין ניתוחים מהשקל הראשון ל\"משלים שב\"ן\"?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "\"מהשקל הראשון\" אומר שחברת הביטוח הפרטית מכסה את הניתוח במלואו, ללא תלות בקופת החולים. \"משלים שב\"ן\" אומר שקודם כל תפנו לקופת החולים למימון הניתוח, ורק אם יש השתתפות עצמית או שהקופה לא מכסה, חברת הביטוח הפרטית תשלים את ההפרש. מסלול \"משלים שב\"ן\" זול משמעותית."
+            }
+          }
+        ]
+      }
+    ]
     </script>
   </Fragment>
 

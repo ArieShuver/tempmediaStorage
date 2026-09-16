@@ -76,15 +76,15 @@ function initCalc() {
 
   // Update years display from slider
   function updateYearsDisplay() {
-    yearsDisplay.textContent = yearsInput.value;
+    if (yearsDisplay) yearsDisplay.textContent = yearsInput.value;
   }
 
   // Calculate and draw chart
   function calculate() {
-    const P = parseFloat(principalInput.value) || 0;
-    const PMT = parseFloat(monthlyInput.value) || 0;
-    const r = parseFloat(rateInput.value) || 0;
-    const t = parseInt(yearsInput.value) || 0;
+    const P = Math.min(Math.max(parseFloat(principalInput.value) || 0, 0), 100000000); 
+    const PMT = Math.min(Math.max(parseFloat(monthlyInput.value) || 0, 0), 10000000); 
+    const r = Math.min(Math.max(parseFloat(rateInput.value) || 0, 0), 100); 
+    const t = Math.min(Math.max(parseInt(yearsInput.value) || 0, 1), 120); 
 
     let taxRate = 0;
     if (toggleTax && toggleTax.checked && taxInput) {
@@ -106,12 +106,11 @@ function initCalc() {
 
     let labels = [];
     let dataCompound = [];
-    let dataRegular = []; // Representing just deposits (0% interest)
+    let dataRegular = []; 
 
     let currentCompound = P;
     let currentRegular = P;
 
-    // Push initial state
     labels.push('0');
     dataCompound.push(P);
     dataRegular.push(P);
@@ -147,7 +146,6 @@ function initCalc() {
       totalFeesDeducted += feeAccumThisMonth;
       currentCompound -= feeAccumThisMonth;
 
-      // Sample data every 12 months (yearly)
       if (m % 12 === 0) {
         let postTaxBalance = currentCompound;
         const profitAtN = currentCompound - currentRegular;
@@ -206,7 +204,6 @@ function initCalc() {
     let finalDisplayFees = totalFeesDeducted / finalInflationDiscount;
     let finalDisplayTax = finalTaxDeducted / finalInflationDiscount;
 
-    // Update Summary Boxes
     const currentFinal = parseInt(resFinal.textContent.replace(/[^0-9]/g, '')) || 0;
     const currentDeposits = parseInt(resDeposits.textContent.replace(/[^0-9]/g, '')) || 0;
     const currentProfit = parseInt(resProfit.textContent.replace(/[^0-9]/g, '')) || 0;
@@ -359,17 +356,14 @@ function initCalc() {
     });
   }
 
-  // Bind events for real-time calculation
   allInputs.forEach(input => {
     input.addEventListener('input', calculate);
   });
   yearsInput.addEventListener('input', updateYearsDisplay);
 
-  // Initial render
   updateYearsDisplay();
   handleToggles();
 
-  // Table Toggle Logic
   const toggleTableBtn = document.getElementById('toggle-table-btn');
   const toggleTableText = document.getElementById('toggle-table-text');
   const tableWrapper = document.getElementById('yearly-table-wrapper');
@@ -386,7 +380,6 @@ function initCalc() {
     });
   }
 
-  // Share Button Logic
   const shareBtn = document.getElementById('share-btn');
   if (shareBtn) {
     shareBtn.addEventListener('click', () => {
@@ -399,7 +392,6 @@ function initCalc() {
       if (navigator.share) {
         navigator.share(shareData).catch(console.error);
       } else {
-        // Fallback for desktop
         navigator.clipboard.writeText(window.location.href).then(() => {
           const originalText = shareBtn.querySelector('.share-text').textContent;
           shareBtn.querySelector('.share-text').textContent = 'הקישור הועתק!';
@@ -413,7 +405,6 @@ function initCalc() {
     });
   }
 
-  // Export to CSV Logic
   const exportCsvBtn = document.getElementById('export-csv-btn');
   if (exportCsvBtn) {
     exportCsvBtn.addEventListener('click', () => {
@@ -433,7 +424,6 @@ function initCalc() {
     });
   }
 
-  // Reset Logic
   const resetBtn = document.getElementById('reset-btn');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
@@ -454,7 +444,6 @@ function initCalc() {
     });
   }
 
-  // --- Exit Intent and Timer Modal Logic ---
   const exitModal = document.getElementById('exit-intent-modal');
   const closeExitModal = document.getElementById('close-exit-modal');
   let modalShown = false;
@@ -470,7 +459,6 @@ function initCalc() {
     closeExitModal.addEventListener('click', () => {
       exitModal.style.display = 'none';
     });
-    // Close on click outside
     exitModal.addEventListener('click', (e) => {
       if (e.target === exitModal) {
         exitModal.style.display = 'none';
@@ -478,19 +466,16 @@ function initCalc() {
     });
   }
 
-  // 1. Show after 45 seconds (Works on Desktop & Mobile)
   setTimeout(() => {
     showExitModal();
   }, 45000);
 
-  // 2. Show on exit intent (Desktop: mouse leaves the top of the viewport)
   document.addEventListener('mouseleave', (e) => {
     if (e.clientY <= 0) {
       showExitModal();
     }
   });
 
-  // 3. Show on exit intent (Mobile: rapid upward scrolling to address bar)
   let lastScrollY = window.scrollY;
   let lastScrollTime = Date.now();
   
@@ -502,10 +487,9 @@ function initCalc() {
     const timeDiff = currentTime - lastScrollTime;
     
     if (timeDiff > 0 && currentScrollY > 300) {
-      const scrollDiff = lastScrollY - currentScrollY; // positive means scrolling UP
-      const scrollSpeed = scrollDiff / timeDiff; // speed in pixels/ms
+      const scrollDiff = lastScrollY - currentScrollY; 
+      const scrollSpeed = scrollDiff / timeDiff; 
       
-      // If scrolling up very fast (e.g. > 1.5 px/ms) and they are on mobile/touch device
       if (scrollSpeed > 1.5 && window.innerWidth <= 768) {
         showExitModal();
       }
@@ -514,7 +498,6 @@ function initCalc() {
     lastScrollY = currentScrollY;
     lastScrollTime = currentTime;
   }, { passive: true });
-  // ----------------------------------------
 }
 
 if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initCalc); } else { initCalc(); }

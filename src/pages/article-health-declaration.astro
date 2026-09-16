@@ -4,15 +4,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="הצהרת בריאות בביטוח: למה אסור להסתיר מידע? | משה שובר" description="מהי הצהרת בריאות, למה חברות הביטוח מבקשות אותה, ומה קורה אם מסתירים מידע רפואי בעת ההצטרפות לביטוח.">
   <Fragment slot="head">
     <script is:inline type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "הצהרת בריאות בביטוח: המדריך המלא",
-      "description": "למה חברות הביטוח דורשות הצהרת בריאות, איזה מידע חובה לדווח, ואיך להימנע מדחיית תביעה עתידית בגלל הסתרת מידע.",
-      "author": { "@type": "Person", "name": "משה שובר" },
-      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-health-declaration" }
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "הצהרת בריאות בביטוח: המדריך המלא",
+        "description": "למה חברות הביטוח דורשות הצהרת בריאות, איזה מידע חובה לדווח, ואיך להימנע מדחיית תביעה עתידית בגלל הסתרת מידע.",
+        "author": { "@type": "Person", "name": "משה שובר" },
+        "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-health-declaration" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "מה קורה אם סירבו לקבל אותי לביטוח בגלל מצב רפואי?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "חברות שונות מנהיגות מדיניות חיתום שונה. לעיתים סירבו לקבל אתכם בחברה א', אבל דרך חברה ב' אפשר להתקבל בתוספת תשלום או עם החרגה (למשל, ביטוח על הכל פרט לבעיות גב). סוכן טוב ידע לבדוק זאת מול חתמים שונים."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "האם אני צריך לעדכן את החברה אם חליתי אחרי שכבר התקבלתי לביטוח?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "לא. ברגע שהתקבלתם לביטוח והפוליסה הופקה, חברת הביטוח לוקחת עליכם אחריות. כל הרעה במצבכם הרפואי לאחר מכן מכוסה ואינכם צריכים לדווח עליה (אלא אם כן אתם רוצים להרחיב או לשנות את הפוליסה)."
+            }
+          }
+        ]
+      }
+    ]
     </script>
   </Fragment>
 
