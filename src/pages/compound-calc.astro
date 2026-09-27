@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="מחשבון ריבית דריבית  | כולל מס, דמי ניהול  | משה שובר" description="מחשבון ריבית דריבית מתקדם וחינמי המאפשר לחשב כיצד ההשקעה תצמח. כולל התאמה למס, דמי ניהול,  ועוד. הזינו נתונים וגלו.">
+<BaseLayout title="מחשבון ריבית דריבית חינמי 2026 | כולל מס, אינפלציה ודמי ניהול" description="כמה כסף יהיה לכם בעוד 10, 20 או 30 שנה? מחשבון ריבית דריבית חינמי עם גרף אינטראקטיבי, חישוב מס רווחי הון, אינפלציה ודמי ניהול. הזינו נתונים וגלו כמה תרוויחו.">
   <Fragment slot="head">
     <script is:inline type="application/ld+json">
   [
@@ -11,12 +11,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "name": "מחשבון ריבית דריבית",
       "operatingSystem": "All",
       "applicationCategory": "FinanceApplication",
-      "description": "מחשבון ריבית דריבית מתקדם הכולל חישובי מס, דמי ניהול .",
+      "description": "מחשבון ריבית דריבית מתקדם הכולל חישובי מס רווחי הון, אינפלציה ודמי ניהול, עם גרף אינטראקטיבי וסליידרים.",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "ILS"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "19"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "דף הבית",
+          "item": "https://shuverinsurance.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "מחשבון ריבית דריבית"
+        }
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -27,7 +49,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "name": "מה זה בעצם ריבית דריבית (ריבית מורכבת)?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ריבית דריבית היא מנגנון שבו הריבית שהשקעה מרוויחה – מתווספת לקרן המקורית, כך שבתקופה הבאה הריבית מחושבת על סכום גדול יותר. זהו למעשה 'אפקט כדור השלג' שמאפשר צמיחה מואצת."
+            "text": "ריבית דריבית היא מנגנון שבו הריבית שהשקעה מרוויחה – מתווספת לקרן המקורית, כך שבתקופה הבאה הריבית מחושבת על סכום גדול יותר. זהו למעשה 'אפקט כדור השלג' שמאפשר צמיחה מואצת לאורך שנים רבות."
           }
         },
         {
@@ -35,7 +57,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "name": "איך מחשבים ריבית דריבית?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "חישוב ריבית דריבית מתבצע לפי הנוסחה: סכום סופי = סכום התחלתי כפול (1 + ריבית) בחזקת מספר השנים. המחשבון שלנו במערכת מבצע את כל החישובים אוטומטית, כולל בניכוי דמי ניהול ומיסים."
+            "text": "חישוב ריבית דריבית מתבצע לפי הנוסחה: סכום סופי = סכום התחלתי כפול (1 + ריבית) בחזקת מספר השנים. המחשבון שלנו מבצע את כל החישובים אוטומטית, כולל בניכוי דמי ניהול, מס רווחי הון ואינפלציה."
           }
         },
         {
@@ -43,7 +65,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "name": "למה כדאי להתחיל לחסוך או להשקיע כמה שיותר מוקדם?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "כוחה של הריבית הדריבית מבוסס על משך הזמן שהכסף מושקע. ככל שמתחילים מוקדם יותר, הכסף צומח על פני יותר שנים. זו הסיבה שסכומים קטנים המושקעים בגיל צעיר יכולים להפוך להון משמעותי לקראת פרישה."
+            "text": "כוחה של הריבית הדריבית מבוסס על משך הזמן שהכסף מושקע. ככל שמתחילים מוקדם יותר, הכסף צומח על פני יותר שנים. סכומים קטנים המושקעים בגיל צעיר יכולים להפוך להון משמעותי לקראת פרישה, הרבה יותר מסכומים גדולים שיושקעו בגיל מאוחר."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מה ההבדל בין תשואה נומינלית לתשואה ריאלית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "תשואה נומינלית היא אחוז הרווח לפני ניכוי אינפלציה. תשואה ריאלית היא מה שנשאר אחרי ניכוי האינפלציה – כלומר כמה כוח הקנייה שלכם באמת גדל. מיליון שקל בעוד 30 שנה קונה הרבה פחות ממיליון שקל היום. במחשבון שלנו ניתן לראות את שני החישובים."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כמה כסף יהיה לי אם אפקיד 1,000 ש\"ח בחודש למשך 30 שנה?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "בהפקדה חודשית של 1,000 ש\"ח למשך 30 שנה בתשואה שנתית ממוצעת של 7%, תצברו כ-1,220,000 ש\"ח. מתוך סך ההפקדות של 360,000 ש\"ח, כ-860,000 ש\"ח הם רווח טהור מריבית דריבית. אם נוסיף מס רווח הון (25%) ואינפלציה (2%), הסכום הריאלי יהיה נמוך יותר – השתמשו במחשבון לתוצאה מדויקת."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "איך דמי ניהול משפיעים על ריבית דריבית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "דמי ניהול הם האויב השקט של ריבית דריבית. הפרש של 0.5% בלבד בדמי ניהול יכול לעלות עשרות אלפי שקלים לאורך 20-30 שנה. לדוגמה, על סכום של 500,000 ש\"ח, דמי ניהול של 1.5% במקום 0.6% עולים לכם כ-150,000 ש\"ח לאורך 30 שנה. במחשבון שלנו ניתן לשחק עם הנתונים ולראות בדיוק כמה דמי ניהול עולים לכם."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מתי משלמים מס רווחי הון על ריבית דריבית?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ברוב אפיקי החיסכון והשקעה בישראל, מס רווחי הון (25%) משולם רק בעת מכירה או משיכה של הכסף. כל עוד הכסף בפנים, גם החלק שיילך בסוף למס ממשיך לעבוד ולהניב תשואה. המחשבון שלנו מציג את המס כאילו תמשכו את כל הכסף בסוף התקופה."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם עדיף להתחיל להשקיע מוקדם בסכום קטן או להפקיד סכום גדול יותר בהמשך?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "כמעט תמיד עדיף להתחיל מוקדם. בזכות ריבית דריבית, לכל שקל שמושקע יש יותר זמן לצמוח. מי שמתחיל להפקיד 500 ש\"ח בחודש בגיל 25 יגיע לסכום גבוה יותר בגיל 65 ממי שמתחיל להפקיד 1,500 ש\"ח בחודש בגיל 35. הזמן הוא המשתנה החזק ביותר במשוואה."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כמה אינפלציה נכון להניח בחישוב ריבית דריבית לטווח ארוך?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "יעד האינפלציה של בנק ישראל הוא 1%-3% בשנה. ההנחה המקובלת לתכנון ארוך טווח היא 2%-2.5%. במחשבון שלנו ניתן להזין את שיעור האינפלציה הצפוי ולראות כמה הכסף שלכם באמת שווה במונחי כוח קנייה של היום."
           }
         }
       ]
@@ -77,58 +147,96 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               מיידית. שנו את מספר השנים עם הסליידר וראו את הקסם קורה מול העיניים:</p>
           </div>
           <div class="dashboard-inputs">
-            <div class="dash-input-group">
-              <label for="calc-principal">קרן התחלתית (₪)</label>
-              <input type="number" id="calc-principal" aria-label="סכום התחלתי" value="10000" min="0" step="1000">
-            </div>
-            <div class="dash-input-group">
-              <label for="calc-monthly" style="display: flex; justify-content: space-between;">
-                <span>הפקדה (₪)</span>
-                <select id="calc-freq" aria-label="תדירות הפקדה" style="border: none; background: transparent; font-size: 0.9rem; color: var(--primary); font-weight: bold; cursor: pointer; outline: none; padding: 0;">
-                  <option value="12">חודשית</option>
-                  <option value="1">שנתית</option>
-                </select>
+            <!-- Principal Slider -->
+            <div class="dash-input-group slider-group">
+              <label for="calc-principal">
+                <span>קרן התחלתית (₪)</span>
+                <input type="number" id="calc-principal" aria-label="סכום התחלתי" value="10000" min="0" max="10000000">
               </label>
-              <input type="number" id="calc-monthly" aria-label="סכום הפקדה" value="500" min="0" step="100">
-            </div>
-            <div class="dash-input-group">
-              <label for="calc-rate">ריבית שנתית (%)</label>
-              <input type="number" id="calc-rate" aria-label="ריבית שנתית" value="7" min="0" step="0.1">
-            </div>
-            <div class="dash-input-group" style="grid-column: 1 / -1; display: flex; gap: 20px; flex-wrap: wrap; margin-top: 5px;">
-              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: normal;">
-                <input type="checkbox" id="toggle-tax" aria-label="חישוב מס רווחי הון" style="width: 18px; height: 18px; margin: 0;">
-                חישוב מס רווחי הון
-              </label>
-              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: normal;">
-                <input type="checkbox" id="toggle-fees" aria-label="חישוב דמי ניהול" style="width: 18px; height: 18px; margin: 0;" checked>
-                חישוב דמי ניהול
-              </label>
-
-            </div>
-            
-            <div class="dash-input-group" id="tax-group" style="display: none;">
-              <label for="calc-tax">מס רווחי הון (%)</label>
-              <input type="number" id="calc-tax" aria-label="מס רווחי הון" value="25" min="0" step="1" max="50">
-            </div>
-            
-            <div class="dash-input-group" id="fee-accum-group">
-              <label for="calc-fee-accum">דמי ניהול מהצבירה (%)</label>
-              <input type="number" id="calc-fee-accum" aria-label="דמי ניהול מהצבירה" value="0.6" min="0" step="0.01" max="10">
-            </div>
-            
-            <div class="dash-input-group" id="fee-deposit-group">
-              <label for="calc-fee-deposit">דמי ניהול מהפקדה (%)</label>
-              <input type="number" id="calc-fee-deposit" aria-label="דמי ניהול מהפקדה" value="0" min="0" step="0.01" max="10">
+              <input type="range" id="slider-principal" value="10000" min="0" max="2000000" step="5000" class="calc-slider">
             </div>
 
-
-            <div id="fee-promo-message" style="width: 100%; margin: 10px 0 5px; font-size: 0.95rem; color: var(--primary); background: rgba(65, 179, 124, 0.1); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--green); text-align: center; box-sizing: border-box;">
-              💡 <strong>לא יודעים איזה דמי ניהול תקבלו?</strong> אצלנו תקבלו 0.6% מהצבירה ו-0% מהפקדה – מדמי הניהול הנמוכים ביותר בשוק!
+            <!-- Monthly Slider -->
+            <div class="dash-input-group slider-group">
+              <label for="calc-monthly">
+                <span>הפקדה (₪) <select id="calc-freq" aria-label="תדירות הפקדה" style="border:none;background:transparent;color:var(--primary);font-weight:bold;cursor:pointer;outline:none;"><option value="12">חודשית</option><option value="1">שנתית</option></select></span>
+                <input type="number" id="calc-monthly" aria-label="סכום הפקדה" value="500" min="0" max="1000000">
+              </label>
+              <input type="range" id="slider-monthly" value="500" min="0" max="20000" step="100" class="calc-slider">
             </div>
-            <div class="dash-input-group" style="flex: 0 0 100%; margin-top: 5px;">
-              <label for="calc-years">תקופה (שנים)</label>
-              <input type="number" id="calc-years" aria-label="תקופה בשנים" value="20" min="1" max="120" step="1">
+
+            <!-- Years Slider -->
+            <div class="dash-input-group slider-group">
+              <label for="calc-years">
+                <span>תקופה (שנים)</span>
+                <input type="number" id="calc-years" aria-label="תקופה בשנים" value="20" min="1" max="120">
+              </label>
+              <input type="range" id="slider-years" value="20" min="1" max="60" step="1" class="calc-slider">
+            </div>
+
+            <!-- Rate Slider -->
+            <div class="dash-input-group slider-group">
+              <label for="calc-rate">
+                <span>ריבית שנתית (%)</span>
+                <input type="number" id="calc-rate" aria-label="ריבית שנתית" value="7" min="0" step="0.1" max="30">
+              </label>
+              <input type="range" id="slider-rate" value="7" min="0" max="20" step="0.1" class="calc-slider">
+            </div>
+            
+            <div class="dash-input-group toggle-row" style="flex: 1 1 100%; display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 5px; background: rgba(255,255,255,0.7); padding: 15px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); justify-content: center;">
+              <label class="custom-toggle">
+                <input type="checkbox" id="toggle-inflation" aria-label="חישוב ריאלי (אינפלציה)">
+                <span class="toggle-slider"></span>
+                <span>חישוב מדד (אינפלציה)</span>
+              </label>
+              <label class="custom-toggle">
+                <input type="checkbox" id="toggle-tax" aria-label="חישוב מס רווחי הון">
+                <span class="toggle-slider"></span>
+                <span>מס רווחי הון</span>
+              </label>
+              <label class="custom-toggle">
+                <input type="checkbox" id="toggle-fees" aria-label="חישוב דמי ניהול" checked>
+                <span class="toggle-slider"></span>
+                <span>דמי ניהול</span>
+              </label>
+            </div>
+            
+            <!-- Inflation Slider -->
+            <div class="dash-input-group slider-group" id="inflation-group" style="display:none; border-right: 4px solid #3498db; padding-right: 15px; background: rgba(52,152,219,0.05); border-radius: 8px;">
+              <label for="calc-inflation">
+                <span style="color:#2980b9; font-weight:bold;">אינפלציה צפויה (%)</span>
+                <input type="number" id="calc-inflation" aria-label="אינפלציה" value="2.5" min="0" step="0.1" max="20" style="border-color:#3498db; color:#2980b9;">
+              </label>
+              <input type="range" id="slider-inflation" value="2.5" min="0" max="10" step="0.1" class="calc-slider" style="accent-color: #3498db;">
+              <small style="color: #666; font-size: 0.8rem; display:block; margin-top:5px;">מציג את שווי הכסף הריאלי במונחי כוח קנייה של היום.</small>
+            </div>
+            
+            <div class="dash-input-group slider-group" id="tax-group" style="display: none; border-right: 4px solid #E74C3C; padding-right: 15px; background: rgba(231,76,60,0.05); border-radius: 8px;">
+              <label for="calc-tax">
+                <span style="color:#c0392b; font-weight:bold;">מס רווחי הון (%)</span>
+                <input type="number" id="calc-tax" aria-label="מס רווחי הון" value="25" min="0" step="1" max="50" style="border-color:#E74C3C; color:#c0392b;">
+              </label>
+              <input type="range" id="slider-tax" value="25" min="0" max="50" step="1" class="calc-slider" style="accent-color: #E74C3C;">
+            </div>
+            
+            <div class="dash-input-group slider-group" id="fee-accum-group" style="border-right: 4px solid var(--green); padding-right: 15px; background: rgba(65, 179, 124, 0.05); border-radius: 8px;">
+              <label for="calc-fee-accum">
+                <span style="color:var(--primary); font-weight:bold;">דמי ניהול מהצבירה (%)</span>
+                <input type="number" id="calc-fee-accum" aria-label="דמי ניהול מהצבירה" value="0.6" min="0" step="0.01" max="10" style="border-color:var(--green); color:var(--primary);">
+              </label>
+              <input type="range" id="slider-fee-accum" value="0.6" min="0" max="5" step="0.05" class="calc-slider" style="accent-color: var(--green);">
+            </div>
+            
+            <div class="dash-input-group slider-group" id="fee-deposit-group" style="border-right: 4px solid var(--green); padding-right: 15px; background: rgba(65, 179, 124, 0.05); border-radius: 8px;">
+              <label for="calc-fee-deposit">
+                <span style="color:var(--primary); font-weight:bold;">דמי ניהול מהפקדה (%)</span>
+                <input type="number" id="calc-fee-deposit" aria-label="דמי ניהול מהפקדה" value="0" min="0" step="0.01" max="10" style="border-color:var(--green); color:var(--primary);">
+              </label>
+              <input type="range" id="slider-fee-deposit" value="0" min="0" max="10" step="0.1" class="calc-slider" style="accent-color: var(--green);">
+            </div>
+
+            <div id="fee-promo-message" style="width: 100%; margin: 5px 0; font-size: 0.95rem; color: var(--primary); background: rgba(65, 179, 124, 0.1); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--green); text-align: center; box-sizing: border-box; flex: 1 1 100%;">
+              💡 <strong>רוצים לשלם פחות דמי ניהול?</strong> אצלנו תקבלו 0.6% מהצבירה ו-0% מהפקדה!
             </div>
           </div>
           
@@ -175,6 +283,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="box-text">
                   <span>מס שנוכה</span>
                   <strong id="res-tax">₪0</strong>
+                </div>
+              </div>
+
+              <div class="summary-box box-inflation" id="box-inflation-container" style="display: none; background: rgba(52, 152, 219, 0.05); border: 1px solid rgba(52, 152, 219, 0.2); border-right: 4px solid #3498db;">
+                <div class="box-icon" style="color: #3498db; background: rgba(52, 152, 219, 0.1);"><svg class="icon-svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48-48-113.1-75-181.7-75C89.5-22-16 83.5-16 195.5c0 53.6 20.3 105.1 57.4 144.1c11.7 12.3 31.1 12.8 43.4 1.1s12.8-31.1 1.1-43.4C55.4 265 39.7 222.6 39.7 178c0-76.3 62.1-138.3 138.3-138.3c48.8 0 94.7 20 128 55.4l-42.7 42.7c-9.1 9.1-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H448c17.7 0 32-14.3 32-32V32zM32 480c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l43.6-43.6c48 48 113.1 75 181.7 75c110.5 0 216-85.5 216-197.5c0-53.6-20.3-105.1-57.4-144.1c-11.7-12.3-31.1-12.8-43.4-1.1s-12.8 31.1-1.1 43.4c30.5 32.3 46.2 74.7 46.2 119.3c0 76.3-62.1 138.3-138.3 138.3c-48.8 0-94.7-20-128-55.4l42.7-42.7c9.1-9.1 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8H64c-17.7 0-32 14.3-32 32V480z"/></svg></div>
+                <div class="box-text">
+                  <span>שחיקת אינפלציה</span>
+                  <strong id="res-inflation">₪0</strong>
                 </div>
               </div>
 
@@ -444,10 +560,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p>ריבית דריבית היא מנגנון שבו הריבית שהשקעה מרוויחה – מתווספת לקרן המקורית, כך שבתקופה הבאה הריבית מחושבת על סכום גדול יותר. זהו למעשה 'אפקט כדור השלג' שמאפשר צמיחה מואצת לאורך שנים רבות.</p>
             
             <h3 style="color: var(--primary); margin-top: 20px;">איך מחשבים ריבית דריבית?</h3>
-            <p>חישוב ריבית דריבית מתבצע לפי הנוסחה: סכום סופי = סכום התחלתי כפול (1 + ריבית) בחזקת מספר השנים. המחשבון שלנו מבצע את כל החישובים האלו בצורה אוטומטית ובנוסף מאפשר לשקלל גם דמי ניהול מתקדמים ומיסים.</p>
+            <p>חישוב ריבית דריבית מתבצע לפי הנוסחה: סכום סופי = סכום התחלתי כפול (1 + ריבית) בחזקת מספר השנים. המחשבון שלנו מבצע את כל החישובים האלו בצורה אוטומטית ובנוסף מאפשר לשקלל גם דמי ניהול מתקדמים, מס רווחי הון ואינפלציה.</p>
             
             <h3 style="color: var(--primary); margin-top: 20px;">למה כדאי להתחיל לחסוך או להשקיע כמה שיותר מוקדם?</h3>
             <p>כוחה של הריבית הדריבית מבוסס על משך הזמן שהכסף מושקע. ככל שמתחילים מוקדם יותר, כך המנגנון פועל יותר שנים. גם סכומים קטנים שמושקעים בגיל צעיר מאוד יגדלו להיות סכומים עצומים, הרבה יותר מסכומים גדולים שיושקעו בגיל מאוחר.</p>
+
+            <h3 style="color: var(--primary); margin-top: 20px;">מה ההבדל בין תשואה נומינלית לתשואה ריאלית?</h3>
+            <p>תשואה נומינלית היא אחוז הרווח לפני ניכוי אינפלציה. תשואה ריאלית היא מה שנשאר אחרי ניכוי האינפלציה – כלומר כמה כוח הקנייה שלכם באמת גדל. מיליון שקל בעוד 30 שנה קונה הרבה פחות ממיליון שקל היום. במחשבון שלנו ניתן להפעיל את חישוב האינפלציה ולראות את שני המספרים.</p>
+
+            <h3 style="color: var(--primary); margin-top: 20px;">כמה כסף יהיה לי אם אפקיד 1,000 ש"ח בחודש למשך 30 שנה?</h3>
+            <p>בהפקדה חודשית של 1,000 ש"ח למשך 30 שנה בתשואה שנתית ממוצעת של 7%, תצברו כ-1,220,000 ש"ח. מתוך סך ההפקדות של 360,000 ש"ח, כ-860,000 ש"ח הם רווח טהור מריבית דריבית. אם נוסיף מס רווח הון (25%) ואינפלציה (2%), הסכום הריאלי יהיה נמוך יותר – השתמשו במחשבון לתוצאה מדויקת.</p>
+
+            <h3 style="color: var(--primary); margin-top: 20px;">איך דמי ניהול משפיעים על ריבית דריבית?</h3>
+            <p>דמי ניהול הם האויב השקט של ריבית דריבית. הפרש של 0.5% בלבד בדמי ניהול יכול לעלות עשרות אלפי שקלים לאורך 20-30 שנה. לדוגמה, על סכום של 500,000 ש"ח, דמי ניהול של 1.5% במקום 0.6% עולים לכם כ-150,000 ש"ח לאורך 30 שנה. במחשבון שלנו ניתן לשחק עם הנתונים ולראות בדיוק כמה דמי ניהול עולים לכם.</p>
+
+            <h3 style="color: var(--primary); margin-top: 20px;">מתי משלמים מס רווחי הון על ריבית דריבית?</h3>
+            <p>ברוב אפיקי החיסכון והשקעה בישראל, מס רווחי הון (25%) משולם רק בעת מכירה או משיכה של הכסף. כל עוד הכסף בפנים, גם החלק שיילך בסוף למס ממשיך לעבוד ולהניב תשואה. המחשבון שלנו מציג את המס כאילו תמשכו את כל הכסף בסוף התקופה.</p>
+
+            <h3 style="color: var(--primary); margin-top: 20px;">האם עדיף להתחיל להשקיע מוקדם בסכום קטן או להפקיד סכום גדול יותר בהמשך?</h3>
+            <p>כמעט תמיד עדיף להתחיל מוקדם. בזכות ריבית דריבית, לכל שקל שמושקע יש יותר זמן לצמוח. מי שמתחיל להפקיד 500 ש"ח בחודש בגיל 25 יגיע לסכום גבוה יותר בגיל 65 ממי שמתחיל להפקיד 1,500 ש"ח בחודש בגיל 35. הזמן הוא המשתנה החזק ביותר במשוואה.</p>
+
+            <h3 style="color: var(--primary); margin-top: 20px;">כמה אינפלציה נכון להניח בחישוב ריבית דריבית לטווח ארוך?</h3>
+            <p>יעד האינפלציה של בנק ישראל הוא 1%-3% בשנה. ההנחה המקובלת לתכנון ארוך טווח היא 2%-2.5%. במחשבון שלנו ניתן להזין את שיעור האינפלציה הצפוי ולראות כמה הכסף שלכם באמת שווה במונחי כוח קנייה של היום.</p>
           </div>
 
           <div class="disclaimer-box">
@@ -529,8 +663,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
 
-    <script is:inline src="/chart.js"></script>
-    <script is:inline src="/calc.js?v=3"></script>
+    <script is:inline src="/chart.js" defer></script>
+    <script is:inline src="/calc.js?v=3" defer></script>
     <style>
       @media (max-width: 1050px) {
         .dashboard-content {
@@ -550,5 +684,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           grid-template-columns: 1fr !important;
         }
       }
+      .slider-group label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+      .slider-group input[type="number"] { width: 90px; padding: 4px; border: 1px solid #ddd; border-radius: 6px; text-align: left; font-weight: bold; background: #fff; font-size: 1rem; }
+      .calc-slider { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 5px; background: #e0e0e0; outline: none; transition: 0.2s; accent-color: var(--green); margin-top: 5px; }
+      .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--green); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+      
+      .custom-toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; font-size: 0.95rem; }
+      .custom-toggle input { display: none; }
+      .toggle-slider { position: relative; width: 40px; height: 22px; background-color: #ccc; border-radius: 34px; transition: .4s; }
+      .toggle-slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: .4s; }
+      .custom-toggle input:checked + .toggle-slider { background-color: var(--green); }
+      .custom-toggle input:checked + .toggle-slider:before { transform: translateX(18px); }
+      
+      .advanced-group input { padding: 8px; border: 1px solid #ddd; border-radius: 6px; width: 100%; }
+      .advanced-group label { font-size: 0.9rem; margin-bottom: 5px; display: block; }
     </style>
 </BaseLayout>

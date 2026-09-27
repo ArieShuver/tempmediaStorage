@@ -15,8 +15,22 @@ function initCalc() {
   const taxInput = document.getElementById('calc-tax');
   const feeAccumInput = document.getElementById('calc-fee-accum');
   const feeDepositInput = document.getElementById('calc-fee-deposit');
+  
+  const toggleInflation = document.getElementById('toggle-inflation');
+  const inflationGroup = document.getElementById('inflation-group');
+  const calcInflation = document.getElementById('calc-inflation');
 
   const calcFreq = document.getElementById('calc-freq');
+  
+  // Sliders
+  const sliderPrincipal = document.getElementById('slider-principal');
+  const sliderMonthly = document.getElementById('slider-monthly');
+  const sliderYears = document.getElementById('slider-years');
+  const sliderRate = document.getElementById('slider-rate');
+  const sliderInflation = document.getElementById('slider-inflation');
+  const sliderTax = document.getElementById('slider-tax');
+  const sliderFeeAccum = document.getElementById('slider-fee-accum');
+  const sliderFeeDeposit = document.getElementById('slider-fee-deposit');
 
   const resFinal = document.getElementById('res-final');
   const resDeposits = document.getElementById('res-deposits');
@@ -25,6 +39,8 @@ function initCalc() {
   const resTax = document.getElementById('res-tax');
   const boxFeesContainer = document.getElementById('box-fees-container');
   const boxTaxContainer = document.getElementById('box-tax-container');
+  const resInflation = document.getElementById('res-inflation');
+  const boxInflationContainer = document.getElementById('box-inflation-container');
 
   const tableBody = document.getElementById('yearly-table-body');
   const colFeesHeaders = document.querySelectorAll('.col-fees');
@@ -34,8 +50,25 @@ function initCalc() {
   const allInputs = [
     principalInput, monthlyInput, rateInput, yearsInput,
     taxInput, feeAccumInput, feeDepositInput, toggleTax, toggleFees,
-    calcFreq
+    calcFreq, calcInflation, toggleInflation,
+    sliderPrincipal, sliderMonthly, sliderYears, sliderRate, sliderInflation,
+    sliderTax, sliderFeeAccum, sliderFeeDeposit
   ].filter(Boolean);
+
+  // Sync inputs and sliders
+  function syncInputs(numInput, slider) {
+    if (!numInput || !slider) return;
+    numInput.addEventListener('input', () => { slider.value = numInput.value; calculate(); });
+    slider.addEventListener('input', () => { numInput.value = slider.value; calculate(); });
+  }
+  syncInputs(principalInput, sliderPrincipal);
+  syncInputs(monthlyInput, sliderMonthly);
+  syncInputs(yearsInput, sliderYears);
+  syncInputs(rateInput, sliderRate);
+  syncInputs(calcInflation, sliderInflation);
+  syncInputs(taxInput, sliderTax);
+  syncInputs(feeAccumInput, sliderFeeAccum);
+  syncInputs(feeDepositInput, sliderFeeDeposit);
 
   function handleToggles() {
     if (toggleTax && taxGroup) {
@@ -48,11 +81,16 @@ function initCalc() {
       if (feePromoMessage) feePromoMessage.style.display = toggleFees.checked ? '' : 'none';
       if (boxFeesContainer) boxFeesContainer.style.display = toggleFees.checked ? '' : 'none';
     }
+    if (toggleInflation && inflationGroup) {
+      inflationGroup.style.display = toggleInflation.checked ? 'block' : 'none';
+      if (boxInflationContainer) boxInflationContainer.style.display = toggleInflation.checked ? '' : 'none';
+    }
     calculate();
   }
 
   if (toggleTax) toggleTax.addEventListener('change', handleToggles);
   if (toggleFees) toggleFees.addEventListener('change', handleToggles);
+  if (toggleInflation) toggleInflation.addEventListener('change', handleToggles);
 
   // Format currency
   function formatMoney(amount) {
@@ -98,7 +136,11 @@ function initCalc() {
       if (feeDepositInput) feeDepositRate = (parseFloat(feeDepositInput.value) || 0) / 100;
     }
 
-    const inflationRate = 0;
+    let inflationRate = 0;
+    if (toggleInflation && toggleInflation.checked && calcInflation) {
+      inflationRate = (parseFloat(calcInflation.value) || 0) / 100;
+    }
+    
     const freq = parseInt(calcFreq ? calcFreq.value : 12);
 
     const monthlyRate = (r / 100) / 12;
@@ -203,6 +245,9 @@ function initCalc() {
     let finalInflationDiscount = Math.pow(1 + inflationRate, t);
     let finalDisplayFees = totalFeesDeducted / finalInflationDiscount;
     let finalDisplayTax = finalTaxDeducted / finalInflationDiscount;
+    
+    let postTaxFinalNominal = currentCompound - finalTaxDeducted;
+    let finalInflationDeducted = postTaxFinalNominal - (postTaxFinalNominal / finalInflationDiscount);
 
     const currentFinal = parseInt(resFinal.textContent.replace(/[^0-9]/g, '')) || 0;
     const currentDeposits = parseInt(resDeposits.textContent.replace(/[^0-9]/g, '')) || 0;
@@ -219,6 +264,10 @@ function initCalc() {
     if (resTax) {
       const currentTax = parseInt(resTax.textContent.replace(/[^0-9]/g, '')) || 0;
       animateValue(resTax, currentTax, Math.round(finalDisplayTax), 500);
+    }
+    if (resInflation) {
+      const currentInflation = parseInt(resInflation.textContent.replace(/[^0-9]/g, '')) || 0;
+      animateValue(resInflation, currentInflation, Math.round(finalInflationDeducted), 500);
     }
 
     if (tableBody) {
@@ -357,7 +406,10 @@ function initCalc() {
   }
 
   allInputs.forEach(input => {
-    input.addEventListener('input', calculate);
+    // Avoid double attaching if handled by syncInputs
+    if (input && !input.id.startsWith('slider-') && input !== principalInput && input !== monthlyInput && input !== rateInput && input !== yearsInput && input !== calcInflation) {
+      input.addEventListener('input', calculate);
+    }
   });
   yearsInput.addEventListener('input', updateYearsDisplay);
 
@@ -428,18 +480,26 @@ function initCalc() {
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       principalInput.value = 10000;
+      if (sliderPrincipal) sliderPrincipal.value = 10000;
       monthlyInput.value = 500;
+      if (sliderMonthly) sliderMonthly.value = 500;
       rateInput.value = 7;
+      if (sliderRate) sliderRate.value = 7;
       yearsInput.value = 20;
+      if (sliderYears) sliderYears.value = 20;
       updateYearsDisplay();
       if (calcFreq) calcFreq.value = "12";
       if (toggleTax) toggleTax.checked = false;
       if (toggleFees) toggleFees.checked = true;
       if (typeof toggleInflation !== 'undefined' && toggleInflation) toggleInflation.checked = false;
       if (taxInput) taxInput.value = 25;
+      if (sliderTax) sliderTax.value = 25;
       if (feeAccumInput) feeAccumInput.value = 0.6;
+      if (sliderFeeAccum) sliderFeeAccum.value = 0.6;
       if (feeDepositInput) feeDepositInput.value = 0;
+      if (sliderFeeDeposit) sliderFeeDeposit.value = 0;
       if (typeof calcInflation !== 'undefined' && calcInflation) calcInflation.value = 2.5;
+      if (typeof sliderInflation !== 'undefined' && sliderInflation) sliderInflation.value = 2.5;
       handleToggles();
     });
   }

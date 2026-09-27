@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="ביטוח משכנתא - המדריך המלא | משה שובר סוכן ביטוח" description="מדריך מקיף לביטוח משכנתא - ביטוח חיים למשכנתא וביטוח מבנה. מה חשוב לדעת, איך להוזיל, וההבדל בין סוכן ביטוח לבנק.">
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json">
+    [{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "המדריך המלא לביטוח משכנתא",
+      "description": "המדריך המלא לביטוח משכנתא: חיים ומבנה, איך לקבל מחיר טוב וכיצד לבחור נכון",
+      "author": { "@type": "Person", "name": "משה שובר" },
+      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" }
+    }]
+    </script>
+  </Fragment>
+
+  <section class="inner-hero">
+    <div class="inner-hero-bg"></div>
+    <div class="wrap inner-hero-content">
+      <span class="highlight-text">מדריך מלא לביטוח משכנתא</span>
+      <h1>ביטוח משכנתא</h1>
+      <p>כל מה שאתם צריכים לדעת על ביטוח המשכנתא שלכם: ביטוח חיים וביטוח מבנה, חובות כלפי הבנק והזכויות שלכם כלווים.</p>
+    </div>
+  </section>
+
+  <section class="wrap content-section text-layout">
+    <div class="grid-2col" style="gap: 2rem; margin-bottom: 2rem;">
+      <div class="info-card">
+        <h3>מה זה ביטוח חיים למשכנתא?</h3>
+        <p>חלק מהדרישות של הבנק בעת מתן משכנתא. נועד לכסות את שארית ההלוואה במקרה של פטירת אחד הלווים חלילה, כך שהמשפחה תוכל להמשיך להתגורר בבית ללא חובות.</p>
+      </div>
+      <div class="info-card">
+        <h3>מה זה ביטוח מבנה למשכנתא?</h3>
+        <p>מגן על הנכס הפיזי מפני נזקי טבע, רעידות אדמה, שריפות ונזקי מים. חשוב לכלול גם כיסוי צד ג' כדי להגן על עצמכם מנזק שייגרם לשכנים.</p>
+      </div>
+    </div>
+
+    <h2>למה לא לעשות ביטוח בבנק?</h2>
+    <p>הבנקים מציעים ביטוח משכנתא דרך סוכנויות מטעמם. לרוב, ההצעות הללו יקרות יותר בטווח הארוך מהצעות של חברות ביטוח חיצוניות, והפוליסות בסיסיות (למשל, ביטוח מבנה ללא צד ג'). רכישה דרך סוכן ביטוח מבטיחה לכם ליווי אישי, השוואת מחירים, והתאמה אישית של הכיסויים.</p>
+    
+    <h2>הוזלת ביטוח משכנתא</h2>
+    <p>אפשר ורצוי לבצע השוואת מחירים גם לביטוח משכנתא קיים. אם הפסקתם לעשן, ירדתם במשקל או חל שיפור במצבכם הרפואי - סביר להניח שניתן להוזיל את הפוליסה בצורה ניכרת. בנוסף, חברות ביטוח יוצאות לעיתים במבצעים מיוחדים לדמי ניהול או תעריפים מוזלים.</p>
+    <a href="/mortgage-reduction" class="btn">לעמוד המיוחד להוזלת ביטוח משכנתא</a>
+
+    <h2>מאמרים וקישורים קשורים</h2>
+    <ul class="article-links" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem;">
+      <li><a href="/article-mortgage-life-insurance">ביטוח חיים למשכנתא - מדריך ממוקד</a></li>
+      <li><a href="/article-reduce-mortgage-ins">טיפים להוזלת ביטוח משכנתא</a></li>
+      <li><a href="/article-mortgage-ins-health">ביטוח משכנתא למסורבי ביטוח</a></li>
+      <li><a href="/article-mortgage-ins-vs-bank">בנק או סוכן ביטוח?</a></li>
+    </ul>
+  </section>
+</BaseLayout>
