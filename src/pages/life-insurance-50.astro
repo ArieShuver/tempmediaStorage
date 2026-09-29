@@ -63,16 +63,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </Fragment>
 
 
-    <!-- ===== LANDING HERO ===== -->
     <section class="landing-hero">
       <div class="wrap">
-        <!-- צד שמאל: תמונת זוג -->
         <div class="hero-image-side">
           <img src="couple-50-hero.webp" alt="זוג מבוגר נהנה מביטחון כלכלי - ביטוח חיים למבוגרים" width="600" height="550" loading="eager"
             fetchpriority="high">
         </div>
 
-        <!-- צד ימין: כותרת + טופס -->
         <div class="hero-content-side lead-box">
           <h1>ביטוח חיים למבוגרים</h1>
           <h2 style="font-size: 2.2rem; color: var(--primary); margin-top: -10px; margin-bottom: 15px; font-weight: 700;">הכיסוי המלא במחיר תחרותי במיוחד</h2>
@@ -103,7 +100,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </button>
               </form>
 
-              <!-- הודעת הצלחה (מוסתרת כברירת מחדל, מופעלת דרך script.js) -->
               <div class="success">
                 <div class="success-inner">
                   <h3>הבקשה נשלחה בהצלחה!</h3>
@@ -115,7 +111,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ===== BENEFITS STRIP ===== -->
     <section class="benefits-strip">
       <div class="wrap">
         <div class="benefit-item">
@@ -152,7 +147,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ===== STORY SECTION ===== -->
     <section class="story-section article-section">
       <div class="wrap">
         <div class="story-content">
@@ -203,7 +197,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ===== WHY GRID (Cards) ===== -->
     <section class="why-me">
       <div class="wrap">
         <h2 class="section-title centered">דגשים חשובים לביטוח בגיל מבוגר</h2>
@@ -242,7 +235,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
     <section class="faq-section">
       <div class="wrap">
         <h2 class="section-title centered">שאלות נפוצות</h2>
@@ -327,7 +319,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ======== BOTTOM CTA ======== -->
     <section class="bottom-cta" id="contact">
       <div class="wrap">
         <div class="cta-box">
@@ -336,7 +327,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             style="font-size: 1.3rem; margin-bottom: 30px; color: var(--primary-deep); max-width: 600px; margin-left: auto; margin-right: auto;">
             מלאו את הפרטים ונבחן יחד את פתרונות ביטוח החיים המשתלמים והמתאימים ביותר עבורכם ועבור משפחתכם.</p>
           <div style="margin-top: 40px; text-align: center;">
-            <a href="#contact" class="btn-solid btn-large"
+            <a href="/#contact" class="btn-solid btn-large"
               style="font-size: 1.4rem; padding: 18px 45px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s ease;">
               <svg class="icon-svg fa-rocket" width="1em" height="1em" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -359,7 +350,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </section>
-    <!-- ===== FLOATING ACTIONS (FAB) ===== -->
     <a href="https://wa.me/972559106223" target="_blank" class="fab-btn fab-whatsapp mobile-fab"
       aria-label="שלח הודעה בוואטסאפ" onclick="return gtag_report_conversion('https://wa.me/972559106223');">
       <i><svg class="icon-svg" width="1em" height="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
