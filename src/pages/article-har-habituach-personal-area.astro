@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'הר הביטוח אזור אישי: איך נכנסים ובודקים את הביטוחים? | משה שובר';
+const description = 'מדריך ברור לכניסה לאזור האישי של הר הביטוח, איתור פוליסות, בדיקת עלויות וזיהוי כפל ביטוחים בלי לבטל פוליסה בטעות.';
+---
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json">{
+      "@context":"https://schema.org","@type":"Article","headline":"הר הביטוח אזור אישי: איך נכנסים ובודקים את הביטוחים?","description":"מדריך לכניסה לאזור האישי של הר הביטוח ולבדיקת הפוליסות.","author":{"@type":"Person","name":"משה שובר"},"publisher":{"@type":"Organization","name":"משה שובר סוכן ביטוח"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shuverinsurance.com/article-har-habituach-personal-area"}
+    }</script>
+  </Fragment>
+  <section class="inner-hero" style="background:linear-gradient(rgba(10,37,64,.8),rgba(10,37,64,.9)),url('har_habituach.webp') center/cover no-repeat;">
+    <div class="wrap inner-hero-content"><span class="highlight-text">מדריך הר הביטוח</span><h1>הר הביטוח אזור אישי: איך נכנסים ובודקים?</h1><p>כך מוצאים את הפוליסות שלכם, בודקים עלויות ומבינים מה דורש בדיקה נוספת.</p></div>
+  </section>
+  <section class="article-section-enhanced"><div class="wrap"><div class="breadcrumb"><a href="index">דף הבית</a><span class="sep">›</span><a href="article-har-habituach">הר הביטוח</a><span class="sep">›</span><span>אזור אישי</span></div><div class="article-layout"><main class="article-main"><div class="article-body">
+    <p class="lead"><strong>אזור הר הביטוח מאפשר לראות במקום אחד את מוצרי הביטוח המדווחים על שמכם.</strong> הוא כלי מצוין להתחלה, אבל הוא לא מחליף קריאת פוליסה או בדיקה מקצועית של תנאי הכיסוי.</p>
+    <h2 id="login">איך נכנסים לאזור האישי?</h2><p>חפשו את השירות הרשמי של הר הביטוח באתר ממשלתי והיכנסו דרך מערכת ההזדהות. הכינו תעודת זהות ופרטים אישיים כפי שנדרשים במסך הכניסה. לפני הזנת פרטים, בדקו שאתם נמצאים באתר הרשמי ולא באתר שמבקש תשלום או פרטי אשראי ללא צורך.</p>
+    <h2 id="check">מה בודקים אחרי הכניסה?</h2><ul><li>רשימת חברות הביטוח והפוליסות הפעילות.</li><li>סוג המוצר והכיסוי המדווח.</li><li>פרמיה או עלות כפי שמדווחת במערכת.</li><li>התראות אפשריות על כפל ביטוח.</li></ul>
+    <h2 id="double">התראה על כפל ביטוח אינה הוראה לבטל</h2><p>המערכת מזהה חפיפות אפשריות לפי נתונים כלליים. בביטוחי פיצוי, כמו ביטוח חיים או מחלות קשות, ייתכן שיש ערך ליותר מפוליסה אחת. אל תבטלו פוליסה לפני שבודקים את תנאיה, מועד ההצטרפות, החרגות ורצף ביטוחי.</p>
+    <h2 id="next">מה עושים עם הדוח?</h2><ol><li>מורידים או שומרים את הנתונים.</li><li>מסמנים פוליסות שאינכם מזהים.</li><li>מבקשים את תנאי הפוליסה המלאים מהחברה.</li><li>משווים כיסוי, עלות והחרגות לפני שינוי.</li></ol>
+    <p class="article-cta"><a href="article-har-habituach">חזרה למרכז מדריכי הר הביטוח</a></p><div class="article-cta-wrap"><a href="/#contact" class="article-cta-btn article-cta-pulse">רוצים שנבדוק עבורכם את תיק הביטוח?</a></div>
+  </div></main><aside class="toc-sidebar d-none d-lg-block"><h3>תוכן עניינים</h3><ol><li><a href="#login">כניסה</a></li><li><a href="#check">מה בודקים?</a></li><li><a href="#double">כפל ביטוח</a></li><li><a href="#next">השלב הבא</a></li></ol></aside></div></div></section>
+</BaseLayout>

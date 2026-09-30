@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Travel insurance during pregnancy</title>
+  <desc id="desc">A calm illustrated travel scene with a pregnant traveler, passport, suitcase and airplane.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dff4f4"/>
+      <stop offset="0.58" stop-color="#b7dce4"/>
+      <stop offset="1" stop-color="#8bc3d2"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f0e5"/>
+      <stop offset="1" stop-color="#dfcbb6"/>
+    </linearGradient>
+    <linearGradient id="dress" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#176b7d"/>
+      <stop offset="1" stop-color="#0c4156"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16"/>
+      <feOffset dy="18"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1340" cy="150" r="88" fill="#f7c978" opacity="0.75"/>
+  <path d="M0 625 C260 530 420 590 650 555 C920 510 1120 555 1600 475 V900 H0Z" fill="url(#ground)"/>
+  <path d="M0 690 C260 620 470 675 700 635 C1010 580 1260 625 1600 555" fill="none" stroke="#c29f87" stroke-width="5" opacity="0.55"/>
+
+  <g opacity="0.28" fill="#ffffff">
+    <path d="M150 190 C260 120 370 145 435 215 C330 210 240 230 150 190Z"/>
+    <path d="M1120 290 C1220 230 1310 250 1370 305 C1270 305 1190 320 1120 290Z"/>
+  </g>
+
+  <g transform="translate(1030 170) rotate(-12)" fill="#ffffff" stroke="#0d536a" stroke-width="8" stroke-linejoin="round">
+    <path d="M0 92 L210 52 L288 74 L210 98 L112 104 L66 172 L43 168 L70 105 L0 112 Z"/>
+    <path d="M170 62 L194 0 L218 4 L222 61 Z"/>
+    <path d="M196 98 L239 155 L258 150 L229 91 Z"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="635" width="275" height="185" rx="25" fill="#ef896f"/>
+    <rect x="270" y="555" width="175" height="110" rx="35" fill="none" stroke="#c75c50" stroke-width="24"/>
+    <rect x="245" y="685" width="225" height="12" rx="6" fill="#f8c0a4" opacity="0.8"/>
+    <circle cx="282" cy="825" r="23" fill="#45606a"/>
+    <circle cx="433" cy="825" r="23" fill="#45606a"/>
+  </g>
+
+  <g transform="translate(690 150)">
+    <circle cx="210" cy="100" r="74" fill="#d99376"/>
+    <path d="M139 94 C130 20 230 -15 282 53 C257 39 215 49 174 83Z" fill="#263d4a"/>
+    <path d="M128 207 C148 161 266 157 302 214 L345 440 C290 515 120 515 72 440 Z" fill="url(#dress)"/>
+    <path d="M142 207 C111 267 99 347 120 400 C155 449 258 449 293 400 C317 339 302 258 270 207 C240 254 167 254 142 207Z" fill="#e98c75" opacity="0.95"/>
+    <path d="M150 235 C181 273 242 273 278 235" fill="none" stroke="#f4b094" stroke-width="10" opacity="0.7"/>
+    <path d="M88 240 L38 375" stroke="#d99376" stroke-width="36" stroke-linecap="round"/>
+    <path d="M295 240 L360 355" stroke="#d99376" stroke-width="36" stroke-linecap="round"/>
+    <path d="M38 375 L73 427" stroke="#d99376" stroke-width="30" stroke-linecap="round"/>
+    <path d="M360 355 L430 390" stroke="#d99376" stroke-width="30" stroke-linecap="round"/>
+    <path d="M143 482 L112 670" stroke="#243f4c" stroke-width="48" stroke-linecap="round"/>
+    <path d="M265 482 L303 670" stroke="#243f4c" stroke-width="48" stroke-linecap="round"/>
+    <path d="M78 676 L145 676" stroke="#ef896f" stroke-width="28" stroke-linecap="round"/>
+    <path d="M270 676 L342 676" stroke="#ef896f" stroke-width="28" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(1220 625) rotate(-8)" filter="url(#shadow)">
+    <rect width="235" height="155" rx="12" fill="#fffdf8"/>
+    <rect width="235" height="42" rx="12" fill="#176b7d"/>
+    <circle cx="39" cy="21" r="13" fill="#f7c978"/>
+    <path d="M28 21 L39 10 L50 21 L39 32Z" fill="#176b7d"/>
+    <path d="M30 75 H194 M30 101 H160 M30 127 H120" stroke="#9db8b9" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <g fill="none" stroke="#ffffff" stroke-width="7" opacity="0.72">
+    <path d="M560 260 C485 320 505 410 585 438"/>
+    <path d="M590 252 L550 260 L568 297"/>
+    <path d="M540 470 C620 515 710 495 750 425"/>
+    <path d="M744 470 L750 425 L706 437"/>
+  </g>
+</svg>

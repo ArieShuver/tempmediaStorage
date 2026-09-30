@@ -46,6 +46,34 @@ import Footer from '../components/Footer.astro';
   <link rel="dns-prefetch" href="https://www.clarity.ms" />
   <link rel="stylesheet" href="/style.min.css?v=7" />
   <style>
+    .article-cta-wrap {
+      width: min(100%, 720px);
+      margin: 1.25rem auto 0;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+    .article-cta-wrap .article-cta-btn {
+      display: inline-flex;
+      width: auto;
+      max-width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      line-height: 1.35;
+    }
+    @media (max-width: 600px) {
+      .article-cta-wrap {
+        margin-top: 1rem;
+        padding: 0 .5rem;
+      }
+      .article-cta-wrap .article-cta-btn {
+        width: 100%;
+        min-height: 46px;
+        padding: 11px 16px;
+        font-size: 1rem;
+        white-space: normal;
+      }
+    }
     .hero-bg {
       position: absolute; top: 0; left: 0; right: 0; bottom: 5.882rem;
       background-image: linear-gradient(to left, rgba(10, 42, 67, .6) 0, rgba(10, 42, 67, .2) 35%, rgba(10, 42, 67, 0) 60%), url('/hero-bg-contract.webp');
@@ -104,6 +132,37 @@ import Footer from '../components/Footer.astro';
     });
   </script>
 
+
+  <script is:inline>
+    (function () {
+      var tocLinks = document.querySelectorAll('.toc-sidebar a[href^="#"]');
+      var sections = [];
+      tocLinks.forEach(function (link) {
+        var target = document.getElementById(link.getAttribute('href').slice(1));
+        if (target) sections.push({ target: target, link: link });
+      });
+      if (!sections.length) return;
+
+      var pending = false;
+      function updateToc() {
+        var position = window.pageYOffset + 140;
+        var current = sections[0];
+        sections.forEach(function (section) {
+          if (section.target.offsetTop <= position) current = section;
+        });
+        tocLinks.forEach(function (link) { link.classList.remove('toc-active'); });
+        current.link.classList.add('toc-active');
+        pending = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (pending) return;
+        pending = true;
+        window.requestAnimationFrame(updateToc);
+      }, { passive: true });
+      updateToc();
+    })();
+  </script>
 
   <script is:inline>
     requestAnimationFrame(function () {
