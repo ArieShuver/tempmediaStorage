@@ -31,7 +31,7 @@ export function getStaticPaths() {
 
 const { city } = Astro.props;
 ---
-<BaseLayout title={`מחפשים סוכן ביטוח ב${city.name}? | משה שובר - התאמה אישית`} description={`מחפשים סוכן ביטוח מקצועי ב${city.name}? משה שובר מציע ליווי אישי ופתרונות ביטוח, פנסיה ופיננסים מותאמים אישית לתושבי ${city.name} והסביבה. צרו קשר לייעוץ.`}>
+<BaseLayout title={`סוכן ביטוח ב${city.name} | משה שובר - התאמה אישית`} description={`מחפשים סוכן ביטוח מקצועי ב${city.name}? משה שובר מציע ליווי אישי ופתרונות ביטוח, פנסיה ופיננסים מותאמים אישית לתושבי ${city.name} והסביבה. צרו קשר לייעוץ.`}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={`
     [
@@ -52,7 +52,7 @@ const { city } = Astro.props;
   <section class="inner-hero" style="background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.9)), url('/health_declaration.webp') center/cover no-repeat;">
     <div class="wrap inner-hero-content">
       <span class="highlight-text">שירות אישי, מקצועי ואמין</span>
-      <h1 style="font-size: 4rem;">מחפשים סוכן ביטוח ב{city.name}?</h1>
+      <h1 style="font-size: 4rem;">סוכן ביטוח ב{city.name}?</h1>
       <p style="font-size: 1.4rem;">שירותי ביטוח, פנסיה ופיננסים בהתאמה אישית לתושבי {city.name} והסביבה.</p>
     </div>
   </section>
