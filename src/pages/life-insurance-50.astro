@@ -56,12 +56,207 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "@type": "Answer",
           "text": "בגיל מבוגר הפרמיה מתייקרת משמעותית. לכן, ביצוע השוואת מחירים קפדנית בין כל חברות הביטוח יכולה לחסוך מאות שקלים בחודש ואלפי שקלים לאורך השנים."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "איך עובד ביטוח חיים לגיל השלישי ומעל גיל 60 ללא הצהרת בריאות?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "קיימות פוליסות ייעודיות לגיל השלישי שאינן דורשות חיתום רפואי או ויתור סודיות רפואית. בפוליסות אלו קיימת תקופת אכשרה (לרוב 3 שנים למקרה פטירה ממחלה), ולאחריה הכיסוי תקף במלואו."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "האם חולי סוכרת או בעלי לחץ דם יכולים לרכוש ביטוח חיים למבוגרים?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "בהחלט כן. באמצעות הגשה מקצועית וחיתום מותאם, חולי סוכרת מאוזנת ובעלי יתר לחץ דם יכולים להתקבל לביטוח חיים בתוספת פרמיה מבוקרת, או במסלולים מותאמים ללא החרגות גורפות."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "האם ניתן לעשות ביטוח חיים למשכנתא בגיל מבוגר (מעל 60 או 65)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "כן. ניתן לרכוש ביטוח חיים למשכנתא בגיל מבוגר בהתאם ליתרת ההלוואה ותקופתה, תוך התאמת סכום ביטוח יורד וניצול הנחות סוכן מול חברות הביטוח להוזלת ההחזר החודשי."
+        }
       }
     ]
   }]
   </script>
+  <style>
+    .senior-content-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+      padding: 3.8rem 4rem;
+    }
+    .cost-factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.6rem;
+      margin: 2.5rem 0 3.5rem;
+    }
+    .cost-factor-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+    .conditions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin: 2rem 0 3.5rem;
+    }
+    .condition-card {
+      background: #fbfdfe;
+      border: 1px solid #e3edf5;
+      border-right: 5px solid var(--green);
+      border-radius: 12px;
+      padding: 1.6rem 2rem;
+    }
+    .collective-box {
+      background: linear-gradient(135deg, #f0f7ff 0%, #e8f3fc 100%);
+      border: 1px solid #cee0f0;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin: 3rem 0;
+    }
+    .mid-cta-box {
+      background: linear-gradient(135deg, #093352 0%, #061f33 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      margin: 4rem 0 1rem;
+      box-shadow: 0 15px 40px rgba(6,31,51,0.18);
+    }
+    @media (max-width: 768px) {
+      .landing-hero {
+        padding: 2rem 0 1rem;
+      }
+      .landing-hero .wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .hero-image-side {
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .hero-image-side img {
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        border-radius: 1.2rem;
+        object-fit: cover;
+      }
+      .lead-box {
+        margin: 1rem auto 0;
+        padding: 1.5rem 1.2rem;
+      }
+      .lead-box h1 {
+        font-size: 1.85rem !important;
+        line-height: 1.2;
+      }
+      .lead-box h2 {
+        font-size: 1.35rem !important;
+        margin-top: 4px !important;
+        margin-bottom: 12px !important;
+      }
+      .lead-box .hero-subtitle {
+        font-size: 1.05rem !important;
+        line-height: 1.5;
+        margin-bottom: 18px !important;
+      }
+      .benefits-strip {
+        margin-top: 1rem;
+        padding: 1.5rem 1rem;
+        border-radius: 14px;
+      }
+      .benefits-strip .wrap {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .benefit-item {
+        width: 100%;
+        min-width: auto;
+        justify-content: flex-start;
+        padding: 0.5rem 0;
+      }
+      .story-section {
+        padding: 2.5rem 0 !important;
+      }
+      .senior-content-card {
+        padding: 2rem 1.2rem !important;
+        border-radius: 16px !important;
+      }
+      .senior-content-card h2 {
+        font-size: 1.55rem !important;
+        line-height: 1.3 !important;
+        margin-top: 2.5rem !important;
+        margin-bottom: 1rem !important;
+      }
+      .senior-content-card h3 {
+        font-size: 1.25rem !important;
+        margin-top: 2rem !important;
+      }
+      .senior-content-card p {
+        font-size: 1.05rem !important;
+        line-height: 1.75 !important;
+        margin-bottom: 1.4rem !important;
+      }
+      .cost-factors-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1.8rem 0 2.2rem;
+      }
+      .cost-factor-card {
+        padding: 1.4rem 1.2rem;
+        border-radius: 12px;
+      }
+      .conditions-list {
+        gap: 1rem;
+        margin: 1.5rem 0 2.2rem;
+      }
+      .condition-card {
+        padding: 1.2rem 1.1rem;
+        border-radius: 10px;
+      }
+      .collective-box {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin: 2rem 0;
+      }
+      .mid-cta-box {
+        padding: 2rem 1.2rem;
+        border-radius: 16px;
+        margin: 2.5rem 0 1rem;
+      }
+      .mid-cta-box h3 {
+        font-size: 1.4rem !important;
+        margin-bottom: 0.6rem !important;
+      }
+      .mid-cta-box p {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .mid-cta-box .btn-solid {
+        width: 100%;
+        font-size: 1.1rem !important;
+        padding: 12px 20px !important;
+      }
+    }
+  </style>
   </Fragment>
-
 
     <section class="landing-hero">
       <div class="wrap">
@@ -149,50 +344,71 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <section class="story-section article-section">
       <div class="wrap">
-        <div class="story-content">
-          <h2>רשת ביטחון יציבה למשפחה, בכל גיל</h2>
+        <div class="article-body senior-content-card">
+          
+          <h2 style="color: var(--primary-deep); margin-top: 0; margin-bottom: 1.6rem; font-weight: 800; line-height: 1.3;">רשת ביטחון יציבה למשפחה, בכל גיל</h2>
           <p>ככל שמתבגרים, ביטוח חיים (ריסק) מקבל משמעות ממוקדת יותר. זה השלב שבו אנו רוצים לוודא שהתחייבויות ארוכות טווח לא יהפכו לנטל על המשפחה, ושבני הזוג יוכלו לשמור על יציבותם ורמת חייהם בכל תרחיש. עבור אנשים המתמודדים עם מצבים בריאותיים קיימים, תהליך ההצטרפות עשוי להיראות מורכב, אך בעזרת עבודה מקצועית ונכונה מול חברות הביטוח ניתן למצוא מסלולים מותאמים המספקים פתרון הולם.</p>
 
-          <h3>פתרונות חיתום מתקדמים לבעלי בעיות רפואיות</h3>
-          <p>אחד המיתוסים הנפוצים הוא שבעלי היסטוריה רפואית אינם יכולים לרכוש ביטוח חיים. המציאות מראה כי שוק הביטוח
-            מציע כיום מגוון כלי חיתום ופוליסות ייעודיות המאפשרות שילוב של מבוטחים גם עם מצבים כרוניים או בעיות בריאותיות
-            שונות. באמצעות בחינה קפדנית והנחות מובנות, ניתן להרכיב כיסוי אחראי בעלות משתלמת שמבטיחה שקט נפשי מלא ויציבות
-            ארוכת טווח למשפחה שלכם.</p>
+          <h3 style="color: var(--primary); font-weight: 700;">פתרונות חיתום מתקדמים לבעלי בעיות רפואיות</h3>
+          <p>אחד המיתוסים הנפוצים הוא שבעלי היסטוריה רפואית אינם יכולים לרכוש ביטוח חיים. המציאות מראה כי שוק הביטוח מציע כיום מגוון כלי חיתום ופוליסות ייעודיות המאפשרות שילוב של מבוטחים גם עם מצבים כרוניים או בעיות בריאותיות שונות. באמצעות בחינה קפדנית והנחות מובנות, ניתן להרכיב כיסוי אחראי בעלות משתלמת שמבטיחה שקט נפשי מלא ויציבות ארוכת טווח למשפחה שלכם.</p>
 
-          <div style="margin-top: 30px; text-align: center;">
-            <a href="#lead-form" class="btn-solid"
-              style="padding: 12px 30px; font-size: 1.2rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
-              </svg>
-              לחצו כאן לבדיקת זכאות והתאמת כיסוי אישי
-            </a>
-          </div>
-
-          <h2>כיצד מתכננים נכון ביטוח חיים בגיל מבוגר?</h2>
+          <h2 style="color: var(--primary-deep); font-weight: 800; line-height: 1.3;">כיצד מתכננים נכון ביטוח חיים בגיל מבוגר?</h2>
           <p>בניגוד לביטוח בגיל צעיר, בגיל מבוגר החישוב הופך לדינמי וממוקד יותר. אנו בוחנים את יתרת המשכנתא, ההתחייבויות העסקיות או האישיות, ומנגד מעריכים את צבירת הנכסים והחיסכון הפנסיוני הקיים. המטרה היא למנוע מצב של ביטוח יתר שעולה כסף מיותר, ובמקביל לוודא שאין חשיפה או תת-ביטוח שיפגעו בבני המשפחה בעת הצורך.</p>
-          <p>התאמה מקצועית מאפשרת לעדכן את גובה הכיסוי לאורך השנים באופן שיספק הגנה מלאה על השקעות ומקורות הכנסה, תוך
-            שמירה על מסגרת תקציב הגיונית ואחראית.</p>
+          <p>התאמה מקצועית מאפשרת לעדכן את גובה הכיסוי לאורך השנים באופן שיספק הגנה מלאה על השקעות ומקורות הכנסה, תוך שמירה על מסגרת תקציב הגיונית ואחראית.</p>
 
-          <div style="text-align: center; margin: 40px 0;">
-            <a href="#lead-form" class="btn-solid"
-              style="padding: 14px 40px; font-size: 1.3rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
-              <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
-              </svg>
-              לחצו כאן להתייעצות מקצועית והוזלת עלויות
+          <h2 style="color: var(--primary-deep); font-weight: 800; line-height: 1.3;">מה משפיע על עלות ביטוח חיים בגיל מבוגר ואיך מוזילים אותה?</h2>
+          <p>במקום תעריף אחיד, מחיר ביטוח חיים (ריסק) למבוגרים מחושב באופן דינמי ופרטני לפי מספר פרמטרים מרכזיים. הבנה נכונה של המרכיבים מאפשרת להוזיל את העלות באופן משמעותי:</p>
+
+          <div class="cost-factors-grid">
+            <div class="cost-factor-card">
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--green-soft); color: var(--green-hov); font-weight: 800; margin-bottom: 0.8rem; font-size: 1rem;">1</div>
+              <h4 style="margin: 0 0 0.6rem; color: var(--primary-deep); font-size: 1.2rem; font-weight: 700;">גיל המבוטח ומצב עישון</h4>
+              <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: #64748b;">הגיל ומצב העישון הם המרכיבים הראשוניים בלוח התמותה. לא-מעשנים נהנים מתעריפים מופחתים משמעותית בכל חברות הביטוח.</p>
+            </div>
+            <div class="cost-factor-card">
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--green-soft); color: var(--green-hov); font-weight: 800; margin-bottom: 0.8rem; font-size: 1rem;">2</div>
+              <h4 style="margin: 0 0 0.6rem; color: var(--primary-deep); font-size: 1.2rem; font-weight: 700;">סכום הכיסוי המבוקש</h4>
+              <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: #64748b;">התאמה מדויקת של סכום הפיצוי לצרכים האמיתיים (כיסוי התחייבויות, ביטחון לבן/בת הזוג) מונעת תשלום מיותר על "ביטוח יתר".</p>
+            </div>
+            <div class="cost-factor-card">
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--green-soft); color: var(--green-hov); font-weight: 800; margin-bottom: 0.8rem; font-size: 1rem;">3</div>
+              <h4 style="margin: 0 0 0.6rem; color: var(--primary-deep); font-size: 1.2rem; font-weight: 700;">חיתום רפואי והיסטוריה אישית</h4>
+              <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: #64748b;">בדיקה יסודית של התיק הרפואי מאפשרת להגיש את הבקשה לחברה שמעניקה את תנאי הקבלה המקלים ביותר לאותו מצב בריאותי.</p>
+            </div>
+            <div class="cost-factor-card">
+              <div style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--green-soft); color: var(--green-hov); font-weight: 800; margin-bottom: 0.8rem; font-size: 1rem;">4</div>
+              <h4 style="margin: 0 0 0.6rem; color: var(--primary-deep); font-size: 1.2rem; font-weight: 700;">הנחות קולקטיב ומכרזי סוכן</h4>
+              <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: #64748b;">שימוש בהנחות סוכן ייעודיות והשוואה בין כל החברות חוסך פערי מחיר שיכולים להגיע לעשרות אחוזים בחודש.</p>
+            </div>
+          </div>
+
+          <h2 style="color: var(--primary-deep); font-weight: 800; line-height: 1.3;">הצטרפות עם מחלות רקע (סוכרת, לחץ דם) או ללא הצהרת בריאות</h2>
+          <p>רבים בגילאי 50–70 חוששים שאם הם נוטלים תרופות קבועות או מתמודדים עם בעיה כרונית, לא ניתן לבטח אותם. <strong>המציאות בשטח מעודדת בהרבה:</strong></p>
+          
+          <div class="conditions-list">
+            <div class="condition-card">
+              <h4 style="margin: 0 0 0.5rem; color: var(--primary-deep); font-size: 1.15rem; font-weight: 700;">חיתום רפואי פרטני עם תוספת מבוקרת</h4>
+              <p style="margin: 0; font-size: 1.05rem; line-height: 1.75; color: #4a5568;">במצבים שכיחים כמו סוכרת מאוזנת, שומנים בדם או יתר לחץ דם, חברות ביטוח רבות מאשרות את הפוליסה בתוספת פרמיה קטנה בלבד, בלי לוותר על כיסוי מלא.</p>
+            </div>
+            <div class="condition-card">
+              <h4 style="margin: 0 0 0.5rem; color: var(--primary-deep); font-size: 1.15rem; font-weight: 700;">פוליסה ייעודית ללא הצהרת בריאות</h4>
+              <p style="margin: 0; font-size: 1.05rem; line-height: 1.75; color: #4a5568;">קיימות פוליסות ייעודיות שאינן דורשות חיתום רפואי או בדיקות. בפוליסות אלו יש תקופת אכשרה (בדרך כלל 3 שנים למקרי פטירה כתוצאה ממחלה), ולאחריה הכיסוי מעניק תשלום מלא למשפחה.</p>
+            </div>
+          </div>
+
+          <div class="collective-box">
+            <h3 style="margin: 0 0 0.8rem; color: var(--primary); font-size: 1.35rem; font-weight: 700;">קולקטיבים והנחות סוכן – לחתוך את המחיר</h3>
+            <p style="margin: 0; font-size: 1.1rem; line-height: 1.85; color: #334155;">ביטוחי חיים משתנים ומתייקרים עם הגיל, אך ניהול חכם וסקירת שוק מקיפה מאפשרים לנו להשיג את התנאים הטובים ביותר. התפקיד שלי הוא לבצע עבורכם השוואה קפדנית בין החברות המובילות, לנצל הנחות סוכן מיוחדות ומכרזי קולקטיב, ולהביא לכם את הפוליסה החכמה והאיכותית ביותר בשוק במחיר המשתלם ביותר – בלי בירוקרטיה ובלי פשרות על הכיסוי של המשפחה.</p>
+          </div>
+
+          <div class="mid-cta-box">
+            <h3 style="font-size: 1.8rem; font-weight: 800; color: #ffffff; margin: 0 0 0.8rem;">רוצים לבדוק זכאות ולקבל הצעה משתלמת?</h3>
+            <p style="font-size: 1.15rem; color: rgba(255,255,255,0.85); margin: 0 auto 2.2rem; max-width: 580px; line-height: 1.7;">נבדוק יחד את מסלולי ההצטרפות, נשווה בין כל חברות הביטוח ונתאים לכם את הכיסוי הנכון והמשתלם ביותר.</p>
+            <a href="#lead-form" class="btn-solid btn-large" style="font-size: 1.25rem; padding: 14px 42px; border-radius: 50px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+              קבלו הצעה אישית ללא התחייבות
             </a>
           </div>
 
-          <h3>קולקטיבים והנחות סוכן - לחתוך את המחיר</h3>
-          <p>ביטוחי חיים משתנים ומתייקרים עם הגיל, אך ניהול חכם וסקירת שוק מקיפה מאפשרים לנו להשיג את התנאים הטובים
-            ביותר. התפקיד שלי הוא לבצע עבורכם השוואה קפדנית בין החברות המובילות, לנצל הנחות סוכן מיוחדות ומכרזי קולקטיב,
-            ולהביא לכם את הפוליסה החכמה והאיכותית ביותר בשוק במחיר המשתלם ביותר – בלי בירוקרטיה ובלי פשרות על הכיסוי של
-            המשפחה.</p>
         </div>
       </div>
     </section>
@@ -313,6 +529,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </svg></button>
             <div class="faq-a">
               <p>בגיל מבוגר, העלות החודשית (הפרמיה) של ביטוח חיים מתייקרת משמעותית עקב העלייה בסיכון. לכן, ביצוע השוואת מחירים קפדנית בין כל חברות הביטוח בשוק (ולא להסתפק בהצעה אחת) יכולה לחסוך לכם מאות שקלים בחודש ואלפי שקלים לאורך השנים.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">איך עובד ביטוח חיים לגיל השלישי ומעל גיל 60 ללא הצהרת בריאות? <svg class="faq-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>קיימות פוליסות ייעודיות לגיל השלישי שאינן דורשות חיתום רפואי או ויתור סודיות רפואית. בפוליסות אלו קיימת תקופת אכשרה (לרוב 3 שנים למקרה פטירה ממחלה), ולאחריה הכיסוי תקף במלואו ומעניק רשת ביטחון פיננסית למשפחה.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">האם חולי סוכרת או בעלי לחץ דם יכולים לרכוש ביטוח חיים למבוגרים? <svg class="faq-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>בהחלט כן. באמצעות הגשה מקצועית וחיתום מותאם מול חברות הביטוח, חולי סוכרת מאוזנת ובעלי יתר לחץ דם יכולים להתקבל לפוליסת ביטוח חיים בתוספת פרמיה מבוקרת, או במסלולים ייעודיים ללא החרגות גורפות.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">האם ניתן לעשות ביטוח חיים למשכנתא בגיל מבוגר (מעל גיל 60 או 65)? <svg class="faq-icon" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg></button>
+            <div class="faq-a">
+              <p>כן, בהחלט. ניתן לרכוש ביטוח חיים למשכנתא בגיל מבוגר לפי יתרת ההלוואה ותקופתה, תוך התאמת סכום ביטוח יורד וניצול הנחות סוכן מול חברות הביטוח כדי להוזיל את ההחזר החודשי של המשכנתא.</p>
             </div>
           </div>
         </div>

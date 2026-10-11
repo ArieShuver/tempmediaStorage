@@ -43,8 +43,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   </script>
   </Fragment>
-
-    <!-- ===== INNER HERO ===== -->
     <section class="inner-hero" style="background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.9)), url('tikun190.webp') center/cover no-repeat;">
       <div class="wrap inner-hero-content">
         <span class="highlight-text">המדריך המלא לשנת 2026</span>
@@ -53,7 +51,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ===== ARTICLE CONTENT ===== -->
     <section class="article-section-enhanced article-section">
       <div class="wrap">
         
@@ -66,7 +63,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="article-layout">
-          <!-- ===== MAIN CONTENT ===== -->
           <div class="article-main">
             <div class="article-body">
               <p><strong>אחת הדילמות הגדולות של אנשים בגיל הפרישה היא מה לעשות עם הכסף הפנוי.</strong><br>
@@ -119,6 +115,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <li><strong>פטירה אחרי גיל 75:</strong> המוטבים יוכלו למשוך את הכסף בתשלום של 15% מס רווחי הון בלבד (נומינלי), או להעביר את הכסף לקופת גמל על שמם תוך דחיית המס.</li>
               </ul>
 
+              <div style="background: #f0f7ff; border-right: 4px solid var(--primary); padding: 15px 20px; border-radius: 8px; margin: 20px 0;">
+                <p style="margin: 0; font-weight: 500;">
+                  <strong>דואגים לביטחון הכלכלי של המשפחה בגיל השלישי?</strong> לצד תכנון העברה בין-דורית בתיקון 190, מומלץ לבדוק גם התאמת <a href="/life-insurance-50" style="color: var(--primary); font-weight: 700; text-decoration: underline;">ביטוח חיים למבוגרים</a> – המבטיח סכום פיצוי פטור ממס ופתרונות מותאמים גם למצבים רפואיים קיימים.
+                </p>
+              </div>
+
               <h2 id="disadvantages">תיקון 190 חסרונות</h2>
               <p>למרות ההטבות, תיקון 190 אינו מתאים לכל אחד, ויש לו חסרונות שצריך להכיר:</p>
               <ul>
@@ -156,7 +158,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </div>
 
-          <!-- ===== STICKY TOC SIDEBAR ===== -->
           <aside class="toc-sidebar d-none d-lg-block" id="toc-sidebar">
             <h3>ניווט מהיר</h3>
             <ol>
@@ -172,7 +173,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ======== BOTTOM CTA ======== -->
     <section class="bottom-cta" id="contact">
       <div class="wrap">
         <div class="cta-box">
@@ -194,10 +194,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ===== ARTICLE SCRIPTS ===== -->
     <script is:inline>
     (function() {
-      // === Scroll Spy for TOC Sidebar ===
       var tocLinks = document.querySelectorAll('.toc-link');
       var sections = [];
       tocLinks.forEach(function(link) {
