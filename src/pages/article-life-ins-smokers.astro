@@ -2,30 +2,256 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="ביטוח חיים למעשנים: למה זה יקר יותר ואיך מוזילים? | משה שובר - סוכן ביטוח" description="כל מה שצריך לדעת על ביטוח חיים למעשנים: ההבדל במחיר, הגדרת מיהו מעשן, ומה עושים אם הפסקתם לעשן ואתם רוצים להוזיל את הפוליסה.">
-  <section class="inner-hero">
-    <div class="inner-hero-bg"></div>
+  <Fragment slot="head">
+    <style>
+      .text-layout {
+        max-width: 820px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .article-summary-lead {
+        font-size: 1.15rem;
+        line-height: 1.85;
+        color: var(--primary-deep);
+        background: #f0f7ff;
+        border-right: 4px solid var(--primary);
+        padding: 1.25rem 1.6rem;
+        border-radius: 10px;
+        margin: 1.5rem 0 2rem;
+      }
+      .article-body h2 {
+        color: var(--primary-deep);
+        font-size: 1.45rem;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 0.9rem;
+      }
+      .article-body p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #334155;
+        margin-bottom: 1.2rem;
+      }
+      .article-body ul, .article-body ol {
+        margin: 1rem 0 1.8rem;
+        padding-right: 1.5rem;
+      }
+      .article-body li {
+        font-size: 1.02rem;
+        line-height: 1.75;
+        color: #334155;
+        margin-bottom: 0.65rem;
+      }
+      .warning-box {
+        background: #fff5f5;
+        border: 1px solid #fed7d7;
+        border-right: 5px solid #e53e3e;
+        border-radius: 12px;
+        padding: 1.4rem 1.6rem;
+        margin: 2.2rem 0;
+      }
+      .warning-box h3 {
+        color: #c53030;
+        font-size: 1.22rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem;
+      }
+      .warning-box p {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.75;
+        margin: 0;
+      }
+      .lead-box-smokers {
+        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        border: 2px solid #e2e8f0;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(10, 42, 67, 0.06);
+        padding: 2.2rem 2rem;
+        margin: 3rem auto 2.5rem;
+      }
+      .lead-box-smokers h3 {
+        color: var(--primary);
+        font-size: 1.55rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      .lead-box-smokers .form-desc {
+        color: #64748b;
+        font-size: 1.02rem;
+        text-align: center;
+        margin-bottom: 1.6rem;
+        line-height: 1.6;
+      }
+      @media (max-width: 600px) {
+        .lead-box-smokers {
+          padding: 1.5rem 1.2rem;
+        }
+      }
+      .lead-box-smokers .success {
+        position: relative !important;
+        inset: auto !important;
+        background: transparent;
+        padding: 2.5rem 1rem;
+        text-align: center;
+        border-radius: 12px;
+      }
+      .lead-box-smokers .success-inner {
+        text-align: center;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .lead-box-smokers .success h3 {
+        color: var(--green) !important;
+        font-size: 1.85rem !important;
+        font-weight: 800;
+        margin-bottom: 0.6rem;
+      }
+      .lead-box-smokers .success p {
+        color: #475569;
+        font-size: 1.15rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+    </style>
+  </Fragment>
+
+  <section class="inner-hero" style="background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.9)), url('life_ins_smokers.webp') center/cover no-repeat;">
     <div class="wrap inner-hero-content">
       <span class="highlight-text">מאמר מקצועי</span>
       <h1>ביטוח חיים למעשנים: המדריך המלא</h1>
       <p>כל מה שצריך לדעת על ביטוח חיים למעשנים: ההבדל במחיר, הגדרת מיהו מעשן, ומה עושים אם הפסקתם לעשן ואתם רוצים להוזיל את הפוליסה.</p>
     </div>
   </section>
+
   <section class="wrap content-section article-body text-layout">
 
-        <div class="breadcrumb" style="margin-bottom: 2rem;">
-          <a href="/">דף הבית</a>
-          <span class="sep">›</span>
-          <a href="/articles">מגזין ביטוח</a>
-          <span class="sep">›</span>
-          <span>ביטוח חיים למעשנים: המדריך המלא</span>
+    <div class="breadcrumb" style="margin-bottom: 2rem;">
+      <a href="/">דף הבית</a>
+      <span class="sep">›</span>
+      <a href="/articles">מגזין ביטוח</a>
+      <span class="sep">›</span>
+      <span>ביטוח חיים למעשנים: המדריך המלא</span>
+    </div>
+
+    <!-- פתיחה -->
+    <div class="article-summary-lead">
+      חברות הביטוח מבדילות באופן חד וברור בין מעשנים ללא-מעשנים בביטוח חיים למקרה מוות (ריסק) ובביטוח חיים למשכנתא. <strong>תעריף מעשן יכול להיות כפול ואף פי 2.5</strong> מתעריף של אדם שאינו מעשן, מה שמצטבר לאורך השנים לפער של עשרות אלפי שקלים. במדריך זה נפרט את הגדרות החיתום, את הסכנות בהסתרת מידע, וכיצד ניתן להוזיל את הפוליסה או לחתוך את המחיר בחצי בעת גמילה.
+    </div>
+
+    <h2>למה חברות הביטוח גובות כל כך הרבה ממעשנים?</h2>
+    <p>תמחור ביטוח חיים מבוסס על מודלים אקטואריים ולוחות תמותה. מכיוון שמחקרים רפואיים מצביעים על סיכון בריאותי מוגבר ושכיחות גבוהה יותר של מחלות לב, כלי דם וסרטן בקרב מעשנים, חברות הביטוח מחילות "תוספת סיכון מעשן" על הפרמיה החודשית.</p>
+    <p>חשוב להבין את המשמעות הכלכלית של תוספת זו:</p>
+    <ul>
+      <li><strong>הפער גדל עם הגיל:</strong> ככל שהמבוטח מתבגר, מחיר ביטוח החיים עולה ממילא. כתוצאה מכך, תוספת המעשן גדלה משמעותית בסכומים החודשיים ויכולה להגיע להפרש של מאות שקלים בכל חודש.</li>
+      <li><strong>השפעה ישירה על החזר המשכנתא:</strong> בביטוח חיים למשכנתא הנלקח ל-20–30 שנה, מבוטח מעשן ישלם תוספת מצטברת של עשרות אלפי שקלים לאורך חיי ההלוואה לעומת מבוטח שאינו מעשן.</li>
+    </ul>
+
+    <h2>מיהו מעשן מבחינת חברת הביטוח?</h2>
+    <p>בשאלון הבריאות של חברות הביטוח מופיעה שאלה ישירה: <em>"האם עישנת ב-24 החודשים האחרונים?"</em>. ההגדרה של חברות הביטוח מחמירה וכוללת את כל סוגי העישון והאיוד:</p>
+    <ul>
+      <li><strong>סיגריות רגילות:</strong> כל כמות נחשבת לעישון.</li>
+      <li><strong>סיגריות אלקטרוניות ומכשירי איוד / חימום טבק (Vape, IQOS):</strong> כל מוצר איוד או ניקוטין מגדיר את המבוטח כמעשן ומחייב תעריף מעשן מלא.</li>
+      <li><strong>נרגילה, סיגרים ומקטרת:</strong> מחייבים דיווח מלא בשאלון הבריאות ונחשבים כעישון לכל דבר.</li>
+      <li><strong>עישון חברתי ומזדמן:</strong> גם מי שמעשן רק בסופי שבוע, באירועים או סיגריה בודדת ביום – נחשב מעשן מלא בהצהרת הבריאות. אין מדרגות כמותיות במעמד החיתום.</li>
+    </ul>
+
+    <!-- אזהרת הסתרה מבוססת -->
+    <div class="warning-box">
+      <h3>אזהרה חשובה: למה אסור להסתיר עישון בהצהרת הבריאות?</h3>
+      <p>בעת ההצטרפות לביטוח, המבוטח חותם על הצהרת בריאות ועל כתב ויתור סודיות רפואית. במקרה של תביעה חלילה, חברת הביטוח בודקת את התיק הרפואי המלא בקופת החולים. אם יתברר שהמבוטח עישן אך הצהיר שאינו מעשן, חברת הביטוח עלולה לדחות את תביעת הפיצוי במלואה בשל אי-גילוי מידע מהותי. במצב כזה, בני המשפחה יישארו ללא הפיצוי הכספי דווקא ברגע שבו הם זקוקים לו ביותר.</p>
+    </div>
+
+    <h2>הפסקתם לעשן? כך תוזילו את הביטוח</h2>
+    <p>אם עישנתם בעבר והפסקתם, הכלל המקובל בחברות הביטוח הוא תקופה של <strong>24 חודשים (שנתיים) רצופים ללא עישון</strong>. לאחר תקופה זו ניתן להוזיל את הפוליסה:</p>
+    <ol>
+      <li><strong>המתנה של שנתיים:</strong> ספירת 24 חודשים מלאים ללא שימוש בסיגריות, איוד או מוצרי טבק.</li>
+      <li><strong>מילוי הצהרת אי-עישון:</strong> חתימה על טופס הצהרה רשמי של חברת הביטוח שבו מציינים את מועד הגמילה.</li>
+      <li><strong>עדכון הפוליסה לתעריף לא-מעשן:</strong> חברת הביטוח מעדכנת את הסטטוס בפוליסה הקיימת, והפרמיה החודשית מוזלת בכ-50%.</li>
+      <li><strong>שמירה על רצף הזכויות:</strong> העדכון מתבצע בתוך הפוליסה הנוכחית, תוך שמירה מלאה על תנאי הכיסוי והוותק שנצבר.</li>
+    </ol>
+
+    <h2>איך מעשן פעיל יכול להוזיל את עלויות הביטוח?</h2>
+    <p>גם אם אתם מעשנים פעילים ואין בכוונתכם להיגמל כרגע, ישנן דרכים מקצועיות לצמצם את העלויות:</p>
+    <ul>
+      <li><strong>השוואת מחירים בין חברות הביטוח:</strong> קיים הבדל משמעותי בתעריפי מעשנים בין החברות השונות (הראל, מגדל, כלל, מנורה, הפניקס). השוואה מקיפה יכולה לחסוך עשרות אחוזים.</li>
+      <li><strong>ניצול הנחות סוכן:</strong> סוכן ביטוח עצמאי יכול להעניק הנחות מיוחדות המקזזות חלק מתוספת המעשן.</li>
+      <li><strong>הפרדת פוליסות של בני זוג:</strong> בביטוח משכנתא או בביטוח חיים משפחתי, אם רק אחד מבני הזוג מעשן, יש לוודא שהפוליסות מופרדות כדי שבן הזוג הלא-מעשן ייהנה מתעריף מוזל.</li>
+      <li><strong>התאמת סכום הכיסוי:</strong> בחינה תקופתית של סכום הביטוח הנדרש מונעת ביטוח יתר ותשלום פרמיות מיותרות.</li>
+    </ul>
+
+    <!-- ================= טופס יצירת קשר ================= -->
+    <div class="lead-box lead-box-smokers">
+      <form class="lead-form" action="https://api.web3forms.com/submit" method="POST" novalidate dir="rtl">
+        <input type="hidden" name="access_key" value="46aaa4ca-3980-429f-b4bf-61dadbc32619">
+        <input type="hidden" name="subject" value="פנייה חדשה מדף ביטוח חיים למעשנים">
+        <input type="hidden" name="from_name" value="אתר משה שובר">
+
+        <h3>בדיקת זכאות להוזלת ביטוח חיים למעשנים</h3>
+        <p class="form-desc">רוצים לבדוק אפשרות להוזלת הפוליסה הקיימת, או הפסקתם לעשן ורוצים לעבור לתעריף לא-מעשן? השאירו פרטים ונבצע עבורכם בדיקה והשוואה ללא עלות וללא התחייבות:</p>
+
+        <div class="inputs-row">
+          <div class="field">
+            <input type="text" name="name" class="f-name" required placeholder="שם מלא" aria-label="שם מלא" minlength="2">
+          </div>
+          <div class="field">
+            <input type="tel" name="phone" class="f-phone" required placeholder="מספר טלפון" aria-label="מספר טלפון">
+          </div>
         </div>
-    
-      <p>חברות הביטוח מבדילות באופן חד וברור בין מעשנים ללא-מעשנים בכל הנוגע לביטוח חיים (וביטוחי בריאות). תעריף מעשן יכול להיות כפול ואפילו פי 2.5 מתעריף לא מעשן.</p>
-      <h2>מיהו מעשן מבחינת חברת הביטוח?</h2>
-      <p>כל מי שעישן סיגריות, סיגרים, מקטרת או סיגריה אלקטרונית (ואפילו נרגילה) בשנתיים האחרונות נחשב למעשן.</p>
-      <h2>הפסקתם לעשן? כך תוזילו את הביטוח</h2>
-      <p>אם עברו למעלה משנתיים מאז שהפסקתם לחלוטין לעשן, ניתן למלא טופס הצהרת אי עישון, לשלוח לחברת הביטוח, ולהעביר את הפוליסה שלכם לתעריף מוזל משמעותית.</p>
-      <p class="article-cta"><a href="/life-insurance">למידע נוסף במדריך ביטוח חיים</a></p>
-    
+
+        <div class="privacy-check" style="margin-top: 10px; margin-bottom: 15px; text-align: right; justify-content: flex-start;">
+          <input type="checkbox" id="privacy-smokers" name="privacy" required />
+          <label for="privacy-smokers">
+            מאשר/ת שקראתי את <a href="/privacy-policy" target="_blank">מדיניות הפרטיות</a> ו<a href="/terms-of-use" target="_blank">תנאי השימוש</a>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-solid btn-submit" style="width: 100%; font-size: 1.25rem; padding: 13px 25px; border-radius: 50px;">
+          <span class="btn-label">קבלו הצעה להוזלה עכשיו</span>
+          <span class="spinner"></span>
+        </button>
+      </form>
+
+      <div class="success">
+        <div class="success-inner">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--green-soft); color: var(--green-hov); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-size: 1.6rem; font-weight: 900;">✓</div>
+          <h3>הבקשה נשלחה בהצלחה!</h3>
+          <p>תודה <strong class="suc-name"></strong>, ניצור איתך קשר בהקדם עם השוואה מותאמת אישית.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- שאלות ותשובות נפוצות -->
+    <h2 style="margin-top: 3rem;">שאלות ותשובות נפוצות</h2>
+    <div class="faq-list" style="margin-bottom: 2.5rem;">
+      <div class="faq-item">
+        <button class="faq-q">האם סיגריה אלקטרונית (Vape) נחשבת לעישון בביטוח חיים? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">
+          <p>כן. מבחינת חברות הביטוח, שימוש בסיגריות אלקטרוניות, וייפ ומכשירי איוד מוגדר כעישון ומחייב תשלום תעריף מעשן מלא.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">כמה זמן אחרי שהפסקתי לעשן אוכל לעדכן את הפוליסה? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">
+          <p>התקופה הנדרשת על פי נהלי החיתום היא 24 חודשים (שנתיים) רצופים ללא עישון. לאחר מכן חותמים על טופס הצהרת אי-עישון והתעריף מתעדכן לתעריף לא-מעשן מוזל.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">מה קורה אם אדם לא הצהיר שהוא מעשן וחלילה נפטר? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">
+          <p>במקרה של פטירה חברת הביטוח בודקת את התיק הרפואי. אם יתגלה שהמנוח עישן ולא דיווח על כך בהצהרת הבריאות, חברת הביטוח רשאית לדחות את תביעת הפיצוי במלואה בשל אי-גילוי.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">האם עישון חברתי או מזדמן בסופי שבוע מחייב תעריף מעשן? <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg></button>
+        <div class="faq-a">
+          <p>כן. שאלון הבריאות שואל האם עישנתם ב-24 החודשים האחרונים, ללא קשר לכמות הסיגריות. גם עישון מזדמן מוגדר כעישון במעמד החיתום.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="article-cta"><a href="/life-insurance">למידע נוסף במדריך ביטוח חיים המלא</a></p>
+  
   </section>
 </BaseLayout>

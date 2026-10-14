@@ -68,14 +68,127 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* === Navigation Active State & Smooth Scroll Spy === */
   const navLinks = document.querySelectorAll('.nav-a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(otherLink => otherLink.classList.remove('active'));
-      link.classList.add('active');
-      nav.classList.remove('open');
+  const sections = document.querySelectorAll('section[id]');
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isHomePage = path === '/' || path === '/index';
+
+  function setActive(activeLink) {
+    navLinks.forEach(l => l.classList.remove('active'));
+    if (activeLink) activeLink.classList.add('active');
+  }
+
+  if (!isHomePage) {
+    if (path.includes('/article')) {
+      const magLink = Array.from(navLinks).find(l => l.getAttribute('href') === '/articles');
+      if (magLink) setActive(magLink);
+    } else {
+      const matchingLink = Array.from(navLinks).find(l => {
+        const href = l.getAttribute('href');
+        return href === path || href === path + '/';
+      });
+      if (matchingLink) setActive(matchingLink);
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav) nav.classList.remove('open');
+      });
     });
-  });
+  } else {
+    let ticking = false;
+    let clickedLock = false;
+    let lockTimeout;
+
+    function updateScrollSpy() {
+      if (clickedLock) return;
+      const headerHeight = header ? header.offsetHeight : 70;
+      const scrollPos = window.scrollY || window.pageYOffset;
+      let currentId = '';
+
+      sections.forEach(sec => {
+        const id = sec.getAttribute('id');
+        const hasNav = Array.from(navLinks).some(l => {
+          const h = l.getAttribute('href');
+          return h === '#' + id || h === '/#' + id;
+        });
+        if (hasNav && (scrollPos >= sec.offsetTop - headerHeight - 90)) {
+          currentId = id;
+        }
+      });
+
+      if ((window.innerHeight + scrollPos) >= document.body.offsetHeight - 60) {
+        currentId = 'contact';
+      }
+
+      if (!currentId) {
+        currentId = 'home';
+      }
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const matches = href === '#' + currentId || href === '/#' + currentId;
+        link.classList.toggle('active', matches);
+      });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (nav) nav.classList.remove('open');
+
+        const href = link.getAttribute('href');
+        if (href && (href.startsWith('/#') || href.startsWith('#'))) {
+          const id = href.replace(/^\/?#/, '');
+          const target = document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            setActive(link);
+            clickedLock = true;
+            clearTimeout(lockTimeout);
+
+            const headerHeight = header ? header.offsetHeight : 70;
+            const targetY = target.offsetTop - headerHeight;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+
+            lockTimeout = setTimeout(() => {
+              clickedLock = false;
+              updateScrollSpy();
+            }, 800);
+
+            if (history.pushState) {
+              history.pushState(null, null, '#' + id);
+            }
+          }
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateScrollSpy();
+          ticking = false;
+        });
+      }
+    }, { passive: true });
+
+    if (window.location.hash) {
+      const hashId = window.location.hash.substring(1);
+      const hashLink = Array.from(navLinks).find(l => {
+        const h = l.getAttribute('href');
+        return h === '#' + hashId || h === '/#' + hashId;
+      });
+      if (hashLink) {
+        setActive(hashLink);
+      } else {
+        updateScrollSpy();
+      }
+    } else {
+      updateScrollSpy();
+    }
+  }
 
   /* === FAQ Accordion === */
   const faqItems = document.querySelectorAll('.faq-item');

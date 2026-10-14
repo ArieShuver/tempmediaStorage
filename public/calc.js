@@ -15,13 +15,13 @@ function initCalc() {
   const taxInput = document.getElementById('calc-tax');
   const feeAccumInput = document.getElementById('calc-fee-accum');
   const feeDepositInput = document.getElementById('calc-fee-deposit');
-  
+
   const toggleInflation = document.getElementById('toggle-inflation');
   const inflationGroup = document.getElementById('inflation-group');
   const calcInflation = document.getElementById('calc-inflation');
 
   const calcFreq = document.getElementById('calc-freq');
-  
+
   // Sliders
   const sliderPrincipal = document.getElementById('slider-principal');
   const sliderMonthly = document.getElementById('slider-monthly');
@@ -117,12 +117,54 @@ function initCalc() {
     if (yearsDisplay) yearsDisplay.textContent = yearsInput.value;
   }
 
+  const resultsSection = document.getElementById('calc-results-section');
+  const emptyState = document.getElementById('calc-empty-state');
+
   // Calculate and draw chart
   function calculate() {
-    const P = Math.min(Math.max(parseFloat(principalInput.value) || 0, 0), 100000000); 
-    const PMT = Math.min(Math.max(parseFloat(monthlyInput.value) || 0, 0), 10000000); 
-    const r = Math.min(Math.max(parseFloat(rateInput.value) || 0, 0), 100); 
-    const t = Math.min(Math.max(parseInt(yearsInput.value) || 0, 1), 120); 
+    const P = Math.min(Math.max(parseFloat(principalInput.value) || 0, 0), 100000000);
+    const PMT = Math.min(Math.max(parseFloat(monthlyInput.value) || 0, 0), 10000000);
+    let r = Math.min(Math.max(parseFloat(rateInput.value) || 0, 0), 100);
+    let t = Math.min(Math.max(parseInt(yearsInput.value) || 0, 0), 120);
+
+    // As soon as the user enters any deposit or principal, auto-suggest standard period (10 years) and rate (7%) if empty
+    if (P > 0 || PMT > 0) {
+      if (t === 0) {
+        t = 10;
+        yearsInput.value = 10;
+        if (sliderYears) sliderYears.value = 10;
+        updateYearsDisplay();
+      }
+      if (r === 0) {
+        r = 7;
+        rateInput.value = 7;
+        if (sliderRate) sliderRate.value = 7;
+      }
+    }
+
+    const hasData = (P > 0 || PMT > 0 || t > 0);
+
+    if (!hasData) {
+      if (resultsSection) {
+        resultsSection.style.setProperty('display', 'none', 'important');
+        resultsSection.classList.add('is-hidden');
+      }
+      if (emptyState) {
+        emptyState.style.setProperty('display', '', '');
+        emptyState.classList.remove('is-hidden');
+      }
+      return;
+    }
+
+    // Money or years entered -> empty state completely disappears, results show up
+    if (emptyState) {
+      emptyState.style.setProperty('display', 'none', 'important');
+      emptyState.classList.add('is-hidden');
+    }
+    if (resultsSection) {
+      resultsSection.style.setProperty('display', 'block', 'important');
+      resultsSection.classList.remove('is-hidden');
+    }
 
     let taxRate = 0;
     if (toggleTax && toggleTax.checked && taxInput) {
@@ -140,7 +182,7 @@ function initCalc() {
     if (toggleInflation && toggleInflation.checked && calcInflation) {
       inflationRate = (parseFloat(calcInflation.value) || 0) / 100;
     }
-    
+
     const freq = parseInt(calcFreq ? calcFreq.value : 12);
 
     const monthlyRate = (r / 100) / 12;
@@ -148,7 +190,7 @@ function initCalc() {
 
     let labels = [];
     let dataCompound = [];
-    let dataRegular = []; 
+    let dataRegular = [];
 
     let currentCompound = P;
     let currentRegular = P;
@@ -181,9 +223,9 @@ function initCalc() {
       } else if (freq === 1 && m % 12 === 0) {
         currentRegular += PMT;
       }
-      
+
       currentCompound *= (1 + monthlyRate);
-      
+
       let feeAccumThisMonth = currentCompound * monthlyFeeAccumRate;
       totalFeesDeducted += feeAccumThisMonth;
       currentCompound -= feeAccumThisMonth;
@@ -199,7 +241,7 @@ function initCalc() {
 
         const year = m / 12;
         let inflationDiscount = Math.pow(1 + inflationRate, year);
-        
+
         let displayDeposits = currentRegular;
         let displayBalance = postTaxBalance / inflationDiscount;
         let displayProfit = displayBalance - displayDeposits;
@@ -220,7 +262,7 @@ function initCalc() {
             <td style="padding: 12px; font-weight: 600; color: var(--primary);">${formatMoney(Math.round(displayBalance))}</td>
           </tr>
         `;
-        
+
         window.tableDataCache.push({
           year: year,
           deposits: Math.round(displayDeposits),
@@ -245,7 +287,7 @@ function initCalc() {
     let finalInflationDiscount = Math.pow(1 + inflationRate, t);
     let finalDisplayFees = totalFeesDeducted / finalInflationDiscount;
     let finalDisplayTax = finalTaxDeducted / finalInflationDiscount;
-    
+
     let postTaxFinalNominal = currentCompound - finalTaxDeducted;
     let finalInflationDeducted = postTaxFinalNominal - (postTaxFinalNominal / finalInflationDiscount);
 
@@ -278,10 +320,11 @@ function initCalc() {
 
     try {
       updateChart(labels, dataCompound, dataRegular);
-    } catch(err) {
+    } catch (err) {
       console.error('Error in updateChart:', err);
       if (!window.alertedChartErr) { alert('Chart error: ' + err.message); window.alertedChartErr = true; }
     }
+    updateUrlParams();
   }
 
   function updateChart(labels, compound, regular) {
@@ -344,7 +387,7 @@ function initCalc() {
             mode: 'index',
             intersect: false,
             callbacks: {
-              label: function(context) {
+              label: function (context) {
                 let label = context.dataset.label || '';
                 if (label) {
                   label += ': ';
@@ -354,7 +397,7 @@ function initCalc() {
                 }
                 return label;
               },
-              title: function(context) {
+              title: function (context) {
                 return 'שנה ' + context[0].label;
               }
             }
@@ -375,6 +418,9 @@ function initCalc() {
             }
           },
           y: {
+            beginAtZero: true,
+            min: 0,
+            suggestedMax: 1000,
             title: {
               display: true,
               text: 'סכום כולל (₪)',
@@ -384,7 +430,8 @@ function initCalc() {
               }
             },
             ticks: {
-              callback: function(value, index, values) {
+              callback: function (value, index, values) {
+                if (value < 0) return '';
                 if (value >= 1000000) {
                   return '₪' + (value / 1000000).toFixed(1) + 'M';
                 }
@@ -413,6 +460,151 @@ function initCalc() {
   });
   yearsInput.addEventListener('input', updateYearsDisplay);
 
+  function updateUrlParams() {
+    // Keep URL clean, do not replace browser history during normal calculation
+  }
+
+  function getShareUrl() {
+    try {
+      const p = principalInput ? principalInput.value : '';
+      const m = monthlyInput ? monthlyInput.value : '';
+      const y = yearsInput ? yearsInput.value : '';
+      const r = rateInput ? rateInput.value : '';
+      const inf = toggleInflation && toggleInflation.checked ? (calcInflation ? calcInflation.value : '2.5') : null;
+      const tax = toggleTax && toggleTax.checked ? (taxInput ? taxInput.value : '25') : null;
+      const fees = toggleFees && toggleFees.checked ? (feeAccumInput ? feeAccumInput.value : '0.6') : null;
+
+      const params = new URLSearchParams();
+      if (p && p !== '0') params.set('p', p);
+      if (m && m !== '0') params.set('m', m);
+      if (y && y !== '0') params.set('y', y);
+      if (r && r !== '0') params.set('r', r);
+      if (inf) params.set('inf', inf);
+      if (tax) params.set('tax', tax);
+      if (fees) params.set('fees', fees);
+
+      const qs = params.toString();
+      return window.location.origin + window.location.pathname + (qs ? '?' + qs : '');
+    } catch (e) {
+      return window.location.href;
+    }
+  }
+
+  function loadFromUrlParams() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      let changed = false;
+      if (params.has('p') && principalInput) {
+        principalInput.value = params.get('p');
+        if (sliderPrincipal) sliderPrincipal.value = params.get('p');
+        changed = true;
+      }
+      if (params.has('m') && monthlyInput) {
+        monthlyInput.value = params.get('m');
+        if (sliderMonthly) sliderMonthly.value = params.get('m');
+        changed = true;
+      }
+      if (params.has('y') && yearsInput) {
+        yearsInput.value = params.get('y');
+        if (sliderYears) sliderYears.value = params.get('y');
+        changed = true;
+      }
+      if (params.has('r') && rateInput) {
+        rateInput.value = params.get('r');
+        if (sliderRate) sliderRate.value = params.get('r');
+        changed = true;
+      }
+      if (params.has('inf')) {
+        if (toggleInflation) toggleInflation.checked = true;
+        if (calcInflation) calcInflation.value = params.get('inf');
+        if (sliderInflation) sliderInflation.value = params.get('inf');
+        changed = true;
+      }
+      if (params.has('tax')) {
+        if (toggleTax) toggleTax.checked = true;
+        if (taxInput) taxInput.value = params.get('tax');
+        if (sliderTax) sliderTax.value = params.get('tax');
+        changed = true;
+      }
+      if (params.has('fees')) {
+        if (toggleFees) toggleFees.checked = true;
+        if (feeAccumInput) feeAccumInput.value = params.get('fees');
+        if (sliderFeeAccum) sliderFeeAccum.value = params.get('fees');
+        changed = true;
+      }
+      return changed;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Preset Buttons Handling
+  const presetButtons = document.querySelectorAll('.preset-btn');
+  const presetsConfig = {
+    child: { p: 0, m: 200, y: 18, r: 8, tax: false, fees: true, inf: false },
+    sp500: { p: 50000, m: 3000, y: 25, r: 9, tax: true, fees: true, inf: true },
+    million: { p: 10000, m: 2500, y: 16, r: 8, tax: true, fees: true, inf: false },
+    conservative: { p: 100000, m: 1000, y: 15, r: 5, tax: false, fees: true, inf: true }
+  };
+
+  presetButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const presetKey = btn.getAttribute('data-preset');
+      const conf = presetsConfig[presetKey];
+      if (!conf) return;
+
+      presetButtons.forEach(b => {
+        b.style.background = 'rgba(65, 179, 124, 0.1)';
+        b.style.color = 'var(--primary)';
+      });
+      btn.style.background = 'var(--green)';
+      btn.style.color = '#fff';
+
+      if (principalInput) {
+        principalInput.value = conf.p;
+        if (sliderPrincipal) sliderPrincipal.value = conf.p;
+      }
+      if (monthlyInput) {
+        monthlyInput.value = conf.m;
+        if (sliderMonthly) sliderMonthly.value = conf.m;
+      }
+      if (yearsInput) {
+        yearsInput.value = conf.y;
+        if (sliderYears) sliderYears.value = conf.y;
+      }
+      if (rateInput) {
+        rateInput.value = conf.r;
+        if (sliderRate) sliderRate.value = conf.r;
+      }
+      if (toggleTax) toggleTax.checked = !!conf.tax;
+      if (toggleFees) toggleFees.checked = !!conf.fees;
+      if (toggleInflation) toggleInflation.checked = !!conf.inf;
+
+      updateYearsDisplay();
+      handleToggles();
+    });
+  });
+
+  // Clear URL query parameters from earlier runs so calculator starts clean
+  if (window.location.search) {
+    try {
+      window.history.replaceState(null, '', window.location.pathname);
+    } catch (e) {}
+  }
+
+  // Initialize completely zeroed out
+  if (principalInput) principalInput.value = '';
+  if (monthlyInput) monthlyInput.value = '';
+  if (yearsInput) yearsInput.value = '';
+  if (rateInput) rateInput.value = '';
+  if (sliderPrincipal) sliderPrincipal.value = 0;
+  if (sliderMonthly) sliderMonthly.value = 0;
+  if (sliderYears) sliderYears.value = 0;
+  if (sliderRate) sliderRate.value = 0;
+  if (toggleTax) toggleTax.checked = false;
+  if (toggleFees) toggleFees.checked = false;
+  if (toggleInflation) toggleInflation.checked = false;
+
   updateYearsDisplay();
   handleToggles();
 
@@ -435,23 +627,25 @@ function initCalc() {
   const shareBtn = document.getElementById('share-btn');
   if (shareBtn) {
     shareBtn.addEventListener('click', () => {
+      const shareUrl = getShareUrl();
       const shareData = {
-        title: document.title,
-        text: 'גלו כמה הכסף שלכם יכול לצמוח עם מחשבון ריבית דריבית מתקדם.',
-        url: window.location.href
+        title: 'חישוב ריבית דריבית מותאם אישית',
+        text: 'בדקו את סימולציית הריבית דריבית במחשבון של משה שובר:',
+        url: shareUrl
       };
 
-      if (navigator.share) {
-        navigator.share(shareData).catch(console.error);
+      if (navigator.share && /mobile|android|iphone/i.test(navigator.userAgent)) {
+        navigator.share(shareData).catch(() => { });
       } else {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          const originalText = shareBtn.querySelector('.share-text').textContent;
-          shareBtn.querySelector('.share-text').textContent = 'הקישור הועתק!';
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          const textEl = shareBtn.querySelector('.share-text');
+          const originalText = textEl ? textEl.textContent : 'שתפו את הקסם';
+          if (textEl) textEl.textContent = 'הקישור הועתק בהצלחה! 📋';
           shareBtn.classList.add('copied');
           setTimeout(() => {
-            shareBtn.querySelector('.share-text').textContent = originalText;
+            if (textEl) textEl.textContent = originalText;
             shareBtn.classList.remove('copied');
-          }, 2500);
+          }, 3000);
         }).catch(console.error);
       }
     });
@@ -479,18 +673,18 @@ function initCalc() {
   const resetBtn = document.getElementById('reset-btn');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      principalInput.value = 10000;
-      if (sliderPrincipal) sliderPrincipal.value = 10000;
-      monthlyInput.value = 500;
-      if (sliderMonthly) sliderMonthly.value = 500;
-      rateInput.value = 7;
-      if (sliderRate) sliderRate.value = 7;
-      yearsInput.value = 20;
-      if (sliderYears) sliderYears.value = 20;
+      if (principalInput) principalInput.value = '';
+      if (sliderPrincipal) sliderPrincipal.value = 0;
+      if (monthlyInput) monthlyInput.value = '';
+      if (sliderMonthly) sliderMonthly.value = 0;
+      if (rateInput) rateInput.value = '';
+      if (sliderRate) sliderRate.value = 0;
+      if (yearsInput) yearsInput.value = '';
+      if (sliderYears) sliderYears.value = 0;
       updateYearsDisplay();
       if (calcFreq) calcFreq.value = "12";
       if (toggleTax) toggleTax.checked = false;
-      if (toggleFees) toggleFees.checked = true;
+      if (toggleFees) toggleFees.checked = false;
       if (typeof toggleInflation !== 'undefined' && toggleInflation) toggleInflation.checked = false;
       if (taxInput) taxInput.value = 25;
       if (sliderTax) sliderTax.value = 25;
@@ -500,6 +694,10 @@ function initCalc() {
       if (sliderFeeDeposit) sliderFeeDeposit.value = 0;
       if (typeof calcInflation !== 'undefined' && calcInflation) calcInflation.value = 2.5;
       if (typeof sliderInflation !== 'undefined' && sliderInflation) sliderInflation.value = 2.5;
+      presetButtons.forEach(b => {
+        b.style.background = 'rgba(65, 179, 124, 0.1)';
+        b.style.color = 'var(--primary)';
+      });
       handleToggles();
     });
   }
@@ -526,38 +724,12 @@ function initCalc() {
     });
   }
 
-  setTimeout(() => {
-    showExitModal();
-  }, 45000);
-
+  // Only trigger on desktop when mouse leaves toward the top address bar
   document.addEventListener('mouseleave', (e) => {
-    if (e.clientY <= 0) {
+    if (e.clientY <= 0 && window.innerWidth > 768) {
       showExitModal();
     }
   });
-
-  let lastScrollY = window.scrollY;
-  let lastScrollTime = Date.now();
-  
-  window.addEventListener('scroll', () => {
-    if (modalShown) return;
-    
-    const currentScrollY = window.scrollY;
-    const currentTime = Date.now();
-    const timeDiff = currentTime - lastScrollTime;
-    
-    if (timeDiff > 0 && currentScrollY > 300) {
-      const scrollDiff = lastScrollY - currentScrollY; 
-      const scrollSpeed = scrollDiff / timeDiff; 
-      
-      if (scrollSpeed > 1.5 && window.innerWidth <= 768) {
-        showExitModal();
-      }
-    }
-    
-    lastScrollY = currentScrollY;
-    lastScrollTime = currentTime;
-  }, { passive: true });
 }
 
 if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initCalc); } else { initCalc(); }

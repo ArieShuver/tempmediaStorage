@@ -164,19 +164,6 @@ import Footer from '../components/Footer.astro';
     })();
   </script>
 
-  <script is:inline>
-    requestAnimationFrame(function () {
-      var s = document.querySelectorAll('section[id]'), n = document.querySelectorAll('.nav-a'), h = document.getElementById('site-header');
-      if (!h || !s.length) return; var hh = h.offsetHeight, t = false;
-      function u() {
-        var c = ''; s.forEach(function (e) { if (pageYOffset >= e.offsetTop - hh - 1) c = e.getAttribute('id') });
-        if ((innerHeight + pageYOffset) >= document.body.offsetHeight - 2) c = s[s.length - 1].getAttribute('id');
-        n.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + c) }); t = false
-      }
-      window.addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(u) } }, { passive: true }); u()
-    });
-  </script>
-
   <div id="cookie-banner" class="cookie-banner">
     <div class="cookie-content">
       <p>אנחנו משתמשים בעוגיות (Cookies) כדי לשפר את חווית הגלישה. <a href="privacy-policy">למידע נוסף</a>.</p>
@@ -184,7 +171,7 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
 
-  <script is:inline src="/script.js?v=2" defer></script>
+  <script is:inline src="/script.js?v=3" defer></script>
   <script is:inline>
     function gtag_report_conversion(url) {
       var callback = function () {
