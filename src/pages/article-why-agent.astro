@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="למה צריך סוכן ביטוח כשאפשר לקנות באינטרנט? | משה שובר" description="בעידן שבו הכל דיגיטלי, למה עדיין כדאי ומשתלם לעבוד עם סוכן ביטוח אישי? כל הסיבות שבגללן סוכן טוב שווה לכם הרבה יותר ממה שהוא עולה.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "בעידן שבו הכל דיגיטלי, למה עדיין כדאי ומשתלם לעבוד עם סוכן ביטוח אישי? כל הסיבות שבגללן סוכן טוב שווה לכם הרבה יותר ממה שהוא עולה.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-why-agent" }
     }
     </script>
@@ -165,4 +168,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-recommended-agent", title: "סוכן ביטוח מומלץ: איך למצוא מישהו שאפשר לסמוך עליו באמת?" },
+    { href: "/article-bank-vs-agent", title: "ביטוח משכנתא דרך הבנק או סוכן ביטוח?" },
+    { href: "/article-claim-guide", title: "המדריך המלא להגשת תביעת ביטוח מוצלחת" }
+  ]} />
 </BaseLayout>

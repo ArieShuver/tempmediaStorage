@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="ביטוח מחלות קשות: למה זה קריטי ואיך בוחרים נכון? | משה שובר" description="מדריך מקיף על ביטוח מחלות קשות, למה קופת חולים לא מספיקה במקרה של גילוי מחלה, ואיך לקבל פיצוי כספי שיאפשר לכם להתרכז בהחלמה.">
   <Fragment slot="head">
@@ -12,6 +13,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         "description": "המדריך המלא לביטוח מחלות קשות, מה הוא מכסה, למי הוא מתאים, ואיך בוחרים את הפוליסה הנכונה.",
         "author": { "@type": "Person", "name": "משה שובר" },
         "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+        "datePublished": "2026-08-19",
+        "dateModified": "2026-08-19",
         "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-critical-illness" }
       },
       {
@@ -318,4 +321,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       }
     });
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-nursing-insurance", title: "ביטוח סיעודי: המצב כיום בקופות החולים ומה החלופות" },
+    { href: "/article-disability-insurance", title: "אובדן כושר עבודה: איך מבטיחים את ההכנסה המשפחתית?" },
+    { href: "/article-health-declaration", title: "הצהרת בריאות בביטוח: המדריך המלא" }
+  ]} />
 </BaseLayout>

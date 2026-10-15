@@ -1,7 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="האם כדאי להחליף ביטוח חיים? מתי זה משתלם ומתי מסוכן | משה שובר - סוכן ביטוח" description="האם לבטל פוליסת ביטוח חיים ישנה לטובת חדשה? גלו את היתרונות של החלפת ביטוח חיים ואת הסכנות הכרוכות בתקופת אכשרה ושינויי בריאות.">
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "החלפת ביטוח חיים: כללים וסיכונים",
+      "description": "האם לבטל פוליסת ביטוח חיים ישנה לטובת חדשה? גלו את היתרונות של החלפת ביטוח חיים ואת הסכנות הכרוכות בתקופת אכשרה ושינויי בריאות.",
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "author": { "@type": "Person", "name": "משה שובר" },
+      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-replace-life-insurance" }
+    }
+    </script>
+  </Fragment>
   <section class="inner-hero">
     <div class="inner-hero-bg"></div>
     <div class="wrap inner-hero-content">
@@ -29,4 +45,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="article-cta"><a href="/life-insurance">חזרו למדריך ביטוח חיים הראשי</a></p>
     
   </section>
+  <RelatedArticles articles={[
+    { href: "/article-life-ins-cost", title: "כמה עולה ביטוח חיים? מחירון ומדריך מלא" },
+    { href: "/article-risk-insurance-meaning", title: "מה זה ביטוח ריסק? מושגי יסוד בביטוח חיים" },
+    { href: "/article-how-much-life-ins", title: "כמה ביטוח חיים צריך? נוסחה פשוטה לחישוב סכום הכיסוי" }
+  ]} />
 </BaseLayout>

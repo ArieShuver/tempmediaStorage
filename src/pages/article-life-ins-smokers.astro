@@ -1,8 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="ביטוח חיים למעשנים: למה זה יקר יותר ואיך מוזילים? | משה שובר - סוכן ביטוח" description="כל מה שצריך לדעת על ביטוח חיים למעשנים: ההבדל במחיר, הגדרת מיהו מעשן, ומה עושים אם הפסקתם לעשן ואתם רוצים להוזיל את הפוליסה.">
   <Fragment slot="head">
+    <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "ביטוח חיים למעשנים: למה זה יקר יותר ואיך מוזילים?",
+      "description": "כל מה שצריך לדעת על ביטוח חיים למעשנים: ההבדל במחיר, הגדרת מיהו מעשן, ומה עושים אם הפסקתם לעשן ואתם רוצים להוזיל את הפוליסה.",
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "author": { "@type": "Person", "name": "משה שובר" },
+      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-life-ins-smokers" }
+    }
+    </script>
     <style>
       .text-layout {
         max-width: 820px;
@@ -254,4 +268,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p class="article-cta"><a href="/life-insurance">למידע נוסף במדריך ביטוח חיים המלא</a></p>
   
   </section>
+  <RelatedArticles articles={[
+    { href: "/article-life-ins-cost", title: "כמה עולה ביטוח חיים? מחירון ומדריך מלא" },
+    { href: "/article-how-much-life-ins", title: "כמה ביטוח חיים צריך? נוסחה פשוטה לחישוב סכום הכיסוי" },
+    { href: "/article-health-declaration", title: "הצהרת בריאות בביטוח: למה אסור להסתיר מידע?" }
+  ]} />
 </BaseLayout>

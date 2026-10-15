@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="הצהרת בריאות בביטוח: למה אסור להסתיר מידע? | משה שובר" description="מהי הצהרת בריאות, למה חברות הביטוח מבקשות אותה, ומה קורה אם מסתירים מידע רפואי בעת ההצטרפות לביטוח.">
   <Fragment slot="head">
@@ -12,6 +13,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         "description": "למה חברות הביטוח דורשות הצהרת בריאות, איזה מידע חובה לדווח, ואיך להימנע מדחיית תביעה עתידית בגלל הסתרת מידע.",
         "author": { "@type": "Person", "name": "משה שובר" },
         "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+        "datePublished": "2026-08-19",
+        "dateModified": "2026-08-19",
         "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-health-declaration" }
       },
       {
@@ -242,4 +245,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       }
     });
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-health-reform", title: "רפורמת ביטוחי הבריאות: מה השתנה ואיך נמנעים מכפל ביטוח?" },
+    { href: "/article-critical-illness", title: "ביטוח מחלות קשות: רשת הביטחון ברגע האמת" },
+    { href: "/article-nursing-insurance", title: "ביטוח סיעודי: המצב כיום בקופות החולים ומה החלופות" }
+  ]} />
 </BaseLayout>

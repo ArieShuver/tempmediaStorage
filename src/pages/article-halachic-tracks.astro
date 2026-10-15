@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="מסלולי השקעה הלכתיים וירוקים בפנסיה | משה שובר" description="איך אפשר לחסוך לפנסיה בלי להתפשר על הערכים שלכם? המדריך למסלולי השקעה הלכתיים (כשרים) ומסלולי ESG (השקעות ירוקות וחברתיות).">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "איך אפשר לחסוך לפנסיה בלי להתפשר על הערכים שלכם? המדריך למסלולי השקעה הלכתיים (כשרים) ומסלולי ESG (השקעות ירוקות וחברתיות).",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-halachic-tracks" }
     }
     </script>
@@ -168,4 +171,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-savings-policy", title: "פוליסת חיסכון: הדרך החכמה להשקיע מחוץ לבנק" },
+    { href: "/article-keren-hishtalmut", title: "קרן השתלמות למעסיקים ולעצמאים: המדריך המלא" },
+    { href: "/article-pension-fees", title: "דמי ניהול בפנסיה: כמה אתם באמת משלמים?" }
+  ]} />
 </BaseLayout>

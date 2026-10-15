@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="קרן השתלמות למעסיקים ולעצמאים: המדריך המלא להטבות מס | משה שובר" description="למה קרן השתלמות היא מכשיר החיסכון המשתלם ביותר בישראל? המדריך המלא על פטור ממס רווחי הון, הטבות מס לעצמאים ולשכירים, ומשיכת הכספים.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     "description": "למה קרן השתלמות היא מכשיר החיסכון המשתלם ביותר בישראל? המדריך המלא על פטור ממס רווחי הון, הטבות מס לעצמאים ולשכירים, ומשיכת הכספים.",
     "author": { "@type": "Person", "name": "משה שובר סוכן ביטוח" },
     "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-08-19",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-keren-hishtalmut" }
   }
   </script>
@@ -204,5 +207,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       }
     })();
     </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-savings-policy", title: "פוליסת חיסכון: הדרך החכמה להשקיע מחוץ לבנק" },
+    { href: "/article-tax-benefits", title: "עצמאים: הטבות המס שחובה לנצל בכל סוף שנה" },
+    { href: "/article-inflation-savings", title: "אינפלציה: המס הסמוי ששוחק את הכסף" }
+  ]} />
 
 </BaseLayout>

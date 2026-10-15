@@ -1,7 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="הרחבות לביטוח חיים: נכות, אובדן כושר עבודה ומחלות קשות | משה שובר - סוכן ביטוח" description="ביטוח חיים (ריסק) מכסה מקרה פטירה, אך אילו הרחבות כדאי להוסיף לפוליסה כדי לקבל הגנה מקיפה מכל הכיוונים?">
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "אילו תוספות כדאי להוסיף לפוליסת ביטוח חיים?",
+      "description": "ביטוח חיים (ריסק) מכסה מקרה פטירה, אך אילו הרחבות כדאי להוסיף לפוליסה כדי לקבל הגנה מקיפה מכל הכיוונים?",
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "author": { "@type": "Person", "name": "משה שובר" },
+      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-life-ins-riders" }
+    }
+    </script>
+  </Fragment>
   <section class="inner-hero">
     <div class="inner-hero-bg"></div>
     <div class="wrap inner-hero-content">
@@ -30,4 +46,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="article-cta"><a href="/life-insurance">חזרו למדריך ביטוח חיים</a></p>
     
   </section>
+  <RelatedArticles articles={[
+    { href: "/article-risk-insurance-meaning", title: "מה זה ביטוח ריסק? מושגי יסוד בביטוח חיים" },
+    { href: "/article-critical-illness", title: "ביטוח מחלות קשות: למה זה קריטי ואיך בוחרים נכון?" },
+    { href: "/article-disability-insurance", title: "אובדן כושר עבודה: איך להבטיח הכנסה גם כשאי אפשר לעבוד" }
+  ]} />
 </BaseLayout>

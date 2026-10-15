@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="מחשבון פרישה: כמה כסף באמת צריך כדי לפרוש בכבוד? | משה שובר" description="איך מתכננים נכון את הפרישה שלכם? המדריך למחשבון הפרישה - איך מחשבים את הקצבה הצפויה, אילו משתנים משפיעים עליה, ואיך להבטיח רמת חיים נאותה בפנסיה.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "איך מתכננים נכון את הפרישה שלכם? המדריך למחשבון הפרישה - איך מחשבים את הקצבה הצפויה, אילו משתנים משפיעים עליה, ואיך להבטיח רמת חיים נאותה בפנסיה.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-retirement-calc" }
     }
     </script>
@@ -181,4 +184,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-pension-fees", title: "דמי ניהול בפנסיה: כמה אתם באמת משלמים?" },
+    { href: "/article-actuarial-balance", title: "איזון אקטוארי בקרנות הפנסיה: מה זה ולמה זה משנה?" },
+    { href: "/article-savings-policy", title: "פוליסת חיסכון: הדרך החכמה להשקיע מחוץ לבנק" }
+  ]} />
 </BaseLayout>

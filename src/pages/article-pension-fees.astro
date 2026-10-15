@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="דמי ניהול בפנסיה: איך להוזיל ולהרוויח מאות אלפי שקלים | משה שובר" description="המדריך המקיף לדמי ניהול בקרן הפנסיה: מהם דמי ניהול מהפקדה ומצבירה, איך הם משפיעים על הפנסיה שלכם, ואיך מנהלים משא ומתן להוזלתם.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     "description": "המדריך המקיף לדמי ניהול בקרן הפנסיה: מהם דמי ניהול מהפקדה ומצבירה, איך הם משפיעים על הפנסיה שלכם, ואיך מנהלים משא ומתן להוזלתם.",
     "author": { "@type": "Person", "name": "משה שובר סוכן ביטוח" },
     "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-08-19",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-pension-fees" }
   }
   </script>
@@ -239,5 +242,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       });
     })();
     </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-pension-agent", title: "סוכן ביטוח פנסיוני: למה חובה שיהיה לכם אחד?" },
+    { href: "/article-self-employed-pension", title: "פנסיה לעצמאים: המדריך המלא לחיסכון והטבות מס" },
+    { href: "/article-retirement-calc", title: "מחשבון פרישה: כמה כסף באמת צריך כדי לפרוש בכבוד?" }
+  ]} />
 
 </BaseLayout>

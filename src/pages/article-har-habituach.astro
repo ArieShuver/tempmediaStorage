@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="הר הביטוח 2026: כניסה, אזור אישי ואיתור כפל ביטוחים" description="מדריך מעשי להר הביטוח של משרד האוצר: כניסה לאזור האישי, איתור פוליסות, בדיקת כפל ביטוחים והבנת הדוח. כולל קישור לאתר הרשמי והסברים פשוטים.">
   <Fragment slot="head">
@@ -8,8 +9,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "הר הביטוח: איך להשתמש במערכת הממשלתית כדי למצוא פוליסות אבודות?",
-    "dateModified": "2026-10-11",
-    "datePublished": "2026-01-01",
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-08-19",
     "description": "המדריך המקיף ביותר על הר הביטוח של משרד האוצר. למדו איך לאתר פוליסות אבודות, למצוא כפל ביטוחים, ולחסוך אלפי שקלים בשנה.",
     "author": { "@type": "Person", "name": "משה שובר סוכן ביטוח" },
     "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
@@ -260,5 +261,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       }
     })();
     </script>
+  <RelatedArticles articles={[
+    { href: "/article-har-habituach-personal-area", title: "הר הביטוח אזור אישי: איך נכנסים ובודקים את הביטוחים?" },
+    { href: "/article-har-habituach-entry", title: "הר הביטוח כניסה: מדריך למבוטח לפני שמתחילים" },
+    { href: "/article-har-habituach-pension", title: "הר הביטוח פנסיה: מה אפשר לראות ומה לא?" }
+  ]} />
 
 </BaseLayout>

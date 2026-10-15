@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="המדריך המלא להגשת תביעת ביטוח מוצלחת | משה שובר" description="מה עושים כשיש מקרה ביטוח? איך מגישים תביעה נכון כדי למנוע דחייה, מאילו טעויות נפוצות חייבים להימנע, ואיך סוכן ביטוח יכול לעזור לכם.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "מה עושים כשיש מקרה ביטוח? איך מגישים תביעה נכון כדי למנוע דחייה, מאילו טעויות נפוצות חייבים להימנע, ואיך סוכן ביטוח יכול לעזור לכם.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-claim-guide" }
     }
     </script>
@@ -168,4 +171,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-why-agent", title: "למה צריך סוכן ביטוח בעידן הדיגיטלי?" },
+    { href: "/article-insurance-glossary", title: "מילון מונחי ביטוח: לדבר בגובה העיניים" },
+    { href: "/article-har-habituach-claims-free", title: "אישור היעדר תביעות: איך מוציאים ומה חשוב לבדוק?" }
+  ]} />
 </BaseLayout>

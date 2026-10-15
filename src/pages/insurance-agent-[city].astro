@@ -20,7 +20,22 @@ export function getStaticPaths() {
     { slug: 'herzliya', name: 'הרצליה' },
     { slug: 'kfar-saba', name: 'כפר סבא' },
     { slug: 'raanana', name: 'רעננה' },
-    { slug: 'modiin', name: 'מודיעין' }
+    { slug: 'modiin', name: 'מודיעין' },
+    { slug: 'beit-shemesh', name: 'בית שמש' },
+    { slug: 'hadera', name: 'חדרה' },
+    { slug: 'lod', name: 'לוד' },
+    { slug: 'ramla', name: 'רמלה' },
+    { slug: 'eilat', name: 'אילת' },
+    { slug: 'afula', name: 'עפולה' },
+    { slug: 'nazareth', name: 'נצרת' },
+    { slug: 'tiberias', name: 'טבריה' },
+    { slug: 'kiryat-gat', name: 'קריית גת' },
+    { slug: 'acre', name: 'עכו' },
+    { slug: 'karmiel', name: 'כרמיאל' },
+    { slug: 'nof-hagalil', name: 'נוף הגליל' },
+    { slug: 'yavne', name: 'יבנה' },
+    { slug: 'elad', name: 'אלעד' },
+    { slug: 'beitar-illit', name: 'ביתר עילית' }
   ];
 
   return cities.map(city => ({
@@ -31,7 +46,7 @@ export function getStaticPaths() {
 
 const { city } = Astro.props;
 ---
-<BaseLayout title={`סוכן ביטוח ב${city.name} | משה שובר - התאמה אישית`} description={`מחפשים סוכן ביטוח מקצועי ב${city.name}? משה שובר מציע ליווי אישי ופתרונות ביטוח, פנסיה ופיננסים מותאמים אישית לתושבי ${city.name} והסביבה. צרו קשר לייעוץ.`}>
+<BaseLayout title={`סוכן ביטוח ב${city.name} – ביטוח חיים, בריאות ופנסיה | משה שובר`} description={`מחפשים סוכן ביטוח מקצועי ב${city.name}? משה שובר מציע ליווי אישי ופתרונות ביטוח, פנסיה ופיננסים מותאמים אישית לתושבי ${city.name} והסביבה. צרו קשר לייעוץ.`}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={`
     [
@@ -43,6 +58,15 @@ const { city } = Astro.props;
         "url": "https://shuverinsurance.com/insurance-agent-${city.slug}",
         "telephone": "055-9106223",
         "areaServed": "${city.name}"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "דף הבית", "item": "https://shuverinsurance.com/" },
+          { "@type": "ListItem", "position": 2, "name": "מאמרים ושירותים", "item": "https://shuverinsurance.com/articles" },
+          { "@type": "ListItem", "position": 3, "name": "סוכן ביטוח ב${city.name}" }
+        ]
       }
     ]
     `}></script>
@@ -52,7 +76,7 @@ const { city } = Astro.props;
   <section class="inner-hero" style="background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.9)), url('/health_declaration.webp') center/cover no-repeat;">
     <div class="wrap inner-hero-content">
       <span class="highlight-text">שירות אישי, מקצועי ואמין</span>
-      <h1 style="font-size: 4rem;">סוכן ביטוח ב{city.name}?</h1>
+      <h1 style="font-size: 4rem;">סוכן ביטוח ב{city.name} – ליווי אישי ומקצועי</h1>
       <p style="font-size: 1.4rem;">שירותי ביטוח, פנסיה ופיננסים בהתאמה אישית לתושבי {city.name} והסביבה.</p>
     </div>
   </section>

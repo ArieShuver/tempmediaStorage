@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="סוכן ביטוח מומלץ: איך למצוא מישהו שאפשר לסמוך עליו באמת? | משה שובר" description="מחפשים סוכן ביטוח מומלץ? קבלו את המדריך השלם שיעזור לכם לבחור נכון: איזה שאלות לשאול, אילו תעודות לבדוק, ומדוע חשוב לבחור סוכן עצמאי ואובייקטיבי.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "איך בוחרים סוכן ביטוח מומלץ ואמין שידאג לאינטרסים שלכם? כל הטיפים, השאלות שחובה לשאול, והקריטריונים לבחירה נכונה.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-25",
+      "dateModified": "2026-08-25",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-recommended-agent" }
     }
     </script>
@@ -166,4 +169,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-why-agent", title: "למה צריך סוכן ביטוח בעידן הדיגיטלי?" },
+    { href: "/article-pension-agent", title: "סוכן ביטוח פנסיוני: למה חובה שיהיה לכם אחד?" },
+    { href: "/article-bank-vs-agent", title: "ביטוח משכנתא דרך הבנק או סוכן ביטוח?" }
+  ]} />
 </BaseLayout>

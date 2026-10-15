@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="הטבות מס לעצמאים בחיסכון פנסיוני | משה שובר" description="איך עצמאים יכולים להפוך את ההפקדות לפנסיה ולקרן השתלמות למקלט מס חוקי? המדריך המלא לניצול הטבות המס לפני סוף השנה.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "איך עצמאים יכולים להפוך את ההפקדות לפנסיה ולקרן השתלמות למקלט מס חוקי? המדריך המלא לניצול הטבות המס לפני סוף השנה.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-tax-benefits" }
     }
     </script>
@@ -175,4 +178,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-tikun190", title: "תיקון 190: איך להשקיע את הכסף הפנוי וליהנות מהטבות מס" },
+    { href: "/article-pension-fees", title: "דמי ניהול בפנסיה: כמה אתם באמת משלמים?" },
+    { href: "/article-keren-hishtalmut", title: "קרן השתלמות למעסיקים ולעצמאים: המדריך המלא" }
+  ]} />
 </BaseLayout>

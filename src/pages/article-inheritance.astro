@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="העברה בין-דורית: תכנון פיננסי לירושה חכמה | משה שובר" description="איך מעבירים את העושר המשפחתי לדור הבא בצורה חלקה, ללא מיסוי כבד ועם מינימום חיכוכים? המדריך המלא להעברה בין-דורית ומינוי מוטבים.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "איך מעבירים את העושר המשפחתי לדור הבא בצורה חלקה, ללא מיסוי כבד ועם מינימום חיכוכים? המדריך המלא להעברה בין-דורית ומינוי מוטבים.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-inheritance" }
     }
     </script>
@@ -163,4 +166,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-family-risk", title: "ניהול סיכונים משפחתי: יותר מרק ביטוח" },
+    { href: "/article-how-much-life-ins", title: "כמה ביטוח חיים צריך? נוסחה לחישוב סכום הכיסוי" },
+    { href: "/article-tax-benefits", title: "עצמאים: הטבות המס שחובה לנצל" }
+  ]} />
 </BaseLayout>

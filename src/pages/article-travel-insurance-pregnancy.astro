@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 
 const pageTitle = 'ביטוח נסיעות לחו״ל בהריון: מה מכוסה ומה לבדוק לפני הטיסה | משה שובר';
 const pageDescription = 'ביטוח נסיעות לחו״ל בהריון דורש בדיקה מדויקת של שבוע ההריון, הרחבות רפואיות, חריגים ופינוי. מדריך מעשי עם צ׳קליסט ושאלות נפוצות לפני רכישת הפוליסה.';
@@ -14,6 +15,7 @@ const pageDescription = 'ביטוח נסיעות לחו״ל בהריון דור�
       "description": "מדריך מעשי לבדיקת ביטוח נסיעות לחו״ל בהריון, כולל שבוע ההריון, הרחבות, חריגים, מסמכים ושאלות נפוצות.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-09-30",
       "dateModified": "2026-09-30",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-travel-insurance-pregnancy" }
     }
@@ -246,4 +248,10 @@ const pageDescription = 'ביטוח נסיעות לחו״ל בהריון דור�
       updateToc();
     });
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-health-declaration", title: "הצהרת בריאות בביטוח: למה אסור להסתיר מידע?" },
+    { href: "/article-emergency-insurance", title: "ביטוחים לשעת חירום: איך מתכוננים?" },
+    { href: "/article-claim-guide", title: "המדריך המלא להגשת תביעת ביטוח מוצלחת" }
+  ]} />
 </BaseLayout>

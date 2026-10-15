@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="סוכן ביטוח פנסיוני: למה חובה שיהיה לכם אחד ואיך בוחרים? | משה שובר" description="כל מה שרציתם לדעת על סוכן ביטוח פנסיוני: מה תפקידו, איך הוא יכול לחסוך לכם מאות אלפי שקלים בפנסיה, ומהם הקריטריונים לבחירת סוכן פנסיוני מקצועי ואמין.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "הסבר מקיף על תפקידו של סוכן ביטוח פנסיוני, היתרונות בעבודה איתו, הדרכים שבהן הוא משביח את הפנסיה, והמדריך המלא לבחירה נכונה של סוכן פנסיוני.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-25",
+      "dateModified": "2026-08-25",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-pension-agent" }
     }
     </script>
@@ -176,4 +179,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-pension-fees", title: "דמי ניהול בפנסיה: כמה אתם באמת משלמים?" },
+    { href: "/article-recommended-agent", title: "סוכן ביטוח מומלץ: איך למצוא מישהו שאפשר לסמוך עליו באמת?" },
+    { href: "/article-self-employed-pension", title: "פנסיה לעצמאים: המדריך המלא לחיסכון והטבות מס" }
+  ]} />
 </BaseLayout>

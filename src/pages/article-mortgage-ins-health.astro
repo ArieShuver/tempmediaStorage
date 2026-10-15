@@ -1,7 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="ביטוח משכנתא למסורבי ביטוח ולחולים | משה שובר - סוכן ביטוח" description="מה עושים כשהבנק דורש ביטוח משכנתא אבל חברת הביטוח מסרבת לקבל אתכם עקב מצב רפואי? מדריך לפתרונות אפשריים והחרגות.">
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "ביטוח משכנתא לאנשים עם בעיות רפואיות",
+      "description": "מה עושים כשהבנק דורש ביטוח משכנתא אבל חברת הביטוח מסרבת לקבל אתכם עקב מצב רפואי? מדריך לפתרונות אפשריים והחרגות.",
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "author": { "@type": "Person", "name": "משה שובר" },
+      "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-mortgage-ins-health" }
+    }
+    </script>
+  </Fragment>
+
   <section class="inner-hero">
     <div class="inner-hero-bg"></div>
     <div class="wrap inner-hero-content">
@@ -30,4 +47,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="article-cta"><a href="/mortgage-insurance">קראו על כל פתרונות ביטוח המשכנתא</a></p>
     
   </section>
+
+  <RelatedArticles articles={[
+    { href: "/article-mortgage-life-insurance", title: "ביטוח חיים למשכנתא - כל מה שחייבים לדעת | משה שובר - סוכן ביטוח" },
+    { href: "/article-mortgage-ins-vs-bank", title: "ביטוח משכנתא בבנק או דרך סוכן ביטוח? | משה שובר - סוכן ביטוח" },
+    { href: "/article-health-declaration", title: "הצהרת בריאות בביטוח: למה אסור להסתיר מידע? | משה שובר" }
+  ]} />
 </BaseLayout>

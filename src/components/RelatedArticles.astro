@@ -1,0 +1,501 @@
+---
+interface RelatedArticle {
+  href: string;
+  title: string;
+}
+
+interface Props {
+  articles: RelatedArticle[];
+}
+
+const { articles } = Astro.props;
+
+const articleMeta: Record<string, { image: string; category: string }> = {
+  "/article-life-ins-cost": { image: "/life_ins_cost_1790496604549.webp", category: "ביטוח חיים" },
+  "/article-how-much-life-ins": { image: "/how_much_life_ins_1790496615007.webp", category: "ביטוח חיים" },
+  "/article-replace-life-insurance": { image: "/replace_life_insurance_1790496628804.webp", category: "ביטוח חיים" },
+  "/article-risk-insurance-meaning": { image: "/risk_insurance_meaning_1790496639983.webp", category: "ביטוח חיים" },
+  "/article-life-ins-riders": { image: "/life_ins_riders_1790496662379.webp", category: "ביטוח חיים" },
+  "/article-reduce-mortgage-ins": { image: "/reduce_mortgage_ins_1790496670884.webp", category: "ביטוח משכנתא" },
+  "/article-mortgage-life-insurance": { image: "/mortgage_life_insurance_1790496681546.webp", category: "ביטוח משכנתא" },
+  "/article-mortgage-ins-health": { image: "/mortgage_ins_health_1790496691711.webp", category: "ביטוח משכנתא" },
+  "/article-mortgage-ins-vs-bank": { image: "/mortgage_ins_vs_bank_1790496702695.webp", category: "ביטוח משכנתא" },
+  "/article-mortgage-life-ins": { image: "/mortgage_life_ins.webp", category: "ביטוח משכנתא" },
+  "/article-bank-vs-agent": { image: "/bank_vs_agent.webp", category: "ביטוח משכנתא" },
+  "/article-health-declaration": { image: "/health_declaration.webp", category: "ביטוח בריאות" },
+  "/article-health-reform": { image: "/health_reform.webp", category: "ביטוח בריאות" },
+  "/article-nursing-insurance": { image: "/nursing_insurance.webp", category: "סיעוד" },
+  "/article-critical-illness": { image: "/critical_illness.webp", category: "ביטוח בריאות" },
+  "/article-disability-insurance": { image: "/disability_insurance.webp", category: "אובדן כושר" },
+  "/article-family-risk": { image: "/family_risk.webp", category: "ניהול סיכונים" },
+  "/article-emergency-insurance": { image: "/emergency_insurance.webp", category: "חירום" },
+  "/article-young-insurance": { image: "/young_insurance.webp", category: "צעירים ומשפחה" },
+  "/article-life-ins-smokers": { image: "/life_ins_smokers.webp", category: "ביטוח חיים" },
+  "/article-pension-fees": { image: "/pension_fees_new.webp", category: "פנסיה" },
+  "/article-pension-agent": { image: "/pension_agent_hero.webp", category: "פנסיה" },
+  "/article-self-employed-pension": { image: "/self_employed_pension_hero.webp", category: "פנסיה לעצמאים" },
+  "/article-retirement-calc": { image: "/retirement_calc.webp", category: "תכנון פרישה" },
+  "/article-actuarial-balance": { image: "/actuarial_balance.webp", category: "פנסיה" },
+  "/article-keren-hishtalmut": { image: "/keren_hishtalmut.webp", category: "קרן השתלמות" },
+  "/article-savings-policy": { image: "/savings_policy.webp", category: "פוליסת חיסכון" },
+  "/article-inflation-savings": { image: "/inflation_savings.webp", category: "חיסכון והשקעות" },
+  "/article-tikun190": { image: "/tikun190.webp", category: "תיקון 190" },
+  "/article-har-habituach": { image: "/har_habituach.webp", category: "הר הביטוח" },
+  "/article-har-habituach-personal-area": { image: "/har_habituach.webp", category: "הר הביטוח" },
+  "/article-har-habituach-entry": { image: "/har_habituach.webp", category: "הר הביטוח" },
+  "/article-har-habituach-claims-free": { image: "/har_habituach.webp", category: "הר הביטוח" },
+  "/article-har-habituach-pension": { image: "/har_habituach.webp", category: "הר הביטוח" },
+  "/article-har-habituach-ministry": { image: "/har_habituach.webp", category: "הר הביטוח" },
+  "/article-why-agent": { image: "/why_agent.webp", category: "מדריך ביטוח" },
+  "/article-recommended-agent": { image: "/recommended_agent_hero.webp", category: "מדריך ביטוח" },
+  "/article-claim-guide": { image: "/claim_guide.webp", category: "מדריך תביעות" },
+  "/article-insurance-glossary": { image: "/insurance_glossary.webp", category: "מילון מונחים" },
+  "/article-tax-benefits": { image: "/tax_benefits.webp", category: "הטבות מס" },
+  "/article-inheritance": { image: "/inheritance.webp", category: "ירושה וביטוח" },
+  "/article-halachic-tracks": { image: "/halachic_tracks.webp", category: "מסלולים הלכתיים" },
+  "/article-travel-insurance-pregnancy": { image: "/travel_insurance_pregnancy.webp", category: "ביטוח נסיעות" }
+};
+
+function getArticleImage(href: string) {
+  const clean = href.startsWith("/") ? href : `/${href}`;
+  return articleMeta[clean]?.image || "/main-bg.webp";
+}
+
+function getArticleCategory(href: string) {
+  const clean = href.startsWith("/") ? href : `/${href}`;
+  return articleMeta[clean]?.category || "ביטוח ופיננסים";
+}
+---
+
+{articles && articles.length > 0 && (
+  <aside id="related-articles-desktop" class="related-sidebar-widget">
+    <div class="sidebar-related-heading">
+      <svg width="22" height="22" fill="currentColor" viewBox="0 0 448 512">
+        <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16z"/>
+      </svg>
+      <span>מאמרים נוספים שיעניינו אתכם</span>
+    </div>
+    <div class="sidebar-related-list">
+      {articles.map((article) => (
+        <a href={article.href} class="sidebar-related-item">
+          <div class="sidebar-related-img-wrap">
+            <img src={getArticleImage(article.href)} alt={article.title} loading="lazy" width="100" height="75" />
+          </div>
+          <div class="sidebar-related-details">
+            <span class="sidebar-related-cat">{getArticleCategory(article.href)}</span>
+            <h4 class="sidebar-related-title">{article.title}</h4>
+          </div>
+        </a>
+      ))}
+    </div>
+  </aside>
+
+  <section id="related-articles-bottom" class="related-bottom-section">
+    <div class="wrap">
+      <div class="related-bottom-header">
+        <span class="related-bottom-tag">המשך קריאה במגזין</span>
+        <h3 class="related-bottom-title">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 448 512" style="margin-left: 8px;">
+            <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16z"/>
+          </svg>
+          מאמרים נוספים שיעניינו אתכם
+        </h3>
+      </div>
+      <div class="related-bottom-grid">
+        {articles.map((article) => (
+          <a href={article.href} class="related-bottom-card">
+            <div class="related-bottom-img-wrap">
+              <img src={getArticleImage(article.href)} alt={article.title} loading="lazy" />
+              <span class="related-bottom-cat-badge">{getArticleCategory(article.href)}</span>
+            </div>
+            <div class="related-bottom-card-body">
+              <h4 class="related-bottom-card-title">{article.title}</h4>
+              <div class="related-bottom-card-footer">
+                <span class="related-bottom-read-more">
+                  לקריאת המאמר
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 448 512">
+                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32L109.2 224 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<script is:inline>
+  (function() {
+    function setupRelatedSidePlacement() {
+      const desktopWidget = document.getElementById('related-articles-desktop');
+      if (!desktopWidget) return;
+
+      const sidebarCol = document.querySelector('.article-sidebar-col');
+      if (sidebarCol) {
+        sidebarCol.appendChild(desktopWidget);
+        return;
+      }
+
+      const tocSidebar = document.querySelector('.toc-sidebar');
+      if (tocSidebar && tocSidebar.parentElement) {
+        let col = tocSidebar.parentElement.querySelector('.article-sidebar-col');
+        if (!col) {
+          col = document.createElement('div');
+          col.className = 'article-sidebar-col d-none d-lg-flex';
+          tocSidebar.parentElement.insertBefore(col, tocSidebar);
+          col.appendChild(tocSidebar);
+        }
+        col.appendChild(desktopWidget);
+        return;
+      }
+
+      const articleLayout = document.querySelector('.article-layout');
+      if (articleLayout) {
+        const col = document.createElement('div');
+        col.className = 'article-sidebar-col d-none d-lg-flex';
+        articleLayout.appendChild(col);
+        col.appendChild(desktopWidget);
+        return;
+      }
+
+      // For pages with single-column text layout:
+      const contentSection = document.querySelector('.content-section.article-body') || document.querySelector('.text-layout');
+      if (contentSection && contentSection.parentElement) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'article-layout-standalone wrap';
+        contentSection.parentElement.insertBefore(wrapper, contentSection);
+        wrapper.appendChild(contentSection);
+        
+        const col = document.createElement('div');
+        col.className = 'article-sidebar-col d-none d-lg-flex';
+        col.appendChild(desktopWidget);
+        wrapper.appendChild(col);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupRelatedSidePlacement);
+    } else {
+      setupRelatedSidePlacement();
+    }
+  })();
+</script>
+
+<style is:global>
+  /* =========================================
+     PAGE BACKGROUND & SECTION STYLING
+     ========================================= */
+  .article-section-enhanced {
+    background: var(--bg, #f8fbfd) !important;
+  }
+
+  /* =========================================
+     DESKTOP DISPLAY (>= 1025px): SIDEBAR ON MAIN BACKGROUND
+     ========================================= */
+  @media (min-width: 1025px) {
+    #related-articles-bottom {
+      display: none !important;
+    }
+    #related-articles-desktop {
+      display: block !important;
+    }
+
+    .article-layout {
+      display: grid !important;
+      grid-template-columns: 1fr 350px !important;
+      gap: 3rem !important;
+      max-width: 1220px !important;
+      margin: 0 auto !important;
+      align-items: start !important;
+    }
+
+    .article-layout-standalone {
+      display: grid !important;
+      grid-template-columns: 1fr 350px !important;
+      gap: 3rem !important;
+      max-width: 1220px !important;
+      margin: 0 auto !important;
+      align-items: start !important;
+      padding: 0 1.5rem !important;
+    }
+    .article-layout-standalone .content-section.article-body {
+      margin: 0 !important;
+      max-width: 100% !important;
+    }
+
+    /* Sidebar container: generous top offset, NO SCROLLBAR, natural full height */
+    .article-sidebar-col {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 28px !important;
+      position: sticky !important;
+      top: 135px !important;
+      margin-top: 15px !important;
+      align-self: start !important;
+      width: 350px !important;
+      max-height: none !important;
+      overflow: visible !important;
+      overflow-y: visible !important;
+      scrollbar-width: none !important;
+      padding-bottom: 25px;
+    }
+
+    .article-sidebar-col::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .toc-sidebar {
+      top: 135px !important;
+      max-height: none !important;
+      overflow: visible !important;
+      overflow-y: visible !important;
+      scrollbar-width: none !important;
+    }
+    .toc-sidebar::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    .article-layout, .article-layout-standalone {
+      grid-template-columns: 1fr 370px !important;
+      gap: 3.5rem !important;
+      max-width: 1280px !important;
+    }
+    .article-sidebar-col {
+      width: 370px !important;
+    }
+  }
+
+  /* Desktop Widget sits directly on the main background: NO big enclosing box, NO scroll */
+  #related-articles-desktop {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .sidebar-related-heading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary, #0A2A43);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(10, 42, 67, 0.08);
+  }
+  .sidebar-related-heading svg {
+    color: var(--green, #2E8B57);
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-related-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* Each card on the side floats directly on the main background - LARGER & CRISPER */
+  .sidebar-related-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: var(--white, #ffffff);
+    border: 1px solid var(--border, #e5e7eb);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sidebar-related-item:hover {
+    background: #ffffff;
+    border-color: var(--green, #2E8B57);
+    transform: translateX(-4px) translateY(-2px);
+    box-shadow: 0 10px 28px rgba(46, 139, 87, 0.16);
+  }
+
+  .sidebar-related-img-wrap {
+    width: 100px;
+    height: 75px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #e2e8f0;
+  }
+  .sidebar-related-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .sidebar-related-item:hover .sidebar-related-img-wrap img {
+    transform: scale(1.08);
+  }
+
+  .sidebar-related-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    flex: 1;
+  }
+  .sidebar-related-cat {
+    font-size: 0.78rem;
+    color: var(--green, #2E8B57);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .sidebar-related-title {
+    font-size: 0.95rem;
+    color: var(--primary, #0A2A43);
+    margin: 0;
+    line-height: 1.45;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* =========================================
+     MOBILE DISPLAY (<= 1024px): BOTTOM ONLY
+     ========================================= */
+  @media (max-width: 1024px) {
+    #related-articles-desktop {
+      display: none !important;
+    }
+    #related-articles-bottom {
+      display: block !important;
+    }
+    .article-sidebar-col {
+      display: none !important;
+    }
+  }
+
+  .related-bottom-section {
+    padding: 45px 0 65px;
+    background: linear-gradient(180deg, var(--bg, #f8fbfd) 0%, #ffffff 100%);
+    border-top: 1px solid var(--border, #e5e7eb);
+    margin-top: 40px;
+  }
+  .related-bottom-header {
+    margin-bottom: 24px;
+    text-align: right;
+  }
+  .related-bottom-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--green, #2E8B57);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .related-bottom-title {
+    font-size: 1.45rem;
+    color: var(--primary, #0A2A43);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+  }
+  .related-bottom-title svg {
+    color: var(--green, #2E8B57);
+  }
+
+  .related-bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .related-bottom-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .related-bottom-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border, #e5e7eb);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .related-bottom-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.09);
+  }
+
+  .related-bottom-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #e2e8f0;
+  }
+  .related-bottom-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .related-bottom-card:hover .related-bottom-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .related-bottom-cat-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(10, 42, 67, 0.85);
+    backdrop-filter: blur(4px);
+    color: white;
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .related-bottom-card-body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .related-bottom-card-title {
+    font-size: 1rem;
+    color: var(--primary, #0A2A43);
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .related-bottom-card-footer {
+    margin-top: auto;
+  }
+  .related-bottom-read-more {
+    font-size: 0.82rem;
+    color: var(--green, #2E8B57);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+</style>

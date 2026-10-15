@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="פנסיה לעצמאים: החובה שהיא בעצם הזדמנות פז | משה שובר" description="כל מה שעצמאים צריכים לדעת על פנסיה: כמה חובה להפריש, איך נהנים מהטבות המס (סעיפים 45 ו-47), ולמה סוכן ביטוח מקצועי יכול לחסוך לכם המון כסף מול רשות המיסים.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "חוק פנסיה חובה לעצמאים, דרכי חישוב ההפקדות, הטבות המס במסגרת סעיפים 45 ו-47, והחשיבות של סוכן ביטוח מומחה לעסקים עצמאיים.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-25",
+      "dateModified": "2026-08-25",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-self-employed-pension" }
     }
     </script>
@@ -179,4 +182,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-pension-fees", title: "דמי ניהול בפנסיה: כמה אתם באמת משלמים?" },
+    { href: "/article-pension-agent", title: "סוכן ביטוח פנסיוני: למה חובה שיהיה לכם אחד?" },
+    { href: "/article-tax-benefits", title: "עצמאים: הטבות המס שחובה לנצל בכל סוף שנה" }
+  ]} />
 </BaseLayout>

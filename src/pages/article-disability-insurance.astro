@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="אובדן כושר עבודה: איך להבטיח הכנסה גם כשאי אפשר לעבוד | משה שובר" description="מהו ביטוח אובדן כושר עבודה, למה חובה להתאים אותו למקצוע שלכם, איך מונעים קיזוזים מול ביטוח לאומי, ולמה פוליסת פנסיה רגילה לא תמיד מספיקה.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     "description": "מהו ביטוח אובדן כושר עבודה, למה חובה להתאים אותו למקצוע שלכם, איך מונעים קיזוזים מול ביטוח לאומי, ולמה פוליסת פנסיה רגילה לא תמיד מספיקה.",
     "author": { "@type": "Person", "name": "משה שובר סוכן ביטוח" },
     "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-08-19",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-disability-insurance" }
   }
   </script>
@@ -188,4 +191,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     })();
     </script>
 
+  <RelatedArticles articles={[
+    { href: "/article-critical-illness", title: "ביטוח מחלות קשות: רשת הביטחון ברגע האמת" },
+    { href: "/article-nursing-insurance", title: "ביטוח סיעודי: המצב כיום בקופות החולים ומה החלופות" },
+    { href: "/article-family-risk", title: "ניהול סיכונים משפחתי: המגן הכלכלי שלכם בשעת חירום" }
+  ]} />
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="פוליסות חיסכון: כל מה שצריך לדעת | משה שובר" description="מהי פוליסת חיסכון, למה היא נחשבת לאחת האלטרנטיבות הטובות ביותר לפיקדון בבנק, ואיך היא מאפשרת ניהול השקעות גמיש וחכם.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "מהי פוליסת חיסכון, למה היא נחשבת לאחת האלטרנטיבות הטובות ביותר לפיקדון בבנק, ואיך היא מאפשרת ניהול השקעות גמיש וחכם.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-savings-policy" }
     }
     </script>
@@ -165,4 +168,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-keren-hishtalmut", title: "קרן השתלמות למעסיקים ולעצמאים: המדריך המלא" },
+    { href: "/article-inflation-savings", title: "אינפלציה: המס הסמוי ששוחק את הכסף" },
+    { href: "/article-retirement-calc", title: "מחשבון פרישה: כמה כסף באמת צריך כדי לפרוש בכבוד?" }
+  ]} />
 </BaseLayout>

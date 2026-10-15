@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="איזון אקטוארי בקרנות הפנסיה: מה זה אומר ואיך זה משפיע עליכם? | משה שובר" description="מדריך מקיף על איזון אקטוארי בקרנות הפנסיה: למה זה קיים, איך גירעון אקטוארי מקטין לכם את החיסכון, ומה ההבדל בין קרן פנסיה לביטוח מנהלים.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "מדריך מקיף על איזון אקטוארי בקרנות הפנסיה: למה זה קיים, איך גירעון אקטוארי מקטין לכם את החיסכון, ומה ההבדל בין קרן פנסיה לביטוח מנהלים.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-actuarial-balance" }
     }
     </script>
@@ -170,4 +173,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-retirement-calc", title: "מחשבון פרישה: כמה כסף באמת צריך כדי לפרוש בכבוד?" },
+    { href: "/article-pension-fees", title: "דמי ניהול בפנסיה: כמה אתם באמת משלמים?" },
+    { href: "/article-savings-policy", title: "פוליסת חיסכון: הדרך החכמה להשקיע מחוץ לבנק" }
+  ]} />
 </BaseLayout>

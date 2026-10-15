@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="ניהול סיכונים משפחתי: כך תגנו על היקרים לכם | משה שובר" description="מהו ניהול סיכונים משפחתי, איך בונים מטריית הגנה מקיפה שמונעת קריסה כלכלית במקרה חירום, ואיך נמנעים מכפל ביטוחים מיותר.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       "description": "מהו ניהול סיכונים משפחתי, איך בונים מטריית הגנה מקיפה שמונעת קריסה כלכלית במקרה חירום, ואיך נמנעים מכפל ביטוחים מיותר.",
       "author": { "@type": "Person", "name": "משה שובר" },
       "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-family-risk" }
     }
     </script>
@@ -173,4 +176,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
   </script>
+
+  <RelatedArticles articles={[
+    { href: "/article-emergency-insurance", title: "ביטוחים לשעת חירום: איך מתכוננים למצבי קיצון?" },
+    { href: "/article-young-insurance", title: "ביטוח ופנסיה לצעירים: לנצח את השיטה" },
+    { href: "/article-how-much-life-ins", title: "כמה ביטוח חיים אנחנו באמת צריכים?" }
+  ]} />
 </BaseLayout>

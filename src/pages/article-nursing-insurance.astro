@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
 ---
 <BaseLayout title="ביטוח סיעודי: כל מה שצריך לדעת על קופות החולים מול ביטוחים פרטיים | משה שובר" description="המדריך המקיף לביטוח סיעודי בישראל. מה קרה לביטוחים הפרטיים, מה נשאר בקופות החולים, ואיך מגינים על המשפחה מקריסה כלכלית במקרה סיעוד.">
   <Fragment slot="head">
@@ -11,6 +12,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     "description": "המדריך המקיף לביטוח סיעודי בישראל. מה קרה לביטוחים הפרטיים, מה נשאר בקופות החולים, ואיך מגינים על המשפחה מקריסה כלכלית במקרה סיעוד.",
     "author": { "@type": "Person", "name": "משה שובר סוכן ביטוח" },
     "publisher": { "@type": "Organization", "name": "משה שובר סוכן ביטוח" },
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-10-11",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://shuverinsurance.com/article-nursing-insurance" }
   }
   </script>
@@ -200,4 +203,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     })();
     </script>
 
+  <RelatedArticles articles={[
+    { href: "/article-health-reform", title: "רפורמת ביטוחי הבריאות: מה השתנה ואיך נמנעים מכפל ביטוח?" },
+    { href: "/article-critical-illness", title: "ביטוח מחלות קשות: רשת הביטחון ברגע האמת" },
+    { href: "/article-disability-insurance", title: "אובדן כושר עבודה: איך מבטיחים את ההכנסה המשפחתית?" }
+  ]} />
 </BaseLayout>
