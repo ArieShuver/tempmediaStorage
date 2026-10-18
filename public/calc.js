@@ -55,11 +55,52 @@ function initCalc() {
     sliderTax, sliderFeeAccum, sliderFeeDeposit
   ].filter(Boolean);
 
+  // Track if user has explicitly interacted with inputs
+  let userTouchedYears = false;
+  let userTouchedRate = false;
+
+  if (yearsInput) {
+    yearsInput.addEventListener('input', () => { userTouchedYears = true; });
+    yearsInput.addEventListener('focus', () => { userTouchedYears = true; });
+  }
+  if (sliderYears) {
+    sliderYears.addEventListener('input', () => { userTouchedYears = true; });
+  }
+  if (rateInput) {
+    rateInput.addEventListener('input', () => { userTouchedRate = true; });
+    rateInput.addEventListener('focus', () => { userTouchedRate = true; });
+  }
+  if (sliderRate) {
+    sliderRate.addEventListener('input', () => { userTouchedRate = true; });
+  }
+
+  function autoSuggestIfVirgin() {
+    const pVal = parseFloat(principalInput ? principalInput.value : 0) || 0;
+    const mVal = parseFloat(monthlyInput ? monthlyInput.value : 0) || 0;
+    if (pVal > 0 || mVal > 0) {
+      if (!userTouchedYears && yearsInput && yearsInput.value === '' && document.activeElement !== yearsInput) {
+        yearsInput.value = '10';
+        if (sliderYears) sliderYears.value = 10;
+        updateYearsDisplay();
+      }
+      if (!userTouchedRate && rateInput && rateInput.value === '' && document.activeElement !== rateInput) {
+        rateInput.value = '7';
+        if (sliderRate) sliderRate.value = 7;
+      }
+    }
+  }
+
   // Sync inputs and sliders
   function syncInputs(numInput, slider) {
     if (!numInput || !slider) return;
-    numInput.addEventListener('input', () => { slider.value = numInput.value; calculate(); });
-    slider.addEventListener('input', () => { numInput.value = slider.value; calculate(); });
+    numInput.addEventListener('input', () => {
+      slider.value = numInput.value || 0;
+      calculate();
+    });
+    slider.addEventListener('input', () => {
+      numInput.value = slider.value;
+      calculate();
+    });
   }
   syncInputs(principalInput, sliderPrincipal);
   syncInputs(monthlyInput, sliderMonthly);
@@ -69,6 +110,9 @@ function initCalc() {
   syncInputs(taxInput, sliderTax);
   syncInputs(feeAccumInput, sliderFeeAccum);
   syncInputs(feeDepositInput, sliderFeeDeposit);
+
+  if (principalInput) principalInput.addEventListener('input', autoSuggestIfVirgin);
+  if (monthlyInput) monthlyInput.addEventListener('input', autoSuggestIfVirgin);
 
   function handleToggles() {
     if (toggleTax && taxGroup) {
@@ -114,7 +158,7 @@ function initCalc() {
 
   // Update years display from slider
   function updateYearsDisplay() {
-    if (yearsDisplay) yearsDisplay.textContent = yearsInput.value;
+    if (yearsDisplay && yearsInput) yearsDisplay.textContent = yearsInput.value || '0';
   }
 
   const resultsSection = document.getElementById('calc-results-section');
@@ -122,25 +166,12 @@ function initCalc() {
 
   // Calculate and draw chart
   function calculate() {
-    const P = Math.min(Math.max(parseFloat(principalInput.value) || 0, 0), 100000000);
-    const PMT = Math.min(Math.max(parseFloat(monthlyInput.value) || 0, 0), 10000000);
-    let r = Math.min(Math.max(parseFloat(rateInput.value) || 0, 0), 100);
-    let t = Math.min(Math.max(parseInt(yearsInput.value) || 0, 0), 120);
-
-    // As soon as the user enters any deposit or principal, auto-suggest standard period (10 years) and rate (7%) if empty
-    if (P > 0 || PMT > 0) {
-      if (t === 0) {
-        t = 10;
-        yearsInput.value = 10;
-        if (sliderYears) sliderYears.value = 10;
-        updateYearsDisplay();
-      }
-      if (r === 0) {
-        r = 7;
-        rateInput.value = 7;
-        if (sliderRate) sliderRate.value = 7;
-      }
-    }
+    const P = Math.min(Math.max(parseFloat(principalInput ? principalInput.value : 0) || 0, 0), 100000000);
+    const PMT = Math.min(Math.max(parseFloat(monthlyInput ? monthlyInput.value : 0) || 0, 0), 10000000);
+    const rawRate = rateInput ? rateInput.value.trim() : '';
+    const rawYears = yearsInput ? yearsInput.value.trim() : '';
+    const r = rawRate === '' ? 0 : Math.min(Math.max(parseFloat(rawRate) || 0, 0), 100);
+    const t = rawYears === '' ? 0 : Math.min(Math.max(parseInt(rawYears) || 0, 0), 120);
 
     const hasData = (P > 0 || PMT > 0 || t > 0);
 
@@ -580,6 +611,8 @@ function initCalc() {
       if (toggleFees) toggleFees.checked = !!conf.fees;
       if (toggleInflation) toggleInflation.checked = !!conf.inf;
 
+      userTouchedYears = true;
+      userTouchedRate = true;
       updateYearsDisplay();
       handleToggles();
     });
@@ -673,6 +706,8 @@ function initCalc() {
   const resetBtn = document.getElementById('reset-btn');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
+      userTouchedYears = false;
+      userTouchedRate = false;
       if (principalInput) principalInput.value = '';
       if (sliderPrincipal) sliderPrincipal.value = 0;
       if (monthlyInput) monthlyInput.value = '';
