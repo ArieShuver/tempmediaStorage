@@ -1,31 +1,154 @@
 {
-  "cleanUrls": true,
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.shuverinsurance.com" }],
-      "destination": "https://shuverinsurance.com/:path*",
+      "source": "/insurance-agent-haifa",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/:path*.html",
-      "destination": "/:path*",
+      "source": "/insurance-agent-petah-tikva",
+      "destination": "/",
       "permanent": true
-    }
-  ],
-  "headers": [
+    },
     {
-      "source": "/:path*",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        }
-      ]
+      "source": "/insurance-agent-ashdod",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-netanya",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-beer-sheva",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-holon",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-ramat-gan",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-bnei-brak",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-bat-yam",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-rehovot",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-ashkelon",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-herzliya",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-kfar-saba",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-raanana",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-modiin",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-beit-shemesh",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-hadera",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-lod",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-ramla",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-eilat",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-afula",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-nazareth",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-tiberias",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-kiryat-gat",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-acre",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-karmiel",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-nof-hagalil",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-yavne",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-elad",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/insurance-agent-beitar-illit",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
