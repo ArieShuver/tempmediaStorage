@@ -3,7 +3,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
   const cities = [
-    { slug: 'jerusalem', name: 'ירושלים' }
+    { slug: 'jerusalem', name: 'ירושלים' },
+    { slug: 'tel-aviv', name: 'תל אביב' },
+    { slug: 'haifa', name: 'חיפה' },
+    { slug: 'rishon-lezion', name: 'ראשון לציון' },
+    { slug: 'petah-tikva', name: 'פתח תקווה' },
+    { slug: 'ashdod', name: 'אשדוד' },
+    { slug: 'netanya', name: 'נתניה' },
+    { slug: 'beer-sheva', name: 'באר שבע' },
+    { slug: 'holon', name: 'חולון' },
+    { slug: 'ramat-gan', name: 'רמת גן' },
+    { slug: 'bnei-brak', name: 'בני ברק' },
+    { slug: 'bat-yam', name: 'בת ים' },
+    { slug: 'rehovot', name: 'רחובות' },
+    { slug: 'ashkelon', name: 'אשקלון' },
+    { slug: 'herzliya', name: 'הרצליה' },
+    { slug: 'kfar-saba', name: 'כפר סבא' },
+    { slug: 'raanana', name: 'רעננה' },
+    { slug: 'modiin', name: 'מודיעין' },
+    { slug: 'beit-shemesh', name: 'בית שמש' },
+    { slug: 'hadera', name: 'חדרה' },
+    { slug: 'lod', name: 'לוד' },
+    { slug: 'ramla', name: 'רמלה' },
+    { slug: 'eilat', name: 'אילת' },
+    { slug: 'afula', name: 'עפולה' },
+    { slug: 'nazareth', name: 'נצרת' },
+    { slug: 'tiberias', name: 'טבריה' },
+    { slug: 'kiryat-gat', name: 'קריית גת' },
+    { slug: 'acre', name: 'עכו' },
+    { slug: 'karmiel', name: 'כרמיאל' },
+    { slug: 'nof-hagalil', name: 'נוף הגליל' },
+    { slug: 'yavne', name: 'יבנה' },
+    { slug: 'elad', name: 'אלעד' },
+    { slug: 'beitar-illit', name: 'ביתר עילית' }
   ];
 
   return cities.map(city => ({
